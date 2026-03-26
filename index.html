@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YU | Behavioral Intelligence for the Workforce</title>
-  <meta name="description" content="YU detects employee burnout before it becomes a resignation. AI-powered behavioral intelligence. Privacy-first. Prevention-only. Built at MIT.">
+  <meta name="description" content="YU detects employee burnout 3-7 days before symptoms appear. AI-powered behavioral intelligence. Built at MIT.">
   <meta property="og:title" content="YU | Your employees are burning out. YU sees it 3-7 days early.">
-  <meta property="og:description" content="Behavioral intelligence for the workforce. Privacy-first. Prevention-only. Built at MIT.">
+  <meta property="og:description" content="Behavioral intelligence for the workforce. Detect early. Act precisely. Built at MIT.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yu.boston">
   <meta property="og:image" content="https://yu.boston/og-image.png">
@@ -27,7 +27,15 @@
     .r{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.r.v{opacity:1;transform:none}
     .rd1{transition-delay:.15s}.rd2{transition-delay:.3s}.rd3{transition-delay:.45s}
     hr.d{border:none;border-top:1px solid var(--d);margin:0 auto;max-width:860px}
-    .sl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--a);margin-bottom:40px}
+    .sl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--a);margin-bottom:32px}
+    .s{padding:80px 48px;max-width:860px;margin:0 auto}
+    .s p{font-size:clamp(16px,1.5vw,18px);color:var(--t2);line-height:1.85;font-weight:300;margin-bottom:20px}
+    .s p:last-child{margin-bottom:0}
+    .s p strong{color:var(--t);font-weight:600}
+    .card{padding:24px;background:var(--bg2);border:1px solid var(--d);border-radius:4px}
+    .card-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:10px}
+    .card-p{font-size:14px;color:var(--t2);line-height:1.7;font-weight:300}
+    .pull{font-family:'Playfair Display',serif;font-size:clamp(20px,2.8vw,32px);color:var(--t);font-weight:600;line-height:1.4;padding-left:28px;border-left:2px solid var(--a)}
 
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(24px);background:rgba(10,10,11,.7);border-bottom:1px solid var(--d)}
@@ -55,8 +63,8 @@
     @keyframes sf{0%,100%{opacity:.2;transform:scaleY(.5);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
 
     /* LOGOS */
-    .logos{padding:64px 48px;max-width:960px;margin:0 auto;text-align:center}
-    .logos-l{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--t2);margin-bottom:36px}
+    .logos{padding:56px 48px;max-width:960px;margin:0 auto;text-align:center}
+    .logos-l{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--t2);margin-bottom:32px}
     .logos-g{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:32px 44px}
     .li,.lid{height:44px;width:auto;max-width:160px;object-fit:contain;opacity:.8;transition:opacity .4s;cursor:default;border-radius:4px}
     .li:hover,.lid:hover{opacity:1}
@@ -66,28 +74,16 @@
     .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
     .sn{font-family:'JetBrains Mono',monospace;font-size:clamp(40px,7vw,72px);font-weight:600;color:var(--a);letter-spacing:-2px;line-height:1}
     .slb{font-size:14px;color:var(--t2);margin-top:12px;font-weight:300;line-height:1.5}
-    .sq{font-size:13px;color:var(--t3);font-style:italic;margin-top:6px;line-height:1.4}
+    .sq{font-size:13px;color:var(--t3);font-style:italic;margin-top:8px;line-height:1.4}
 
-    /* PULL */
-    .pull{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,36px);color:var(--t);font-weight:600;line-height:1.35;padding-left:28px;border-left:2px solid var(--a)}
-    .ps{padding:72px 48px;max-width:860px;margin:0 auto}
-
-    /* WHAT */
-    .ws{padding:80px 48px;max-width:860px;margin:0 auto}
-    .ws p{font-size:clamp(16px,1.5vw,18px);color:var(--t2);line-height:1.85;font-weight:300;margin-bottom:24px}
-    .ws p strong{color:var(--t);font-weight:600}
-    .card{padding:24px;background:var(--bg2);border:1px solid var(--d);border-radius:4px}
-    .card-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:10px}
-    .card-p{font-size:14px;color:var(--t2);line-height:1.7;font-weight:300}
-    .at{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:2.2;color:var(--a);padding:32px;background:var(--bg2);border:1px solid var(--d);border-radius:4px;margin:40px 0 0;position:relative}
+    /* CODE TERMINAL */
+    .at{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:2.2;color:var(--a);padding:32px;background:var(--bg2);border:1px solid var(--d);border-radius:4px;position:relative}
     .at::before{content:'TRUST ARCHITECTURE';position:absolute;top:12px;right:16px;font-size:9px;letter-spacing:3px;color:var(--t3)}
     .at .m{color:var(--t3)}
 
     /* FLYWHEEL */
     .fw{padding:80px 48px;max-width:860px;margin:0 auto;text-align:center}
-    .fw svg{max-width:600px;width:100%;height:auto;margin:40px auto 0}
-    .fw-stat{display:flex;justify-content:center;gap:48px;margin-top:48px;text-align:center}
-    .fw-stat .sn{font-size:clamp(36px,6vw,56px)}
+    .fw svg{max-width:600px;width:100%;height:auto;margin:32px auto 0}
 
     /* TEAM */
     .tm{padding:80px 48px;max-width:860px;margin:0 auto}
@@ -95,8 +91,7 @@
     .tmm:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
     .tp{width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--d);filter:grayscale(30%);transition:filter .4s,border-color .4s}
     .tmm:hover .tp{filter:grayscale(0%);border-color:var(--ag)}
-    .ti{flex:1}
-    .th{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+    .ti{flex:1}.th{display:flex;align-items:center;gap:10px;margin-bottom:4px}
     .tn{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
     .tl{display:inline-flex;align-items:center;width:20px;height:20px;opacity:.35;transition:opacity .3s}.tl:hover{opacity:1}
     .tl svg{width:15px;height:15px;fill:var(--t)}
@@ -119,22 +114,18 @@
     .sm{display:none;color:var(--a);font-family:'JetBrains Mono',monospace;font-size:14px;margin-top:20px;letter-spacing:1px}
     .sc{margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t3);letter-spacing:2px;text-transform:uppercase;position:relative}
 
-    /* FOOTER */
     footer{padding:40px 48px;border-top:1px solid var(--d);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--t3);max-width:960px;margin:0 auto}
     .fl{display:flex;align-items:center;gap:16px}
-    .floc{display:inline-flex;align-items:center;gap:4px}
-    .floc svg{width:12px;height:12px;fill:var(--t3)}
+    .floc{display:inline-flex;align-items:center;gap:4px}.floc svg{width:12px;height:12px;fill:var(--t3)}
     footer a{color:var(--t3);text-decoration:none;transition:color .3s}footer a:hover{color:var(--t)}
 
-    /* MOBILE */
     @media(max-width:768px){
       nav{padding:16px 24px}
       .hero{padding:100px 24px 60px}.hw{display:none}.hero-orb{width:300px;height:300px;right:-100px}
-      .logos{padding:48px 24px}.logos-g{gap:24px 32px}
+      .logos{padding:40px 24px}.logos-g{gap:24px 32px}
       .sr{padding:48px 24px}.sg{grid-template-columns:1fr;gap:32px}
-      .ps{padding:48px 24px}
-      .ws{padding:48px 24px}
-      .fw{padding:48px 24px}.fw-stat{flex-direction:column;gap:32px}
+      .s{padding:48px 24px}
+      .fw{padding:48px 24px}
       .tm{padding:48px 24px}
       .tmm{flex-direction:column;align-items:center;text-align:center;gap:16px}
       .th{justify-content:center}.tc{text-align:left}
@@ -157,7 +148,7 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- 1. HERO: What is this? -->
   <section class="hero">
     <div class="hero-orb"></div>
     <div class="hw">YU</div>
@@ -170,7 +161,7 @@
     <div class="si"><span>SCROLL</span><div class="ln"></div></div>
   </section>
 
-  <!-- LOGOS (authority first) -->
+  <!-- 2. LOGOS: Who's behind it? -->
   <section class="logos r">
     <p class="logos-l">Built from</p>
     <div class="logos-g">
@@ -184,7 +175,7 @@
 
   <hr class="d">
 
-  <!-- STATS -->
+  <!-- 3. THE PROBLEM: How big is this? -->
   <section class="sr">
     <div class="sg">
       <div class="r">
@@ -193,11 +184,11 @@
       </div>
       <div class="r rd1">
         <div class="sn" data-target="11" data-prefix="" data-suffix=" yrs">11 yrs</div>
-        <p class="slb">Average delay to mental health treatment</p>
+        <p class="slb">Average delay to treatment</p>
       </div>
       <div class="r rd2">
         <div class="sn" data-static="true">$149B</div>
-        <p class="slb">Health and fitness data market. No system reads it together.</p>
+        <p class="slb">Health data market. Siloed. Unread.</p>
         <p class="sq">"We lost three engineers in one quarter. None mentioned burnout until the exit interview."</p>
       </div>
     </div>
@@ -205,108 +196,46 @@
 
   <hr class="d">
 
-  <!-- WHAT YU DOES -->
-  <section class="ws">
-    <div class="sl r">What YU does</div>
+  <!-- 4. THE INSIGHT: What's different? -->
+  <section class="s">
+    <div class="sl r">The insight</div>
+    <p class="r"><strong>Every signal already exists.</strong> Sleep, HRV, activity, recovery. Wearables collect it. But no system reads them together, models the individual, or connects the signal to action.</p>
+    <div class="r pull" style="margin:32px 0;">YU is the missing layer between the data that exists and the intervention that should happen.</div>
+  </section>
 
-    <p class="r"><strong>Low HRV could mean burnout or a hard workout.</strong> Without context, wearable data is noise. YU reads it together.</p>
+  <hr class="d">
 
-    <div class="r" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0;">
+  <!-- 5. HOW IT WORKS: Show me -->
+  <section class="s">
+    <div class="sl r">How it works</div>
+
+    <div class="r" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;">
       <div class="card">
         <p class="card-l">Passive sensing</p>
-        <p class="card-p">Sleep, HRV, activity, recovery. From wearables your team already owns. Zero input.</p>
+        <p class="card-p">Sleep, HRV, activity, recovery. From wearables. Zero input.</p>
       </div>
       <div class="card">
         <p class="card-l">Human state engine</p>
-        <p class="card-p">Models each person's "normal." Detects meaningful deviations 3-7 days before symptoms appear.</p>
+        <p class="card-p">Models each person's "normal." Detects deviations 3-7 days before symptoms appear.</p>
       </div>
     </div>
 
-    <p class="r"><strong>When patterns shift, YU delivers one specific, physical, timely action:</strong></p>
+    <p class="r"><strong>When patterns shift, YU delivers one specific action:</strong></p>
 
-    <div class="r card" style="margin:20px 0;border-left:2px solid var(--a);">
+    <div class="r card" style="margin:16px 0 28px;border-left:2px solid var(--a);">
       <p style="font-size:15px;color:var(--t);line-height:1.7;font-style:italic;">"A 20-min walk today will do more for your recovery than your planned interval session. Your HRV says you need movement, not intensity."</p>
     </div>
 
     <p class="r">Yoga, CrossFit, a long run, hot pilates, a walking meeting. <strong>When the data is right, pushing harder is the intervention.</strong> Every action connects to a real provider, near the office, in real time.</p>
-
-    <p class="r" style="text-align:center;margin-top:40px;"><a href="#waitlistForm" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--a);text-decoration:none;padding:10px 24px;border:1px solid var(--ag);border-radius:3px;transition:all .3s;">See how it works &darr;</a></p>
   </section>
 
   <hr class="d">
 
-  <!-- FLYWHEEL -->
-  <section class="fw">
-    <div class="sl r">The YU ecosystem</div>
-
-    <svg class="r" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
-      <!-- Center -->
-      <circle cx="300" cy="220" r="56" fill="none" stroke="#00F0D4" stroke-width="2" opacity=".3"/>
-      <text x="300" y="215" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="16" font-weight="600">YU</text>
-      <text x="300" y="233" text-anchor="middle" fill="#8E8E93" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="2">API</text>
-
-      <!-- Nodes -->
-      <!-- Employee -->
-      <rect x="40" y="60" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-      <text x="120" y="88" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">EMPLOYEE</text>
-      <text x="120" y="108" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Passive sensing</text>
-      <text x="120" y="122" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">HRV, sleep, activity</text>
-
-      <!-- Human State Engine -->
-      <rect x="400" y="60" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-      <text x="480" y="88" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">STATE ENGINE</text>
-      <text x="480" y="108" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Individual baseline</text>
-      <text x="480" y="122" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">3-7 day early detection</text>
-
-      <!-- Micro-intervention -->
-      <rect x="400" y="320" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-      <text x="480" y="348" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">INTERVENTION</text>
-      <text x="480" y="368" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">One specific action</text>
-      <text x="480" y="382" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">Physical, timely, calibrated</text>
-
-      <!-- Provider -->
-      <rect x="40" y="320" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-      <text x="120" y="348" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">LOCAL PROVIDER</text>
-      <text x="120" y="368" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Fills idle capacity</text>
-      <text x="120" y="382" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">Studios, gyms, clinics</text>
-
-      <!-- Arrows (clockwise) -->
-      <defs>
-        <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-          <path d="M0,0 L8,3 L0,6" fill="none" stroke="#00F0D4" stroke-width="1.5"/>
-        </marker>
-      </defs>
-      <!-- Employee -> AI -->
-      <line x1="200" y1="96" x2="398" y2="96" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
-      <!-- AI -> Intervention -->
-      <line x1="480" y1="134" x2="480" y2="318" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
-      <!-- Intervention -> Provider -->
-      <line x1="398" y1="356" x2="202" y2="356" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
-      <!-- Provider -> Employee (feedback) -->
-      <line x1="120" y1="318" x2="120" y2="134" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
-
-      <!-- Labels on arrows -->
-      <text x="300" y="84" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">DATA FLOWS</text>
-      <text x="520" y="230" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">DETECTS 3-7D</text>
-      <text x="300" y="344" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">BOOKS REAL-TIME</text>
-      <text x="48" y="230" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">OUTCOME</text>
-      <text x="48" y="242" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">FEEDS BACK</text>
-
-      <!-- Bottom: reinforcement text -->
-      <text x="300" y="440" text-anchor="middle" fill="#F5F5F7" font-family="Playfair Display,serif" font-size="16" font-weight="600">Every session makes the next one smarter.</text>
-      <text x="300" y="462" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1">COMPOUNDING NETWORK EFFECT</text>
-    </svg>
-
-    <p class="r" style="text-align:center;margin-top:40px;font-size:15px;color:var(--t2);font-weight:300;">Employees get the right intervention. Providers fill idle capacity. <strong style="color:var(--t);">One API. Both sides win.</strong></p>
-  </section>
-
-  <hr class="d">
-
-  <!-- SCIENCE -->
-  <section class="ws" style="padding-top:72px;padding-bottom:72px;">
+  <!-- 6. THE SCIENCE: Prove it -->
+  <section class="s">
+    <div class="sl r">The science</div>
     <div class="card r" style="padding:28px 32px;">
-      <p class="card-l" style="letter-spacing:3px;font-size:10px;color:var(--t3);">The science</p>
-      <p style="font-size:clamp(15px,1.4vw,18px);color:var(--t);line-height:1.7;font-weight:400;margin-top:12px;">
+      <p style="font-size:clamp(15px,1.4vw,18px);color:var(--t);line-height:1.7;font-weight:400;">
         <em style="color:var(--a);">Nature Medicine</em>, March 2026. 19,674 sessions. 22 expert evaluators. AI with a structured behavioral data layer outperformed standalone models by <strong>43%</strong> and exceeded human clinicians in <strong>74%</strong> of sessions. The data layer is the product.
       </p>
     </div>
@@ -314,10 +243,52 @@
 
   <hr class="d">
 
-  <!-- PRIVACY -->
-  <section class="ws" style="padding-top:72px;padding-bottom:72px;">
-    <p class="r" style="margin-bottom:0;"><strong style="color:var(--a);font-size:clamp(18px,2vw,22px);font-weight:600;">Built for the employee. Not the employer.</strong></p>
-    <div class="at r">
+  <!-- 7. THE ECOSYSTEM: Where's the moat? -->
+  <section class="fw">
+    <div class="sl r">The ecosystem</div>
+    <p class="r" style="font-size:15px;color:var(--t2);font-weight:300;margin-bottom:8px;">Two sides. One API. Compounding returns.</p>
+
+    <svg class="r" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="300" cy="220" r="56" fill="none" stroke="#00F0D4" stroke-width="2" opacity=".3"/>
+      <text x="300" y="215" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="16" font-weight="600">YU</text>
+      <text x="300" y="233" text-anchor="middle" fill="#8E8E93" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="2">API</text>
+      <rect x="40" y="60" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
+      <text x="120" y="88" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">EMPLOYEE</text>
+      <text x="120" y="108" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Passive sensing</text>
+      <text x="120" y="122" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">HRV, sleep, activity</text>
+      <rect x="400" y="60" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
+      <text x="480" y="88" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">STATE ENGINE</text>
+      <text x="480" y="108" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Individual baseline</text>
+      <text x="480" y="122" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">3-7 day detection</text>
+      <rect x="400" y="320" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
+      <text x="480" y="348" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">INTERVENTION</text>
+      <text x="480" y="368" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">One specific action</text>
+      <text x="480" y="382" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">Physical, timely, calibrated</text>
+      <rect x="40" y="320" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
+      <text x="120" y="348" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">LOCAL PROVIDER</text>
+      <text x="120" y="368" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Fills idle capacity</text>
+      <text x="120" y="382" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">Studios, gyms, clinics</text>
+      <defs><marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="none" stroke="#00F0D4" stroke-width="1.5"/></marker></defs>
+      <line x1="200" y1="96" x2="398" y2="96" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
+      <line x1="480" y1="134" x2="480" y2="318" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
+      <line x1="398" y1="356" x2="202" y2="356" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
+      <line x1="120" y1="318" x2="120" y2="134" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
+      <text x="300" y="84" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">DATA FLOWS</text>
+      <text x="520" y="230" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">DETECTS 3-7D</text>
+      <text x="300" y="344" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">BOOKS REAL-TIME</text>
+      <text x="48" y="230" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">OUTCOME</text>
+      <text x="48" y="242" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">FEEDS BACK</text>
+      <text x="300" y="440" text-anchor="middle" fill="#F5F5F7" font-family="Playfair Display,serif" font-size="16" font-weight="600">Every session makes the next one smarter.</text>
+      <text x="300" y="462" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1">COMPOUNDING NETWORK EFFECT</text>
+    </svg>
+  </section>
+
+  <hr class="d">
+
+  <!-- 8. TRUST: Can it scale? -->
+  <section class="s" style="padding-top:64px;padding-bottom:64px;">
+    <p class="r" style="margin-bottom:0;"><strong style="color:var(--a);font-size:clamp(17px,1.8vw,20px);font-weight:600;">Built for the employee. Not the employer.</strong></p>
+    <div class="at r" style="margin-top:24px;">
       <span class="m">// trust architecture</span><br><br>
       individual_data.accessible_to_employer = <strong>false</strong><br>
       <span class="m">// not policy-blocked. structurally nonexistent.</span><br><br>
@@ -330,7 +301,7 @@
 
   <hr class="d">
 
-  <!-- TEAM -->
+  <!-- 9. TEAM: Can they execute? -->
   <section class="tm">
     <div class="sl r">The team</div>
     <div class="tmm r">
@@ -342,7 +313,7 @@
         </div>
         <div class="tr">The Science</div>
         <div class="tinst">Harvard | Boston Children's Hospital | PhD UFRGS</div>
-        <p class="tb">PhD, Psychiatry & Digital Mental Health. Research Fellow, Boston Children's Hospital (Harvard Medical School). Published in AI-enabled interventions and digital phenotyping. Licensed clinical psychologist. Built the algorithm from her own research.</p>
+        <p class="tb">PhD, Psychiatry & Digital Mental Health. Research Fellow, Boston Children's Hospital (Harvard Medical School). Published in AI interventions and digital phenotyping. Licensed clinical psychologist. Built the algorithm from her own research.</p>
       </div>
     </div>
     <div class="tmm r">
@@ -354,7 +325,7 @@
         </div>
         <div class="tr">The Operator</div>
         <div class="tinst">MIT Sloan Fellow MBA '26</div>
-        <p class="tb">Led a metallurgical business for 11 years. Burned out invisibly. 80 lbs overweight was the symptom. Fixed it by finding the right intensity: lost every pound, finished Ironman 70.3 and Boston Marathon. The answer wasn't less. It was smarter.</p>
+        <p class="tb">Led a metallurgical business for 11 years. Burned out invisibly. Fixed it by finding the right intensity: lost 80 lbs, finished Ironman 70.3 and Boston Marathon. The answer wasn't less. It was smarter.</p>
       </div>
     </div>
     <div class="tmm r">
@@ -366,7 +337,7 @@
         </div>
         <div class="tr">The Engine</div>
         <div class="tinst">Finance & Global Scale</div>
-        <p class="tb">Scaled a CPG brand from Mexico to 40+ countries. Co-founded two companies. Built financial infrastructure across three continents. Turns products into businesses.</p>
+        <p class="tb">Scaled a CPG brand from Mexico to 40+ countries. Co-founded two companies. Built financial infrastructure across three continents.</p>
       </div>
     </div>
     <div class="tc r">The science to detect it. The operator who survived it. The engine to scale it.</div>
@@ -374,21 +345,7 @@
 
   <hr class="d">
 
-  <!-- LOGOS REPEAT + MINI CTA -->
-  <section class="logos r" style="padding:48px 48px;">
-    <div class="logos-g" style="margin-bottom:32px;">
-      <img src="logos/ai_studio.png" alt="MIT AI Studio" class="lid">
-      <img src="logos/harvard_shield.png" alt="Harvard" class="li" style="max-width:40px;">
-      <img src="logos/mit_sloan.png" alt="MIT Sloan" class="li">
-      <img src="logos/mtc.png" alt="Martin Trust Center" class="lid">
-      <img src="logos/mit_sandbox_new.png" alt="MIT Sandbox" class="lid">
-    </div>
-    <a href="#waitlistForm" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--a);text-decoration:none;padding:10px 24px;border:1px solid var(--ag);border-radius:3px;transition:all .3s;">Request early access &darr;</a>
-  </section>
-
-  <hr class="d">
-
-  <!-- CTA -->
+  <!-- 10. CTA: How do I get in? -->
   <section class="cta">
     <div class="co"></div>
     <h2 class="r">The window is open.<br><span class="dm">It won't stay open.</span></h2>

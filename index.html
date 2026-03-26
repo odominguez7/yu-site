@@ -99,6 +99,12 @@
 
     .nav-brand span { color: var(--accent); }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
     .nav-status {
       display: inline-flex;
       align-items: center;
@@ -109,6 +115,33 @@
       text-transform: uppercase;
       color: var(--text-muted);
     }
+
+    .nav-cta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.4s, transform 0.4s, background 0.3s;
+      pointer-events: none;
+    }
+
+    .nav-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav-cta:hover { background: var(--text); }
 
     .nav-dot {
       width: 6px; height: 6px;
@@ -690,9 +723,12 @@
   <!-- NAV -->
   <nav>
     <div class="nav-brand">YU<span>.</span></div>
-    <div class="nav-status">
-      <div class="nav-dot"></div>
-      Building
+    <div class="nav-right">
+      <div class="nav-status">
+        <div class="nav-dot"></div>
+        Building
+      </div>
+      <a href="#waitlistForm" class="nav-cta" id="navCta">Request Access</a>
     </div>
   </nav>
 
@@ -745,11 +781,24 @@
 
   <hr class="div">
 
+  <!-- SOCIAL PROOF QUOTE -->
+  <section class="pull-standalone reveal" style="padding-bottom: 0;">
+    <blockquote style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,28px);color:var(--text);font-weight:600;line-height:1.45;font-style:italic;max-width:700px;">
+      "We lost three senior engineers in one quarter. None of them mentioned burnout until their exit interview."
+    </blockquote>
+    <p style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;">VP of People, Boston tech company</p>
+  </section>
+
+  <hr class="div">
+
   <!-- WHAT YU DOES -->
   <section class="what-section">
     <div class="section-label reveal">What YU does</div>
     <p class="reveal">
       <strong>A 30-second daily check-in builds a personal behavioral baseline for each employee.</strong> When patterns shift, not a bad day, but sustained deviation across mood, energy, and sleep, YU delivers personalized, evidence-based micro-interventions. The employer never sees individual data. Ever.
+    </p>
+    <p class="reveal" style="margin-bottom:0;">
+      <strong style="color:var(--accent);font-size:clamp(18px,2vw,22px);font-weight:600;">Built for the employee. Not the employer.</strong>
     </p>
     <div class="arch-terminal reveal">
       <span class="muted">// privacy architecture</span><br><br>
@@ -894,10 +943,16 @@
   </footer>
 
   <script>
-    // Progress bar
+    // Progress bar + nav CTA
+    const navCta = document.getElementById('navCta');
     window.addEventListener('scroll', () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
       document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
+      if (window.scrollY > window.innerHeight * 0.7) {
+        navCta.classList.add('visible');
+      } else {
+        navCta.classList.remove('visible');
+      }
     });
 
     // Scroll reveal

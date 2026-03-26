@@ -32,7 +32,7 @@
     .s p{font-size:clamp(16px,1.5vw,18px);color:var(--t2);line-height:1.85;font-weight:300;margin-bottom:20px}
     .s p:last-child{margin-bottom:0}
     .s p strong{color:var(--t);font-weight:600}
-    .card{padding:24px;background:var(--bg2);border:1px solid var(--d);border-radius:4px}
+    .card{padding:32px;background:var(--bg2);border:1px solid var(--d);border-radius:4px}
     .card-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:10px}
     .card-p{font-size:14px;color:var(--t2);line-height:1.7;font-weight:300}
     .pull{font-family:'Playfair Display',serif;font-size:clamp(20px,2.8vw,32px);color:var(--t);font-weight:600;line-height:1.4;padding-left:28px;border-left:2px solid var(--a)}
@@ -46,7 +46,7 @@
     @keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
     .nc{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;background:var(--a);color:var(--bg);border:none;border-radius:3px;cursor:pointer;text-decoration:none;font-weight:600;opacity:0;transform:translateY(-4px);transition:opacity .4s,transform .4s,background .3s;pointer-events:none}
     .nc.v{opacity:1;transform:none;pointer-events:auto}.nc:hover{background:var(--t)}
-    .nd-btn{opacity:1!important;transform:none!important;pointer-events:auto!important;background:transparent;border:1px solid var(--a);color:var(--a)}.nd-btn:hover{background:var(--a)!important;color:var(--bg)!important}
+    .nd-btn{opacity:1!important;transform:none!important;pointer-events:auto!important;background:rgba(0,240,212,0.1);border:1px solid rgba(0,240,212,0.4);color:var(--a);box-shadow:0 0 12px rgba(0,240,212,0.15)}.nd-btn:hover{background:var(--a)!important;color:var(--bg)!important;box-shadow:0 0 20px rgba(0,240,212,0.3)}
 
     /* HERO */
     .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;max-width:960px;margin:0 auto;position:relative;overflow:hidden}
@@ -64,8 +64,8 @@
     @keyframes sf{0%,100%{opacity:.2;transform:scaleY(.5);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
 
     /* LOGOS */
-    .logos{padding:56px 48px;max-width:860px;margin:0 auto;text-align:center}
-    .logos-l{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--t2);margin-bottom:32px}
+    .logos{padding:80px 48px;max-width:860px;margin:0 auto;text-align:center}
+    .logos-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--t2);margin-bottom:32px}
     .logos-g{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:32px 44px}
     .li,.lid{height:44px;width:auto;max-width:160px;object-fit:contain;opacity:.8;transition:opacity .4s;cursor:default;border-radius:4px}
     .li:hover,.lid:hover{opacity:1}
@@ -99,14 +99,14 @@
     .cta h2 .dm{color:var(--t3)}
     .cs{font-size:16px;color:var(--t2);margin-bottom:48px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative}
     .wf{display:flex;gap:0;max-width:480px;margin:0 auto;position:relative}
-    .wf input{flex:1;padding:16px 20px;font-size:15px;font-family:'Inter',sans-serif;background:var(--bg2);border:1px solid rgba(255,255,255,.08);color:var(--t);border-radius:4px 0 0 4px;outline:none;transition:border-color .3s}
+    .wf input{flex:1;padding:16px 20px;font-size:14px;font-family:'Inter',sans-serif;background:var(--bg2);border:1px solid rgba(255,255,255,.08);color:var(--t);border-radius:4px 0 0 4px;outline:none;transition:border-color .3s}
     .wf input:focus{border-color:var(--a)}.wf input::placeholder{color:var(--t3)}
     .wf button{padding:16px 28px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;text-transform:uppercase;letter-spacing:3px;background:var(--a);color:var(--bg);border:none;border-radius:0 4px 4px 0;cursor:pointer;transition:all .3s;white-space:nowrap}
     .wf button:hover{background:var(--t)}
     .sm{display:none;color:var(--a);font-family:'JetBrains Mono',monospace;font-size:14px;margin-top:20px;letter-spacing:1px}
     .sc{margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t3);letter-spacing:2px;text-transform:uppercase;position:relative}
 
-    footer{padding:40px 48px;border-top:1px solid var(--d);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--t3);max-width:960px;margin:0 auto}
+    footer{padding:40px 48px;border-top:1px solid var(--d);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--t3);max-width:860px;margin:0 auto}
     .fl{display:flex;align-items:center;gap:16px}
     .floc{display:inline-flex;align-items:center;gap:4px}.floc svg{width:12px;height:12px;fill:var(--t3)}
     footer a{color:var(--t3);text-decoration:none;transition:color .3s}footer a:hover{color:var(--t)}
@@ -119,7 +119,7 @@
       .s{padding:48px 24px}
       .tm{padding:48px 24px}
       .tmm{flex-direction:column;align-items:center;text-align:center;gap:16px}
-      .th{justify-content:center}.tc{text-align:left}
+      .th{justify-content:center}
       .cta{padding:80px 24px 120px}
       .wf{flex-direction:column}.wf input{border-radius:4px}.wf button{border-radius:4px}
       footer{padding:30px 24px;flex-direction:column;gap:12px}
@@ -208,14 +208,14 @@
 
     <p class="r"><strong>When patterns shift, YU delivers a targeted micro-intervention</strong> grounded in Cognitive Behavioral Therapy, designed by our clinical team, and personalized to what the data says right now.</p>
 
-    <div class="r card" style="margin:16px 0 28px;padding:32px;border-left:2px solid var(--a);">
-      <p style="font-size:clamp(16px,1.6vw,20px);color:var(--t);line-height:1.6;font-weight:400;font-style:italic;">"A 20-minute walk today will do more for your recovery than your planned interval session. Your data suggests movement over intensity today."</p>
+    <div class="r card" style="margin:16px 0 28px;border-left:2px solid var(--a);">
+      <p style="font-size:clamp(16px,1.8vw,20px);color:var(--t);line-height:1.6;font-weight:400;font-style:italic;">"A 20-minute walk today will do more for your recovery than your planned interval session. Your data suggests movement over intensity today."</p>
     </div>
 
     <p class="r">Every action connects to a real provider near the office in real time. Restorative yoga, a hard CrossFit session, whatever the data says will help most.</p>
 
     <div class="r" style="margin-top:40px;padding-left:28px;border-left:2px solid var(--a);">
-      <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,20px);color:var(--t);font-weight:600;line-height:1.4;">Every incumbent is reactive, generic, or both</p>
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,1.8vw,20px);color:var(--t);font-weight:600;line-height:1.4;">Every incumbent is reactive, generic, or both</p>
       <p style="font-size:14px;color:var(--a);margin-top:8px;font-weight:600;">YU is the only proactive and personalized layer</p>
       <p style="font-size:14px;color:var(--t2);margin-top:16px;font-weight:300;line-height:1.7;">Clinical research in digital phenotyping suggests early behavioral detection can reduce involuntary turnover by 15-30% within 90 days of deployment.</p>
     </div>
@@ -253,9 +253,9 @@
   <!-- 6. THE BUSINESS -->
   <section class="s">
     <div class="sl r">The business</div>
-    <div class="r card" style="padding:32px;border-left:2px solid var(--a);margin-bottom:32px;">
+    <div class="r card" style="border-left:2px solid var(--a);margin-bottom:32px;">
       <p class="card-l">Who pays</p>
-      <p style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.2vw,24px);color:var(--t);font-weight:700;line-height:1.35;margin-bottom:16px;">The employer. Dollars per seat per month. Fraction of the cost of one resignation.</p>
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,1.8vw,20px);color:var(--t);font-weight:700;line-height:1.4;margin-bottom:16px;">The employer. Dollars per seat per month. Fraction of the cost of one resignation.</p>
       <p class="card-p">Employer-sponsored. Team-level anonymous insights only. Unit economics modeled for 20-200 employee companies. The employee never pays, never installs anything, and never worries about who sees their data.</p>
     </div>
     <div class="r" style="margin-top:48px;text-align:center;">
@@ -306,7 +306,7 @@
         <text x="102" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">SWITCHING COST</text>
         <text x="102" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Rises every week</text>
       </svg>
-      <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,20px);color:var(--t);font-weight:600;margin-top:32px;line-height:1.4;">After 90 days, no competitor can replicate the baseline.</p>
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,1.8vw,20px);color:var(--t);font-weight:600;margin-top:32px;line-height:1.4;">After 90 days, no competitor can replicate the baseline.</p>
     </div>
   </section>
 
@@ -330,10 +330,9 @@
   <!-- 8. TRUST -->
   <section class="s">
     <div class="sl r">Trust</div>
-    <div class="r card" style="padding:32px;border-left:2px solid var(--a);">
-      <p style="font-size:clamp(16px,1.6vw,20px);color:var(--a);font-weight:600;line-height:1.5;">Employees own their data. Employers see what matters. Everyone is protected.</p>
+    <div class="r card" style="border-left:2px solid var(--a);">
+      <p style="font-size:clamp(16px,1.8vw,20px);color:var(--a);font-weight:600;line-height:1.5;">Employees own their data. Employers see what matters. Everyone is protected.</p>
       <p style="font-size:14px;color:var(--t2);margin-top:16px;font-weight:300;line-height:1.7;">Your data never leaves the device. That is not a feature. That is the foundation.</p>
-      <p style="font-size:14px;color:var(--t);margin-top:20px;font-weight:600;line-height:1.6;">Longitudinal personal data compounds over time. After 90 days, YU knows more about an employee's behavioral patterns than any competitor could learn on day one. Switching cost increases with every week of data.</p>
     </div>
   </section>
 
@@ -378,7 +377,7 @@
         <p class="tb">Scaled a CPG brand to 40+ countries across three continents. Co-founded two companies. Built YU's financial model, unit economics, and investor pipeline. Owns the path from pilot to sustainable business.</p>
       </div>
     </div>
-    <p class="r" style="margin-top:48px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:1px;color:var(--t2);text-align:center;">An operator who lived the problem. A scientist who proved the method. A strategist who scales the business. Building together in Boston.</p>
+    <p class="r" style="margin-top:48px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--t2);text-align:center;">An operator who lived the problem. A scientist who proved the method. A strategist who scales the business. Building together in Boston.</p>
   </section>
 
   <hr class="d">

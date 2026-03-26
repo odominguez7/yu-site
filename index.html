@@ -5,714 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YU | Behavioral Intelligence for the Workforce</title>
   <meta name="description" content="YU detects employee burnout before it becomes a resignation. AI-powered behavioral intelligence. Privacy-first. Prevention-only. Built at MIT.">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="YU | We know your team is burning out. 90 days before you do.">
+  <meta property="og:title" content="YU | We know your team is burning out. Before anyone says a word.">
   <meta property="og:description" content="Behavioral intelligence for the workforce. Privacy-first. Prevention-only. Built at MIT.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yu.boston">
   <meta property="og:image" content="https://yu.boston/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="YU | Behavioral Intelligence for the Workforce">
-  <meta name="twitter:description" content="We know your team is burning out. 90 days before you do.">
-
-  <!-- Favicon -->
+  <meta name="twitter:description" content="We know your team is burning out. Before anyone says a word.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230A0A0B'/><text x='50' y='68' font-family='system-ui' font-size='56' font-weight='800' fill='%2300F0D4' text-anchor='middle'>YU</text></svg>">
-
-  <!-- Fonts (trimmed weights) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    :root {
-      --bg: #0A0A0B;
-      --bg-elevated: #111113;
-      --text: #F5F5F7;
-      --text-secondary: #8E8E93;
-      --text-muted: #48484A;
-      --accent: #00F0D4;
-      --accent-glow: rgba(0, 240, 212, 0.12);
-      --divider: rgba(255, 255, 255, 0.06);
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    .progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 200; width: 0; }
-
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.15s; }
-    .reveal-delay-2 { transition-delay: 0.3s; }
-    .reveal-delay-3 { transition-delay: 0.45s; }
-
-    hr.div { border: none; border-top: 1px solid var(--divider); margin: 0; max-width: 860px; margin-left: auto; margin-right: auto; }
-
-    .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 40px;
-    }
-
-    /* ===================== NAV ===================== */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      padding: 20px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-      backdrop-filter: blur(24px);
-      background: rgba(10, 10, 11, 0.7);
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .nav-brand {
-      font-family: 'Inter', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 6px;
-      color: var(--text);
-    }
-
-    .nav-brand span { color: var(--accent); }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .nav-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .nav-cta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 8px 16px;
-      background: var(--accent);
-      color: var(--bg);
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: 600;
-      opacity: 0;
-      transform: translateY(-4px);
-      transition: opacity 0.4s, transform 0.4s, background 0.3s;
-      pointer-events: none;
-    }
-
-    .nav-cta.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .nav-cta:hover { background: var(--text); }
-
-    .nav-dot {
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* ===================== HERO ===================== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 48px 80px;
-      max-width: 960px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Animated gradient orb */
-    .hero-orb {
-      position: absolute;
-      top: 50%;
-      right: -80px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(0,240,212,0.08) 0%, rgba(0,240,212,0.02) 40%, transparent 70%);
-      border-radius: 50%;
-      transform: translateY(-50%);
-      animation: orb-drift 8s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes orb-drift {
-      0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.6; }
-      50% { transform: translateY(-48%) scale(1.08); opacity: 1; }
-    }
-
-    .hero-wordmark {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(80px, 18vw, 200px);
-      font-weight: 800;
-      letter-spacing: 20px;
-      color: var(--text);
-      line-height: 1;
-      opacity: 0.04;
-      position: absolute;
-      top: 50%;
-      right: -20px;
-      transform: translateY(-50%);
-      user-select: none;
-      pointer-events: none;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 5.5vw, 64px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 .line-muted {
-      color: var(--text-muted);
-      transition: color 1s ease;
-    }
-
-    .hero h1 .line-accent { color: var(--accent); }
-    .hero:hover h1 .line-muted { color: var(--text-secondary); }
-
-    .hero-sub {
-      margin-top: 40px;
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 460px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-sub strong { color: var(--accent); font-weight: 600; }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 40px;
-      left: 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .scroll-indicator span {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: var(--text-muted);
-      writing-mode: vertical-rl;
-    }
-
-    .scroll-indicator .line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-      animation: scroll-fade 2.5s ease-in-out infinite;
-    }
-
-    @keyframes scroll-fade {
-      0%, 100% { opacity: 0.2; transform: scaleY(0.5); transform-origin: top; }
-      50% { opacity: 1; transform: scaleY(1); }
-    }
-
-    /* ===================== STATS ===================== */
-    .stats-row {
-      padding: 100px 48px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-    }
-
-    .stat-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(40px, 7vw, 72px);
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: -2px;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-top: 12px;
-      font-weight: 300;
-      line-height: 1.5;
-    }
-
-    /* ===================== PULL QUOTE ===================== */
-    .pull {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(22px, 3vw, 36px);
-      color: var(--text);
-      font-weight: 600;
-      line-height: 1.35;
-      padding-left: 28px;
-      border-left: 2px solid var(--accent);
-    }
-
-    .pull-standalone {
-      padding: 80px 48px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    /* ===================== WHAT YU IS ===================== */
-    .what-section {
-      padding: 80px 48px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .what-section p {
-      font-size: clamp(16px, 1.5vw, 18px);
-      color: var(--text-secondary);
-      line-height: 1.85;
-      font-weight: 300;
-      margin-bottom: 24px;
-    }
-
-    .what-section p strong { color: var(--text); font-weight: 600; }
-
-    .arch-terminal {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      line-height: 2.2;
-      color: var(--accent);
-      padding: 32px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--divider);
-      border-radius: 4px;
-      margin: 40px 0 0;
-      position: relative;
-    }
-
-    .arch-terminal::before {
-      content: 'TRUST ARCHITECTURE';
-      position: absolute;
-      top: 12px; right: 16px;
-      font-size: 9px;
-      letter-spacing: 3px;
-      color: var(--text-muted);
-    }
-
-    .arch-terminal .muted { color: var(--text-muted); }
-
-    /* ===================== MOAT ===================== */
-    .moat-section {
-      padding: 80px 48px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .moat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .moat-card {
-      padding: 28px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--divider);
-      border-radius: 4px;
-      transition: border-color 0.3s;
-    }
-
-    .moat-card:hover { border-color: rgba(0,240,212,0.2); }
-
-    .moat-card h3 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .moat-card p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* ===================== MARKET ===================== */
-    .market-row {
-      padding: 80px 48px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .market-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
-
-    .market-stat .stat-num {
-      font-size: clamp(48px, 8vw, 80px);
-    }
-
-    /* ===================== TEAM ===================== */
-    .team {
-      padding: 80px 48px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .team-member {
-      display: flex;
-      gap: 36px;
-      align-items: flex-start;
-      margin-bottom: 56px;
-      padding-bottom: 56px;
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .team-member:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-    .team-photo {
-      width: 96px; height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      border: 2px solid var(--divider);
-      filter: grayscale(30%);
-      transition: filter 0.4s, border-color 0.4s;
-    }
-
-    .team-member:hover .team-photo { filter: grayscale(0%); border-color: var(--accent-glow); }
-
-    .team-info { flex: 1; }
-    .team-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
-
-    .team-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .team-linkedin {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px; height: 22px;
-      opacity: 0.35;
-      transition: opacity 0.3s;
-      flex-shrink: 0;
-    }
-
-    .team-linkedin:hover { opacity: 1; }
-    .team-linkedin svg { width: 16px; height: 16px; fill: var(--text); }
-
-    .team-role {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-
-    .team-inst {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      color: var(--accent);
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-    }
-
-    .team-bio {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.75;
-      font-weight: 300;
-    }
-
-    .team-closing {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(20px, 2.5vw, 28px);
-      color: var(--text);
-      font-weight: 600;
-      line-height: 1.45;
-      margin-top: 56px;
-      padding-left: 28px;
-      border-left: 2px solid var(--accent);
-    }
-
-    /* ===================== LOGOS ===================== */
-    .logos {
-      padding: 72px 48px;
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .logos-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-bottom: 40px;
-    }
-
-    .logos-grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 36px 48px;
-    }
-
-    .logo-img, .logo-img-dark {
-      height: 44px;
-      width: auto;
-      max-width: 160px;
-      object-fit: contain;
-      opacity: 0.8;
-      transition: opacity 0.4s;
-      cursor: default;
-      border-radius: 4px;
-    }
-
-    .logo-img:hover, .logo-img-dark:hover { opacity: 1; }
-
-    .logo-img-invert {
-      height: 44px;
-      width: auto;
-      max-width: 56px;
-      object-fit: contain;
-      opacity: 0.8;
-      transition: opacity 0.4s;
-      cursor: default;
-      filter: brightness(0) invert(0.85);
-    }
-
-    .logo-img-invert:hover { opacity: 1; }
-
-    /* ===================== CTA ===================== */
-    .cta {
-      padding: 120px 48px 160px;
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-
-    .cta-orb {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0,240,212,0.06) 0%, transparent 60%);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-
-    .cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 24px;
-      position: relative;
-    }
-
-    .cta h2 .dim { color: var(--text-muted); }
-
-    .cta-sub {
-      font-size: 16px;
-      color: var(--text-secondary);
-      margin-bottom: 48px;
-      font-weight: 300;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
-      position: relative;
-    }
-
-    .waitlist-form {
-      display: flex;
-      gap: 0;
-      max-width: 480px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .waitlist-form input {
-      flex: 1;
-      padding: 16px 20px;
-      font-size: 15px;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-elevated);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text);
-      border-radius: 4px 0 0 4px;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .waitlist-form input:focus { border-color: var(--accent); }
-    .waitlist-form input::placeholder { color: var(--text-muted); }
-
-    .waitlist-form button {
-      padding: 16px 28px;
-      font-size: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      background: var(--accent);
-      color: var(--bg);
-      border: none;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-      transition: all 0.3s;
-      white-space: nowrap;
-    }
-
-    .waitlist-form button:hover { background: var(--text); }
-
-    .success-msg {
-      display: none;
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 14px;
-      margin-top: 20px;
-      letter-spacing: 1px;
-    }
-
-    .cta-scarcity {
-      margin-top: 20px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      position: relative;
-    }
-
-    /* ===================== FOOTER ===================== */
-    footer {
-      padding: 40px 48px;
-      border-top: 1px solid var(--divider);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .footer-loc {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .footer-loc svg { width: 12px; height: 12px; fill: var(--text-muted); }
-
-    footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    footer a:hover { color: var(--text); }
-
-    /* ===================== MOBILE ===================== */
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      .hero { padding: 100px 24px 60px; }
-      .hero-wordmark { display: none; }
-      .hero-orb { width: 300px; height: 300px; right: -100px; }
-      .stats-row { padding: 64px 24px; }
-      .stats-grid { grid-template-columns: 1fr; gap: 40px; }
-      .pull-standalone { padding: 48px 24px; }
-      .what-section { padding: 48px 24px; }
-      .moat-section { padding: 48px 24px; }
-      .moat-grid { grid-template-columns: 1fr; }
-      .market-row { padding: 48px 24px; }
-      .market-grid { grid-template-columns: 1fr; gap: 40px; }
-      .team { padding: 48px 24px; }
-      .team-member { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
-      .team-header { justify-content: center; }
-      .team-closing { text-align: left; }
-      .logos { padding: 48px 24px; }
-      .logos-grid { gap: 28px 36px; }
-      .cta { padding: 80px 24px 120px; }
-      .waitlist-form { flex-direction: column; }
-      .waitlist-form input { border-radius: 4px; }
-      .waitlist-form button { border-radius: 4px; }
-      footer { padding: 30px 24px; flex-direction: column; gap: 12px; }
-      .scroll-indicator { left: 24px; }
-      hr.div { margin-left: 24px; margin-right: 24px; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    :root{--bg:#0A0A0B;--bg2:#111113;--t:#F5F5F7;--t2:#8E8E93;--t3:#48484A;--a:#00F0D4;--ag:rgba(0,240,212,0.12);--d:rgba(255,255,255,0.06)}
+    body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+    .progress{position:fixed;top:0;left:0;height:2px;background:var(--a);z-index:200;width:0}
+    .r{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.r.v{opacity:1;transform:none}
+    .rd1{transition-delay:.15s}.rd2{transition-delay:.3s}.rd3{transition-delay:.45s}
+    hr.d{border:none;border-top:1px solid var(--d);margin:0 auto;max-width:860px}
+    .sl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--a);margin-bottom:40px}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(24px);background:rgba(10,10,11,.7);border-bottom:1px solid var(--d)}
+    .nb{font-size:22px;font-weight:800;letter-spacing:6px}.nb span{color:var(--a)}
+    .nr{display:flex;align-items:center;gap:24px}
+    .ns{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--t3)}
+    .nd{width:6px;height:6px;background:var(--a);border-radius:50%;animation:p 2s ease-in-out infinite}
+    @keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+    .nc{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;background:var(--a);color:var(--bg);border:none;border-radius:3px;cursor:pointer;text-decoration:none;font-weight:600;opacity:0;transform:translateY(-4px);transition:opacity .4s,transform .4s,background .3s;pointer-events:none}
+    .nc.v{opacity:1;transform:none;pointer-events:auto}.nc:hover{background:var(--t)}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;max-width:960px;margin:0 auto;position:relative;overflow:hidden}
+    .hero-orb{position:absolute;top:50%;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,240,212,.08) 0%,rgba(0,240,212,.02) 40%,transparent 70%);border-radius:50%;transform:translateY(-50%);animation:od 8s ease-in-out infinite;pointer-events:none}
+    @keyframes od{0%,100%{transform:translateY(-50%) scale(1);opacity:.6}50%{transform:translateY(-48%) scale(1.08);opacity:1}}
+    .hw{font-size:clamp(80px,18vw,200px);font-weight:800;letter-spacing:20px;opacity:.04;position:absolute;top:50%;right:-20px;transform:translateY(-50%);user-select:none;pointer-events:none}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5.5vw,64px);font-weight:700;line-height:1.15;letter-spacing:-1px;position:relative;z-index:1}
+    .hero h1 .lm{color:var(--t3);transition:color 1s}.hero h1 .la{color:var(--a)}
+    .hero:hover h1 .lm{color:var(--t2)}
+    .hs{margin-top:40px;font-size:16px;color:var(--t2);line-height:1.7;font-weight:300;max-width:460px;position:relative;z-index:1}
+    .hs strong{color:var(--a);font-weight:600}
+    .si{position:absolute;bottom:40px;left:48px;display:flex;flex-direction:column;align-items:center;gap:8px}
+    .si span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--t3);writing-mode:vertical-rl}
+    .si .ln{width:1px;height:40px;background:linear-gradient(to bottom,var(--a),transparent);animation:sf 2.5s ease-in-out infinite}
+    @keyframes sf{0%,100%{opacity:.2;transform:scaleY(.5);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+
+    /* LOGOS */
+    .logos{padding:64px 48px;max-width:960px;margin:0 auto;text-align:center}
+    .logos-l{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:5px;text-transform:uppercase;color:var(--t2);margin-bottom:36px}
+    .logos-g{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:32px 44px}
+    .li,.lid{height:44px;width:auto;max-width:160px;object-fit:contain;opacity:.8;transition:opacity .4s;cursor:default;border-radius:4px}
+    .li:hover,.lid:hover{opacity:1}
+
+    /* STATS */
+    .sr{padding:80px 48px;max-width:960px;margin:0 auto}
+    .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+    .sn{font-family:'JetBrains Mono',monospace;font-size:clamp(40px,7vw,72px);font-weight:600;color:var(--a);letter-spacing:-2px;line-height:1}
+    .slb{font-size:14px;color:var(--t2);margin-top:12px;font-weight:300;line-height:1.5}
+    .sq{font-size:13px;color:var(--t3);font-style:italic;margin-top:6px;line-height:1.4}
+
+    /* PULL */
+    .pull{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,36px);color:var(--t);font-weight:600;line-height:1.35;padding-left:28px;border-left:2px solid var(--a)}
+    .ps{padding:72px 48px;max-width:860px;margin:0 auto}
+
+    /* WHAT */
+    .ws{padding:80px 48px;max-width:860px;margin:0 auto}
+    .ws p{font-size:clamp(16px,1.5vw,18px);color:var(--t2);line-height:1.85;font-weight:300;margin-bottom:24px}
+    .ws p strong{color:var(--t);font-weight:600}
+    .card{padding:24px;background:var(--bg2);border:1px solid var(--d);border-radius:4px}
+    .card-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:10px}
+    .card-p{font-size:14px;color:var(--t2);line-height:1.7;font-weight:300}
+    .at{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:2.2;color:var(--a);padding:32px;background:var(--bg2);border:1px solid var(--d);border-radius:4px;margin:40px 0 0;position:relative}
+    .at::before{content:'TRUST ARCHITECTURE';position:absolute;top:12px;right:16px;font-size:9px;letter-spacing:3px;color:var(--t3)}
+    .at .m{color:var(--t3)}
+
+    /* FLYWHEEL */
+    .fw{padding:80px 48px;max-width:860px;margin:0 auto;text-align:center}
+    .fw svg{max-width:600px;width:100%;height:auto;margin:40px auto 0}
+    .fw-stat{display:flex;justify-content:center;gap:48px;margin-top:48px;text-align:center}
+    .fw-stat .sn{font-size:clamp(36px,6vw,56px)}
+
+    /* TEAM */
+    .tm{padding:80px 48px;max-width:860px;margin:0 auto}
+    .tmm{display:flex;gap:32px;align-items:flex-start;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--d)}
+    .tmm:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .tp{width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--d);filter:grayscale(30%);transition:filter .4s,border-color .4s}
+    .tmm:hover .tp{filter:grayscale(0%);border-color:var(--ag)}
+    .ti{flex:1}
+    .th{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+    .tn{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+    .tl{display:inline-flex;align-items:center;width:20px;height:20px;opacity:.35;transition:opacity .3s}.tl:hover{opacity:1}
+    .tl svg{width:15px;height:15px;fill:var(--t)}
+    .tr{font-size:12px;font-weight:600;color:var(--t);letter-spacing:.5px;margin-bottom:3px}
+    .tinst{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--a);letter-spacing:2px;margin-bottom:12px;text-transform:uppercase}
+    .tb{font-size:13px;color:var(--t2);line-height:1.75;font-weight:300}
+    .tc{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);color:var(--t);font-weight:600;line-height:1.45;margin-top:48px;padding-left:28px;border-left:2px solid var(--a)}
+
+    /* CTA */
+    .cta{padding:120px 48px 160px;max-width:860px;margin:0 auto;text-align:center;position:relative}
+    .co{position:absolute;top:50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,240,212,.06) 0%,transparent 60%);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+    .cta h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.15;letter-spacing:-1px;margin-bottom:24px;position:relative}
+    .cta h2 .dm{color:var(--t3)}
+    .cs{font-size:16px;color:var(--t2);margin-bottom:48px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative}
+    .wf{display:flex;gap:0;max-width:480px;margin:0 auto;position:relative}
+    .wf input{flex:1;padding:16px 20px;font-size:15px;font-family:'Inter',sans-serif;background:var(--bg2);border:1px solid rgba(255,255,255,.08);color:var(--t);border-radius:4px 0 0 4px;outline:none;transition:border-color .3s}
+    .wf input:focus{border-color:var(--a)}.wf input::placeholder{color:var(--t3)}
+    .wf button{padding:16px 28px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;text-transform:uppercase;letter-spacing:3px;background:var(--a);color:var(--bg);border:none;border-radius:0 4px 4px 0;cursor:pointer;transition:all .3s;white-space:nowrap}
+    .wf button:hover{background:var(--t)}
+    .sm{display:none;color:var(--a);font-family:'JetBrains Mono',monospace;font-size:14px;margin-top:20px;letter-spacing:1px}
+    .sc{margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t3);letter-spacing:2px;text-transform:uppercase;position:relative}
+
+    /* FOOTER */
+    footer{padding:40px 48px;border-top:1px solid var(--d);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--t3);max-width:960px;margin:0 auto}
+    .fl{display:flex;align-items:center;gap:16px}
+    .floc{display:inline-flex;align-items:center;gap:4px}
+    .floc svg{width:12px;height:12px;fill:var(--t3)}
+    footer a{color:var(--t3);text-decoration:none;transition:color .3s}footer a:hover{color:var(--t)}
+
+    /* MOBILE */
+    @media(max-width:768px){
+      nav{padding:16px 24px}
+      .hero{padding:100px 24px 60px}.hw{display:none}.hero-orb{width:300px;height:300px;right:-100px}
+      .logos{padding:48px 24px}.logos-g{gap:24px 32px}
+      .sr{padding:48px 24px}.sg{grid-template-columns:1fr;gap:32px}
+      .ps{padding:48px 24px}
+      .ws{padding:48px 24px}
+      .fw{padding:48px 24px}.fw-stat{flex-direction:column;gap:32px}
+      .tm{padding:48px 24px}
+      .tmm{flex-direction:column;align-items:center;text-align:center;gap:16px}
+      .th{justify-content:center}.tc{text-align:left}
+      .cta{padding:80px 24px 120px}
+      .wf{flex-direction:column}.wf input{border-radius:4px}.wf button{border-radius:4px}
+      footer{padding:30px 24px;flex-direction:column;gap:12px}
+      .si{left:24px}hr.d{margin-left:24px;margin-right:24px}
     }
   </style>
 </head>
@@ -720,331 +149,268 @@
 
   <div class="progress" id="progress"></div>
 
-  <!-- NAV -->
   <nav>
-    <div class="nav-brand">YU<span>.</span></div>
-    <div class="nav-right">
-      <div class="nav-status">
-        <div class="nav-dot"></div>
-        Building
-      </div>
-      <a href="#waitlistForm" class="nav-cta" id="navCta">Request Access</a>
+    <div class="nb">YU<span>.</span></div>
+    <div class="nr">
+      <div class="ns"><div class="nd"></div>Building</div>
+      <a href="#waitlistForm" class="nc" id="navCta">Request Access</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-orb"></div>
-    <div class="hero-wordmark">YU</div>
+    <div class="hw">YU</div>
     <h1>
       Your employees are burning out.<br>
-      <span class="line-muted">Your EAP knows after they quit.</span><br>
-      <span class="line-accent">We know before anyone says a word.</span>
+      <span class="lm">Your EAP knows after they quit.</span><br>
+      <span class="la">We know before anyone says a word.</span>
     </h1>
-    <p class="hero-sub">
-      <strong>YU</strong> is behavioral intelligence for the workforce. Privacy-first. Prevention-only. Built at MIT.
-    </p>
-    <div class="scroll-indicator">
-      <span>SCROLL</span>
-      <div class="line"></div>
+    <p class="hs"><strong>YU</strong> is behavioral intelligence for the workforce. Privacy-first. Prevention-only. Built at MIT.</p>
+    <div class="si"><span>SCROLL</span><div class="ln"></div></div>
+  </section>
+
+  <!-- LOGOS (authority first) -->
+  <section class="logos r">
+    <p class="logos-l">Built from</p>
+    <div class="logos-g">
+      <img src="logos/ai_studio.png" alt="MIT AI Studio" class="lid">
+      <img src="logos/harvard_shield.png" alt="Harvard" class="li" style="max-width:48px;">
+      <img src="logos/mit_sloan.png" alt="MIT Sloan" class="li">
+      <img src="logos/mtc.png" alt="Martin Trust Center" class="lid">
+      <img src="logos/mit_sandbox_new.png" alt="MIT Sandbox" class="lid">
     </div>
   </section>
 
-  <hr class="div">
+  <hr class="d">
 
   <!-- STATS -->
-  <section class="stats-row">
-    <div class="stats-grid">
-      <div class="stat-item reveal">
-        <div class="stat-num" data-target="190" data-prefix="$" data-suffix="B">$190B</div>
-        <p class="stat-label">Annual cost of burnout to U.S. employers</p>
+  <section class="sr">
+    <div class="sg">
+      <div class="r">
+        <div class="sn" data-target="190" data-prefix="$" data-suffix="B">$190B</div>
+        <p class="slb">Annual cost of burnout to U.S. employers</p>
       </div>
-      <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-num" data-static="true">3-5%</div>
-        <p class="stat-label">Of employees ever use an EAP. The rest suffer in silence.</p>
+      <div class="r rd1">
+        <div class="sn" data-static="true">3-5%</div>
+        <p class="slb">Ever use an EAP. The rest suffer in silence.</p>
       </div>
-      <div class="stat-item reveal reveal-delay-2">
-        <div class="stat-num" data-target="73" data-prefix="" data-suffix="%">73%</div>
-        <p class="stat-label">Of employers report rising mental health needs. No early warning.</p>
+      <div class="r rd2">
+        <div class="sn" data-target="73" data-prefix="" data-suffix="%">73%</div>
+        <p class="slb">Report rising mental health needs. No early warning.</p>
+        <p class="sq">"We lost three engineers in one quarter. None mentioned burnout until the exit interview."</p>
       </div>
     </div>
   </section>
 
-  <hr class="div">
-
-  <!-- PULL QUOTE -->
-  <section class="pull-standalone reveal">
-    <div class="pull">
-      The gap between early warning and intervention is a $190 billion market failure. Nobody is detecting the problem before it becomes one.
-    </div>
-  </section>
-
-  <hr class="div">
-
-  <!-- SOCIAL PROOF QUOTE -->
-  <section class="pull-standalone reveal" style="padding-bottom: 0;">
-    <blockquote style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,28px);color:var(--text);font-weight:600;line-height:1.45;font-style:italic;max-width:700px;">
-      "We lost three senior engineers in one quarter. None of them mentioned burnout until their exit interview."
-    </blockquote>
-    <p style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;">VP of People, Boston tech company</p>
-  </section>
-
-  <hr class="div">
+  <hr class="d">
 
   <!-- WHAT YU DOES -->
-  <section class="what-section">
-    <div class="section-label reveal">What YU does</div>
+  <section class="ws">
+    <div class="sl r">What YU does</div>
 
-    <p class="reveal">
-      <strong>Wearables collect data. They don't understand it.</strong> Low HRV could mean burnout or a hard workout. Bad sleep could mean chronic stress or a new baby. Passive data alone is noise. That's the wearables problem.
-    </p>
-    <p class="reveal" style="margin-top:24px;">
-      YU solves it by combining two layers of intelligence:
-    </p>
+    <p class="r"><strong>Wearables collect data. They don't understand it.</strong> Low HRV could mean burnout or a hard workout. Bad sleep could mean stress or a new baby. Passive data alone is noise.</p>
 
-    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0;">
-      <div style="padding:24px;background:var(--bg-elevated);border:1px solid var(--divider);border-radius:4px;">
-        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Passive data</p>
-        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;font-weight:300;">Sleep, HRV, activity, screen time. Collected automatically from wearables your team already owns. Zero effort. Zero friction.</p>
+    <div class="r" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0;">
+      <div class="card">
+        <p class="card-l">Passive data</p>
+        <p class="card-p">Sleep, HRV, activity. From wearables your team already owns. Zero effort.</p>
       </div>
-      <div style="padding:24px;background:var(--bg-elevated);border:1px solid var(--divider);border-radius:4px;">
-        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Active context</p>
-        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;font-weight:300;">Lightweight signals that give the data meaning. The context that turns raw numbers into a personal behavioral baseline unique to each individual.</p>
+      <div class="card">
+        <p class="card-l">Active context</p>
+        <p class="card-p">Lightweight signals that give data meaning. Turns numbers into a personal baseline.</p>
       </div>
     </div>
 
-    <p class="reveal">
-      When patterns shift, YU doesn't just say "take a break." <strong>Sometimes the right intervention is a restorative yoga session. Sometimes it's a high-intensity CrossFit class.</strong> A long run. A hot power pilates flow. A walking meeting. Prevention isn't always about slowing down. When the data is right, pushing harder is the intervention. That's what makes it personal.
-    </p>
-    <p class="reveal" style="margin-top:24px;">
-      Every micro-intervention is delivered through <strong>curated local wellbeing providers</strong> connected to YU in real time. Not a playlist. Not a generic app recommendation. An actual class, at an actual studio, near the employee's office, matched to what their data says they need right now.
-    </p>
+    <p class="r"><strong>When patterns shift, YU acts.</strong> Not "take a break." The right action: a restorative yoga class, a CrossFit session, a long run, a hot pilates flow, a walking meeting. Sometimes slowing down is wrong. Sometimes pushing harder is the intervention.</p>
 
-    <div class="reveal" style="margin:48px 0;padding:28px 32px;background:var(--bg-elevated);border:1px solid var(--divider);border-radius:4px;">
-      <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">The YU ecosystem</p>
-      <p style="font-size:clamp(15px,1.4vw,18px);color:var(--text-secondary);line-height:1.8;font-weight:300;">
-        Wellbeing providers, yoga studios, meditation centers, CrossFit boxes, pilates studios, are mostly small businesses too. They share the same pain: <strong style="color:var(--text);">idle capacity</strong>. Empty mats at 2pm. Open slots that never fill. YU's API solves both sides: it matches the right activity to the right employee at the right moment, while dynamically filling the capacity that providers struggle to book. <strong style="color:var(--text);">One system. Two problems solved. A marketplace that gets smarter with every session.</strong>
+    <p class="r">Every micro-intervention connects to a <strong>real provider near the office</strong>. An actual class. An actual studio. Matched to what the data says right now.</p>
+  </section>
+
+  <hr class="d">
+
+  <!-- FLYWHEEL -->
+  <section class="fw">
+    <div class="sl r">The YU ecosystem</div>
+
+    <svg class="r" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
+      <!-- Center -->
+      <circle cx="300" cy="220" r="56" fill="none" stroke="#00F0D4" stroke-width="2" opacity=".3"/>
+      <text x="300" y="215" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="16" font-weight="600">YU</text>
+      <text x="300" y="233" text-anchor="middle" fill="#8E8E93" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="2">API</text>
+
+      <!-- Nodes -->
+      <!-- Employee -->
+      <rect x="40" y="60" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="120" y="88" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">EMPLOYEE</text>
+      <text x="120" y="108" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Passive + active data</text>
+      <text x="120" y="122" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">Wearables, context</text>
+
+      <!-- AI Layer -->
+      <rect x="400" y="60" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="480" y="88" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">AI LAYER</text>
+      <text x="480" y="108" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Behavioral baseline</text>
+      <text x="480" y="122" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">Pattern detection</text>
+
+      <!-- Micro-intervention -->
+      <rect x="400" y="320" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="480" y="348" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">INTERVENTION</text>
+      <text x="480" y="368" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Personalized action</text>
+      <text x="480" y="382" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">Yoga, CrossFit, run, rest</text>
+
+      <!-- Provider -->
+      <rect x="40" y="320" width="160" height="72" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="120" y="348" text-anchor="middle" fill="#00F0D4" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">LOCAL PROVIDER</text>
+      <text x="120" y="368" text-anchor="middle" fill="#8E8E93" font-family="Inter,sans-serif" font-size="11">Fills idle capacity</text>
+      <text x="120" y="382" text-anchor="middle" fill="#48484A" font-family="Inter,sans-serif" font-size="10">Studios, gyms, clinics</text>
+
+      <!-- Arrows (clockwise) -->
+      <defs>
+        <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6" fill="none" stroke="#00F0D4" stroke-width="1.5"/>
+        </marker>
+      </defs>
+      <!-- Employee -> AI -->
+      <line x1="200" y1="96" x2="398" y2="96" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
+      <!-- AI -> Intervention -->
+      <line x1="480" y1="134" x2="480" y2="318" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
+      <!-- Intervention -> Provider -->
+      <line x1="398" y1="356" x2="202" y2="356" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
+      <!-- Provider -> Employee (feedback) -->
+      <line x1="120" y1="318" x2="120" y2="134" stroke="#00F0D4" stroke-width="1" opacity=".4" marker-end="url(#ah)"/>
+
+      <!-- Labels on arrows -->
+      <text x="300" y="84" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">DATA FLOWS</text>
+      <text x="520" y="230" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">DETECTS</text>
+      <text x="300" y="344" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">BOOKS REAL-TIME</text>
+      <text x="48" y="230" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">OUTCOME</text>
+      <text x="48" y="242" text-anchor="start" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="8" letter-spacing="1">FEEDS BACK</text>
+
+      <!-- Bottom: reinforcement text -->
+      <text x="300" y="440" text-anchor="middle" fill="#F5F5F7" font-family="Playfair Display,serif" font-size="16" font-weight="600">Every session makes the next one smarter.</text>
+      <text x="300" y="462" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1">COMPOUNDING NETWORK EFFECT</text>
+    </svg>
+
+    <div class="fw-stat r">
+      <div>
+        <div class="sn" data-target="106" data-prefix="$" data-suffix="B">$106B</div>
+        <p class="slb">Wellness market by 2029</p>
+      </div>
+      <div>
+        <div class="sn" style="color:var(--t);">2</div>
+        <p class="slb">Problems solved. One system.<br>Employees + providers.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="d">
+
+  <!-- SCIENCE -->
+  <section class="ws" style="padding-top:72px;padding-bottom:72px;">
+    <div class="card r" style="padding:28px 32px;">
+      <p class="card-l" style="letter-spacing:3px;font-size:10px;color:var(--t3);">The science</p>
+      <p style="font-size:clamp(15px,1.4vw,18px);color:var(--t);line-height:1.7;font-weight:400;margin-top:12px;">
+        A 2026 <em style="color:var(--a);">Nature Medicine</em> study (19,674 sessions, 22 expert evaluators) proved AI with a structured behavioral data layer outperformed standalone models by <strong>43%</strong> and exceeded human clinicians in <strong>74%</strong> of sessions. More data layer activation = greater symptom improvement + long-term recovery.
       </p>
     </div>
+  </section>
 
-    <div class="reveal" style="margin:48px 0 40px;padding:28px 32px;background:var(--bg-elevated);border:1px solid var(--divider);border-radius:4px;">
-      <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;">The science behind it</p>
-      <p style="font-size:clamp(15px,1.4vw,18px);color:var(--text);line-height:1.7;font-weight:400;">
-        A 2026 <em style="color:var(--accent);">Nature Medicine</em> study (19,674 real-world sessions, 227 participants, 22 expert evaluators) proved that AI augmented with a structured behavioral data layer outperformed standalone models by <strong>43%</strong> and exceeded human clinicians in <strong>74%</strong> of sessions. Higher data layer activation correlated directly with greater symptom improvement and long-term clinical recovery. The data layer is the product. That's what YU builds.
-      </p>
-    </div>
+  <hr class="d">
 
-    <p class="reveal" style="margin-bottom:0;">
-      <strong style="color:var(--accent);font-size:clamp(18px,2vw,22px);font-weight:600;">Built for the employee. Not the employer.</strong>
-    </p>
-    <div class="arch-terminal reveal">
-      <span class="muted">// privacy architecture</span><br><br>
+  <!-- PRIVACY -->
+  <section class="ws" style="padding-top:72px;padding-bottom:72px;">
+    <p class="r" style="margin-bottom:0;"><strong style="color:var(--a);font-size:clamp(18px,2vw,22px);font-weight:600;">Built for the employee. Not the employer.</strong></p>
+    <div class="at r">
+      <span class="m">// trust architecture</span><br><br>
       individual_data.accessible_to_employer = <strong>false</strong><br>
-      <span class="muted">// not policy-blocked. structurally nonexistent.</span><br><br>
+      <span class="m">// not policy-blocked. structurally nonexistent.</span><br><br>
       data.ownership = "employee"<br>
       employer.sees = "anonymous_team_aggregates"<br>
       ai.runs = "on_device"<br>
-      cloud.transmission = <strong>null</strong><br><br>
-      <span class="muted">// privacy is not a feature. it's the infrastructure.</span>
+      cloud.transmission = <strong>null</strong>
     </div>
   </section>
 
-  <hr class="div">
-
-  <!-- WHY THIS COMPOUNDS -->
-  <section class="moat-section">
-    <div class="section-label reveal">Why this compounds</div>
-    <div class="moat-grid">
-      <div class="moat-card reveal">
-        <h3>Personal baselines</h3>
-        <p>Individual behavioral models, not population averages. Each employee's "normal" is unique.</p>
-      </div>
-      <div class="moat-card reveal reveal-delay-1">
-        <h3>Data that compounds</h3>
-        <p>After 90 days, YU knows more about patterns than any competitor could learn on day one.</p>
-      </div>
-      <div class="moat-card reveal reveal-delay-2">
-        <h3>Clinical design</h3>
-        <p>Every intervention is CBT-informed, crafted by a licensed clinical psychologist with published research.</p>
-      </div>
-      <div class="moat-card reveal reveal-delay-3">
-        <h3>On-device AI</h3>
-        <p>Data never leaves the machine. A regulatory moat for healthcare, finance, and government.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="div">
-
-  <!-- MARKET -->
-  <section class="market-row">
-    <div class="market-grid">
-      <div class="market-stat reveal">
-        <div class="stat-num" data-target="106" data-prefix="$" data-suffix="B">$106B</div>
-        <p class="stat-label">Global corporate wellness market by 2029</p>
-      </div>
-      <div class="market-stat reveal reveal-delay-1">
-        <div class="pull" style="margin-top: 8px;">No dominant incumbent in the SME-native, AI-first, preventive segment. That's our lane.</div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="div">
+  <hr class="d">
 
   <!-- TEAM -->
-  <section class="team">
-    <div class="section-label reveal">The team</div>
-    <div class="team-member reveal">
-      <img src="photos/Aline_photo.jpeg" alt="Aline Zimerman" class="team-photo">
-      <div class="team-info">
-        <div class="team-header">
-          <div class="team-name">Aline Zimerman</div>
-          <a href="https://www.linkedin.com/in/alinezimerman-193204166" target="_blank" rel="noopener" class="team-linkedin" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+  <section class="tm">
+    <div class="sl r">The team</div>
+    <div class="tmm r">
+      <img src="photos/Aline_photo.jpeg" alt="Aline Zimerman" class="tp">
+      <div class="ti">
+        <div class="th">
+          <div class="tn">Aline Zimerman</div>
+          <a href="https://www.linkedin.com/in/alinezimerman-193204166" target="_blank" rel="noopener" class="tl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
         </div>
-        <div class="team-role">The Science</div>
-        <div class="team-inst">Harvard | Boston Children's Hospital | PhD UFRGS</div>
-        <p class="team-bio">PhD in Psychiatry & Digital Mental Health. Research Fellow at Boston Children's Hospital (Harvard Medical School). Studies how wearable data predicts mental health decline. Published in AI-enabled interventions. Licensed clinical psychologist. Built the algorithm from her own research.</p>
+        <div class="tr">The Science</div>
+        <div class="tinst">Harvard | Boston Children's Hospital | PhD UFRGS</div>
+        <p class="tb">PhD in Psychiatry & Digital Mental Health. Research Fellow at Boston Children's Hospital (Harvard Medical School). Studies how wearable data predicts mental health decline. Published in AI interventions. Licensed clinical psychologist. Built the algorithm from her own research.</p>
       </div>
     </div>
-    <div class="team-member reveal">
-      <img src="photos/omar_photo.jpeg" alt="Omar Dominguez" class="team-photo">
-      <div class="team-info">
-        <div class="team-header">
-          <div class="team-name">Omar Dominguez</div>
-          <a href="https://www.linkedin.com/in/odominguez7" target="_blank" rel="noopener" class="team-linkedin" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <div class="tmm r">
+      <img src="photos/omar_photo.jpeg" alt="Omar Dominguez" class="tp">
+      <div class="ti">
+        <div class="th">
+          <div class="tn">Omar Dominguez</div>
+          <a href="https://www.linkedin.com/in/odominguez7" target="_blank" rel="noopener" class="tl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
         </div>
-        <div class="team-role">The Operator</div>
-        <div class="team-inst">MIT Sloan Fellow MBA '26 | Lived the Problem. Built the Solution.</div>
-        <p class="team-bio">Led his family's metallurgical business for 11 years. The loneliness, the pressure, the weight of keeping a small business alive consumed him. 80 lbs overweight was just the symptom. The real damage was invisible. No one asked. No system caught it. He didn't fix it by slowing down. He fixed it by finding the right intensity at the right time: lost every pound, finished Ironman 70.3 and Boston Marathon. The answer wasn't less. It was smarter. That's why YU doesn't just tell people to relax. It connects them to the right action, whether that's a recovery session or a hard workout. He's building the system he never had.</p>
+        <div class="tr">The Operator</div>
+        <div class="tinst">MIT Sloan Fellow MBA '26</div>
+        <p class="tb">Led a metallurgical business for 11 years. Burned out invisibly. 80 lbs overweight was the symptom. He didn't fix it by slowing down. He found the right intensity: lost every pound, finished Ironman 70.3 and Boston Marathon. The answer wasn't less. It was smarter. That's why YU connects people to the right action, not just rest.</p>
       </div>
     </div>
-    <div class="team-member reveal">
-      <img src="photos/miguel_photo.jpeg" alt="Miguel Helu" class="team-photo">
-      <div class="team-info">
-        <div class="team-header">
-          <div class="team-name">Miguel Helu</div>
-          <a href="https://www.linkedin.com/in/miguel-helua3341b186" target="_blank" rel="noopener" class="team-linkedin" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <div class="tmm r">
+      <img src="photos/miguel_photo.jpeg" alt="Miguel Helu" class="tp">
+      <div class="ti">
+        <div class="th">
+          <div class="tn">Miguel Helu</div>
+          <a href="https://www.linkedin.com/in/miguel-helua3341b186" target="_blank" rel="noopener" class="tl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
         </div>
-        <div class="team-role">The Engine</div>
-        <div class="team-inst">Finance & Global Scale</div>
-        <p class="team-bio">Scaled a CPG brand from Mexico to 40+ countries. Co-founded two companies. Built financial infrastructure from zero to international distribution across three continents. Turns products into businesses with real unit economics.</p>
+        <div class="tr">The Engine</div>
+        <div class="tinst">Finance & Global Scale</div>
+        <p class="tb">Scaled a CPG brand from Mexico to 40+ countries. Co-founded two companies. Built financial infrastructure from zero to three continents. Turns products into businesses with real unit economics.</p>
       </div>
     </div>
-    <div class="team-closing reveal">
-      The science to detect it. The operator who survived it. The engine to scale it.
-    </div>
+    <div class="tc r">The science to detect it. The operator who survived it. The engine to scale it.</div>
   </section>
 
-  <hr class="div">
-
-  <!-- LOGOS -->
-  <section class="logos reveal">
-    <p class="logos-label">Built from</p>
-    <div class="logos-grid">
-      <img src="logos/ai_studio.png" alt="MIT AI Studio" class="logo-img-dark">
-      <img src="logos/harvard_shield.png" alt="Harvard" class="logo-img" style="max-width:48px;">
-      <img src="logos/mit_sloan.png" alt="MIT Sloan" class="logo-img">
-      <img src="logos/mtc.png" alt="Martin Trust Center for MIT Entrepreneurship" class="logo-img-dark">
-      <img src="logos/mit_sandbox_new.png" alt="MIT Sandbox Innovation Fund" class="logo-img-dark">
-    </div>
-  </section>
-
-  <hr class="div">
+  <hr class="d">
 
   <!-- CTA -->
   <section class="cta">
-    <div class="cta-orb"></div>
-    <h2 class="reveal">The window is open.<br><span class="dim">It won't stay open.</span></h2>
-    <p class="cta-sub reveal reveal-delay-1">
-      YU is piloting with Boston companies starting June 2026. Early-access employers and strategic investors only.
-    </p>
-    <form class="waitlist-form reveal reveal-delay-2" id="waitlistForm">
+    <div class="co"></div>
+    <h2 class="r">The window is open.<br><span class="dm">It won't stay open.</span></h2>
+    <p class="cs r rd1">Piloting with Boston companies. June 2026. Early-access employers and strategic investors only.</p>
+    <form class="wf r rd2" id="waitlistForm">
       <input type="email" placeholder="Work email" required aria-label="Work email">
       <button type="submit">Request Access</button>
     </form>
-    <p class="success-msg" id="successMsg">You're on the list. We'll be in touch.</p>
-    <p class="cta-scarcity reveal reveal-delay-2">Accepting 10 pilot companies</p>
+    <p class="sm" id="successMsg">You're on the list. We'll be in touch.</p>
+    <p class="sc r rd2">Accepting 10 pilot companies</p>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-left">
-      <span>YU</span>
-      <span>&copy; 2026</span>
-      <span class="footer-loc">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Boston, MA
-      </span>
+    <div class="fl">
+      <span>YU</span><span>&copy; 2026</span>
+      <span class="floc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Boston, MA</span>
     </div>
     <a href="mailto:omar@yu.boston">omar@yu.boston</a>
   </footer>
 
   <script>
-    // Progress bar + nav CTA
-    const navCta = document.getElementById('navCta');
-    window.addEventListener('scroll', () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
-      if (window.scrollY > window.innerHeight * 0.7) {
-        navCta.classList.add('visible');
-      } else {
-        navCta.classList.remove('visible');
-      }
+    const nc=document.getElementById('navCta');
+    window.addEventListener('scroll',()=>{
+      const h=document.documentElement.scrollHeight-window.innerHeight;
+      document.getElementById('progress').style.width=(window.scrollY/h*100)+'%';
+      nc.classList.toggle('v',window.scrollY>window.innerHeight*.7);
     });
-
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Stat counter
-    function animateCount(el, target, prefix, suffix) {
-      const duration = 1400;
-      const start = performance.now();
-      function step(now) {
-        const p = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = prefix + Math.floor(eased * target).toLocaleString() + suffix;
-        if (p < 1) requestAnimationFrame(step);
-        else el.textContent = prefix + target.toLocaleString() + suffix;
-      }
-      requestAnimationFrame(step);
-    }
-
-    document.querySelectorAll('.stat-num').forEach(el => {
-      if (el.dataset.static) return;
-      let fired = false;
-      new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !fired) {
-          fired = true;
-          animateCount(el, +el.dataset.target, el.dataset.prefix, el.dataset.suffix);
-        }
-      }, { threshold: 0.5 }).observe(el);
-    });
-
-    // Waitlist
-    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwMbUn_PzOpxl9eK2l2RrfW1xgBwwdNlWTIkwBcmU1G2JpC5PGj3ln36e1dOcNgqfA/exec';
-
-    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = this.querySelector('button');
-      const email = this.querySelector('input').value;
-      btn.textContent = '...';
-      btn.disabled = true;
-      fetch(SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, timestamp: new Date().toISOString() })
-      }).then(() => {
-        this.style.display = 'none';
-        document.getElementById('successMsg').style.display = 'block';
-      }).catch(() => {
-        this.style.display = 'none';
-        document.getElementById('successMsg').style.display = 'block';
-      });
-    });
+    const ob=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.12});
+    document.querySelectorAll('.r').forEach(el=>ob.observe(el));
+    function ac(el,t,p,s){const d=1400,st=performance.now();function step(n){const pr=Math.min((n-st)/d,1),e=1-Math.pow(1-pr,3);el.textContent=p+Math.floor(e*t).toLocaleString()+s;if(pr<1)requestAnimationFrame(step);else el.textContent=p+t.toLocaleString()+s}requestAnimationFrame(step)}
+    document.querySelectorAll('.sn').forEach(el=>{if(el.dataset.static)return;let f=false;new IntersectionObserver(e=>{if(e[0].isIntersecting&&!f){f=true;ac(el,+el.dataset.target,el.dataset.prefix,el.dataset.suffix)}},{threshold:.5}).observe(el)});
+    const SU='https://script.google.com/macros/s/AKfycbwMbUn_PzOpxl9eK2l2RrfW1xgBwwdNlWTIkwBcmU1G2JpC5PGj3ln36e1dOcNgqfA/exec';
+    document.getElementById('waitlistForm').addEventListener('submit',function(e){e.preventDefault();const b=this.querySelector('button'),em=this.querySelector('input').value;b.textContent='...';b.disabled=true;fetch(SU,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,timestamp:new Date().toISOString()})}).then(()=>{this.style.display='none';document.getElementById('successMsg').style.display='block'}).catch(()=>{this.style.display='none';document.getElementById('successMsg').style.display='block'})});
   </script>
 </body>
 </html>

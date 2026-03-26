@@ -5,11 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YU | Behavioral Intelligence for the Workforce</title>
   <meta name="description" content="YU detects employee burnout before it becomes a resignation. AI-powered behavioral intelligence. Privacy-first. Prevention-only. Built at MIT.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="YU | We know your team is burning out. 90 days before you do.">
+  <meta property="og:description" content="Behavioral intelligence for the workforce. Privacy-first. Prevention-only. Built at MIT.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yu.boston">
+  <meta property="og:image" content="https://yu.boston/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YU | Behavioral Intelligence for the Workforce">
+  <meta name="twitter:description" content="We know your team is burning out. 90 days before you do.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230A0A0B'/><text x='50' y='68' font-family='system-ui' font-size='56' font-weight='800' fill='%2300F0D4' text-anchor='middle'>YU</text></svg>">
+
+  <!-- Fonts (trimmed weights) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     :root {
       --bg: #0A0A0B;
@@ -48,6 +65,15 @@
     .reveal-delay-3 { transition-delay: 0.45s; }
 
     hr.div { border: none; border-top: 1px solid var(--divider); margin: 0; max-width: 860px; margin-left: auto; margin-right: auto; }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
 
     /* ===================== NAV ===================== */
     nav {
@@ -106,17 +132,36 @@
       max-width: 960px;
       margin: 0 auto;
       position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated gradient orb */
+    .hero-orb {
+      position: absolute;
+      top: 50%;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,240,212,0.08) 0%, rgba(0,240,212,0.02) 40%, transparent 70%);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      animation: orb-drift 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes orb-drift {
+      0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.6; }
+      50% { transform: translateY(-48%) scale(1.08); opacity: 1; }
     }
 
     .hero-wordmark {
       font-family: 'Inter', sans-serif;
-      font-size: clamp(64px, 14vw, 160px);
+      font-size: clamp(80px, 18vw, 200px);
       font-weight: 800;
-      letter-spacing: 16px;
+      letter-spacing: 20px;
       color: var(--text);
       line-height: 1;
-      margin-bottom: 48px;
-      opacity: 0.06;
+      opacity: 0.04;
       position: absolute;
       top: 50%;
       right: -20px;
@@ -141,7 +186,6 @@
     }
 
     .hero h1 .line-accent { color: var(--accent); }
-
     .hero:hover h1 .line-muted { color: var(--text-secondary); }
 
     .hero-sub {
@@ -155,10 +199,7 @@
       z-index: 1;
     }
 
-    .hero-sub strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
+    .hero-sub strong { color: var(--accent); font-weight: 600; }
 
     .scroll-indicator {
       position: absolute;
@@ -189,7 +230,7 @@
       50% { opacity: 1; transform: scaleY(1); }
     }
 
-    /* ===================== STATS ROW ===================== */
+    /* ===================== STATS ===================== */
     .stats-row {
       padding: 100px 48px;
       max-width: 960px;
@@ -201,8 +242,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 48px;
     }
-
-    .stat-item {}
 
     .stat-num {
       font-family: 'JetBrains Mono', monospace;
@@ -221,20 +260,7 @@
       line-height: 1.5;
     }
 
-    /* ===================== EDITORIAL ===================== */
-    .editorial {
-      padding: 80px 48px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .editorial p {
-      font-size: clamp(16px, 1.5vw, 18px);
-      color: var(--text-secondary);
-      line-height: 1.85;
-      font-weight: 300;
-    }
-
+    /* ===================== PULL QUOTE ===================== */
     .pull {
       font-family: 'Playfair Display', serif;
       font-size: clamp(22px, 3vw, 36px);
@@ -258,15 +284,6 @@
       margin: 0 auto;
     }
 
-    .what-section .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 40px;
-    }
-
     .what-section p {
       font-size: clamp(16px, 1.5vw, 18px);
       color: var(--text-secondary);
@@ -275,10 +292,7 @@
       margin-bottom: 24px;
     }
 
-    .what-section p strong {
-      color: var(--text);
-      font-weight: 600;
-    }
+    .what-section p strong { color: var(--text); font-weight: 600; }
 
     .arch-terminal {
       font-family: 'JetBrains Mono', monospace;
@@ -311,19 +325,10 @@
       margin: 0 auto;
     }
 
-    .moat-section .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 40px;
-    }
-
     .moat-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      gap: 24px;
     }
 
     .moat-card {
@@ -334,7 +339,7 @@
       transition: border-color 0.3s;
     }
 
-    .moat-card:hover { border-color: var(--accent-glow); }
+    .moat-card:hover { border-color: rgba(0,240,212,0.2); }
 
     .moat-card h3 {
       font-family: 'JetBrains Mono', monospace;
@@ -342,7 +347,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .moat-card p {
@@ -352,20 +357,28 @@
       font-weight: 300;
     }
 
+    /* ===================== MARKET ===================== */
+    .market-row {
+      padding: 80px 48px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .market-stat .stat-num {
+      font-size: clamp(48px, 8vw, 80px);
+    }
+
     /* ===================== TEAM ===================== */
     .team {
       padding: 80px 48px;
       max-width: 860px;
       margin: 0 auto;
-    }
-
-    .team .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 48px;
     }
 
     .team-member {
@@ -389,19 +402,10 @@
       transition: filter 0.4s, border-color 0.4s;
     }
 
-    .team-member:hover .team-photo {
-      filter: grayscale(0%);
-      border-color: var(--accent-glow);
-    }
+    .team-member:hover .team-photo { filter: grayscale(0%); border-color: var(--accent-glow); }
 
     .team-info { flex: 1; }
-
-    .team-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 4px;
-    }
+    .team-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 
     .team-name {
       font-family: 'Playfair Display', serif;
@@ -420,11 +424,9 @@
     }
 
     .team-linkedin:hover { opacity: 1; }
-
     .team-linkedin svg { width: 16px; height: 16px; fill: var(--text); }
 
     .team-role {
-      font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 600;
       color: var(--text);
@@ -484,7 +486,7 @@
       gap: 36px 48px;
     }
 
-    .logo-img {
+    .logo-img, .logo-img-dark {
       height: 44px;
       width: auto;
       max-width: 160px;
@@ -492,22 +494,23 @@
       opacity: 0.8;
       transition: opacity 0.4s;
       cursor: default;
-    }
-
-    .logo-img:hover { opacity: 1; }
-
-    .logo-img-dark {
-      height: 44px;
-      width: auto;
-      max-width: 160px;
-      object-fit: contain;
       border-radius: 4px;
+    }
+
+    .logo-img:hover, .logo-img-dark:hover { opacity: 1; }
+
+    .logo-img-invert {
+      height: 44px;
+      width: auto;
+      max-width: 56px;
+      object-fit: contain;
       opacity: 0.8;
       transition: opacity 0.4s;
       cursor: default;
+      filter: brightness(0) invert(0.85);
     }
 
-    .logo-img-dark:hover { opacity: 1; }
+    .logo-img-invert:hover { opacity: 1; }
 
     /* ===================== CTA ===================== */
     .cta {
@@ -515,6 +518,19 @@
       max-width: 860px;
       margin: 0 auto;
       text-align: center;
+      position: relative;
+    }
+
+    .cta-orb {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,240,212,0.06) 0%, transparent 60%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
     }
 
     .cta h2 {
@@ -524,6 +540,7 @@
       line-height: 1.15;
       letter-spacing: -1px;
       margin-bottom: 24px;
+      position: relative;
     }
 
     .cta h2 .dim { color: var(--text-muted); }
@@ -537,6 +554,7 @@
       margin-left: auto;
       margin-right: auto;
       line-height: 1.7;
+      position: relative;
     }
 
     .waitlist-form {
@@ -544,6 +562,7 @@
       gap: 0;
       max-width: 480px;
       margin: 0 auto;
+      position: relative;
     }
 
     .waitlist-form input {
@@ -596,6 +615,7 @@
       color: var(--text-muted);
       letter-spacing: 2px;
       text-transform: uppercase;
+      position: relative;
     }
 
     /* ===================== FOOTER ===================== */
@@ -611,6 +631,20 @@
       margin: 0 auto;
     }
 
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-loc {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer-loc svg { width: 12px; height: 12px; fill: var(--text-muted); }
+
     footer a {
       color: var(--text-muted);
       text-decoration: none;
@@ -624,13 +658,15 @@
       nav { padding: 16px 24px; }
       .hero { padding: 100px 24px 60px; }
       .hero-wordmark { display: none; }
+      .hero-orb { width: 300px; height: 300px; right: -100px; }
       .stats-row { padding: 64px 24px; }
       .stats-grid { grid-template-columns: 1fr; gap: 40px; }
-      .editorial { padding: 48px 24px; }
       .pull-standalone { padding: 48px 24px; }
       .what-section { padding: 48px 24px; }
       .moat-section { padding: 48px 24px; }
       .moat-grid { grid-template-columns: 1fr; }
+      .market-row { padding: 48px 24px; }
+      .market-grid { grid-template-columns: 1fr; gap: 40px; }
       .team { padding: 48px 24px; }
       .team-member { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
       .team-header { justify-content: center; }
@@ -651,7 +687,7 @@
 
   <div class="progress" id="progress"></div>
 
-  <!-- ==================== NAV ==================== -->
+  <!-- NAV -->
   <nav>
     <div class="nav-brand">YU<span>.</span></div>
     <div class="nav-status">
@@ -660,8 +696,9 @@
     </div>
   </nav>
 
-  <!-- ==================== HERO ==================== -->
+  <!-- HERO -->
   <section class="hero">
+    <div class="hero-orb"></div>
     <div class="hero-wordmark">YU</div>
     <h1>
       Your employees are burning out.<br>
@@ -679,7 +716,7 @@
 
   <hr class="div">
 
-  <!-- ==================== STATS (consolidated) ==================== -->
+  <!-- STATS -->
   <section class="stats-row">
     <div class="stats-grid">
       <div class="stat-item reveal">
@@ -699,7 +736,7 @@
 
   <hr class="div">
 
-  <!-- ==================== PROBLEM ==================== -->
+  <!-- PULL QUOTE -->
   <section class="pull-standalone reveal">
     <div class="pull">
       The gap between early warning and intervention is a $190 billion market failure. Nobody is detecting the problem before it becomes one.
@@ -708,7 +745,7 @@
 
   <hr class="div">
 
-  <!-- ==================== WHAT YU IS ==================== -->
+  <!-- WHAT YU DOES -->
   <section class="what-section">
     <div class="section-label reveal">What YU does</div>
     <p class="reveal">
@@ -728,7 +765,7 @@
 
   <hr class="div">
 
-  <!-- ==================== MOAT ==================== -->
+  <!-- WHY THIS COMPOUNDS -->
   <section class="moat-section">
     <div class="section-label reveal">Why this compounds</div>
     <div class="moat-grid">
@@ -742,34 +779,33 @@
       </div>
       <div class="moat-card reveal reveal-delay-2">
         <h3>Clinical design</h3>
-        <p>Every intervention is CBT-informed and crafted by a licensed clinical psychologist with published research.</p>
+        <p>Every intervention is CBT-informed, crafted by a licensed clinical psychologist with published research.</p>
       </div>
       <div class="moat-card reveal reveal-delay-3">
         <h3>On-device AI</h3>
-        <p>Data never leaves the machine. Not just a privacy feature. A regulatory moat for healthcare, finance, and government.</p>
+        <p>Data never leaves the machine. A regulatory moat for healthcare, finance, and government.</p>
       </div>
     </div>
   </section>
 
   <hr class="div">
 
-  <!-- ==================== MARKET ==================== -->
-  <section class="stats-row">
-    <div class="stats-grid" style="grid-template-columns: 1fr 1fr;">
-      <div class="stat-item reveal">
+  <!-- MARKET -->
+  <section class="market-row">
+    <div class="market-grid">
+      <div class="market-stat reveal">
         <div class="stat-num" data-target="106" data-prefix="$" data-suffix="B">$106B</div>
         <p class="stat-label">Global corporate wellness market by 2029</p>
       </div>
-      <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-num" data-target="0" data-prefix="" data-suffix="" data-static="true">0</div>
-        <p class="stat-label">Dominant incumbents in the SME-native, AI-first, preventive segment</p>
+      <div class="market-stat reveal reveal-delay-1">
+        <div class="pull" style="margin-top: 8px;">No dominant incumbent in the SME-native, AI-first, preventive segment. That's our lane.</div>
       </div>
     </div>
   </section>
 
   <hr class="div">
 
-  <!-- ==================== TEAM ==================== -->
+  <!-- TEAM -->
   <section class="team">
     <div class="section-label reveal">The team</div>
     <div class="team-member reveal">
@@ -781,9 +817,7 @@
         </div>
         <div class="team-role">The Science</div>
         <div class="team-inst">Harvard | Boston Children's Hospital | PhD UFRGS</div>
-        <p class="team-bio">
-          PhD in Psychiatry & Digital Mental Health. Research Fellow at Boston Children's Hospital (Harvard Medical School). Studies how wearable data predicts mental health decline. Published in AI-enabled interventions. Licensed clinical psychologist. Built the algorithm from her own research.
-        </p>
+        <p class="team-bio">PhD in Psychiatry & Digital Mental Health. Research Fellow at Boston Children's Hospital (Harvard Medical School). Studies how wearable data predicts mental health decline. Published in AI-enabled interventions. Licensed clinical psychologist. Built the algorithm from her own research.</p>
       </div>
     </div>
     <div class="team-member reveal">
@@ -795,9 +829,7 @@
         </div>
         <div class="team-role">The Operator</div>
         <div class="team-inst">MIT Sloan Fellow MBA '26 | Lived the Problem. Built the Solution.</div>
-        <p class="team-bio">
-          Led his family's metallurgical business for 11 years. The loneliness, the pressure, the weight of keeping a small business alive consumed him. 80 lbs overweight was just the symptom. The real damage was invisible. No one asked. No system caught it. He pulled himself out: lost every pound, finished Ironman 70.3 and Boston Marathon. Now building what he needed and never had. Because every small and mid-size business owner knows this feeling. Most just never say it.
-        </p>
+        <p class="team-bio">Led his family's metallurgical business for 11 years. The loneliness, the pressure, the weight of keeping a small business alive consumed him. 80 lbs overweight was just the symptom. The real damage was invisible. No one asked. No system caught it. He pulled himself out: lost every pound, finished Ironman 70.3 and Boston Marathon. Now building what he needed and never had. Because every small and mid-size business owner knows this feeling. Most just never say it.</p>
       </div>
     </div>
     <div class="team-member reveal">
@@ -809,9 +841,7 @@
         </div>
         <div class="team-role">The Engine</div>
         <div class="team-inst">Finance & Global Scale</div>
-        <p class="team-bio">
-          Scaled a CPG brand from Mexico to 40+ countries. Co-founded two companies. Built financial infrastructure from zero to international distribution across three continents. Turns products into businesses with real unit economics.
-        </p>
+        <p class="team-bio">Scaled a CPG brand from Mexico to 40+ countries. Co-founded two companies. Built financial infrastructure from zero to international distribution across three continents. Turns products into businesses with real unit economics.</p>
       </div>
     </div>
     <div class="team-closing reveal">
@@ -821,12 +851,12 @@
 
   <hr class="div">
 
-  <!-- ==================== INSTITUTIONAL LOGOS ==================== -->
+  <!-- LOGOS -->
   <section class="logos reveal">
     <p class="logos-label">Built from</p>
     <div class="logos-grid">
       <img src="logos/ai_studio.png" alt="MIT AI Studio" class="logo-img-dark">
-      <img src="logos/harvard_shield.png" alt="Harvard" class="logo-img">
+      <img src="logos/harvard_shield.png" alt="Harvard" class="logo-img-invert">
       <img src="logos/mit_sloan.png" alt="MIT Sloan" class="logo-img">
       <img src="logos/mtc.png" alt="Martin Trust Center for MIT Entrepreneurship" class="logo-img-dark">
       <img src="logos/mit_sandbox_new.png" alt="MIT Sandbox Innovation Fund" class="logo-img-dark">
@@ -835,8 +865,9 @@
 
   <hr class="div">
 
-  <!-- ==================== CTA ==================== -->
+  <!-- CTA -->
   <section class="cta">
+    <div class="cta-orb"></div>
     <h2 class="reveal">The window is open.<br><span class="dim">It won't stay open.</span></h2>
     <p class="cta-sub reveal reveal-delay-1">
       YU is piloting with Boston companies starting June 2026. Early-access employers and strategic investors only.
@@ -849,9 +880,16 @@
     <p class="cta-scarcity reveal reveal-delay-2">Accepting 10 pilot companies</p>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- FOOTER -->
   <footer>
-    <span>yu.boston | Boston, MA | &copy; 2026</span>
+    <div class="footer-left">
+      <span>YU</span>
+      <span>&copy; 2026</span>
+      <span class="footer-loc">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Boston, MA
+      </span>
+    </div>
     <a href="mailto:omar@yu.boston">omar@yu.boston</a>
   </footer>
 
@@ -868,7 +906,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Stat counter animation
+    // Stat counter
     function animateCount(el, target, prefix, suffix) {
       const duration = 1400;
       const start = performance.now();
@@ -893,7 +931,7 @@
       }, { threshold: 0.5 }).observe(el);
     });
 
-    // Waitlist form
+    // Waitlist
     const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwMbUn_PzOpxl9eK2l2RrfW1xgBwwdNlWTIkwBcmU1G2JpC5PGj3ln36e1dOcNgqfA/exec';
 
     document.getElementById('waitlistForm').addEventListener('submit', function(e) {

@@ -264,51 +264,82 @@
     </div>
     <div class="r" style="margin-top:48px;text-align:center;">
       <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--a);margin-bottom:32px;">The reinforcement loop</p>
-      <svg viewBox="0 0 700 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:680px;width:100%;height:auto;margin:0 auto;">
+      <svg id="loopSvg" viewBox="0 0 700 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:680px;width:100%;height:auto;margin:0 auto;">
+        <style>
+          .ln0{opacity:0;transition:opacity .6s ease}.loop-active .ln0{opacity:1}
+          .ln1{opacity:0;transition:opacity .6s ease .2s}.loop-active .ln1{opacity:1}
+          .ln2{opacity:0;transition:opacity .6s ease .4s}.loop-active .ln2{opacity:1}
+          .ln3{opacity:0;transition:opacity .6s ease .6s}.loop-active .ln3{opacity:1}
+          .ln4{opacity:0;transition:opacity .6s ease .8s}.loop-active .ln4{opacity:1}
+          .ln5{opacity:0;transition:opacity .6s ease 1s}.loop-active .ln5{opacity:1}
+          .ln6{opacity:0;transition:opacity .6s ease 1.2s}.loop-active .ln6{opacity:1}
+          .ln7{opacity:0;transition:opacity .6s ease 1.4s}.loop-active .ln7{opacity:1}
+          .lpath{stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 2.5s ease .1s}.loop-active .lpath{stroke-dashoffset:0}
+          .lcenter{opacity:0;transition:opacity .8s ease 1.6s}.loop-active .lcenter{opacity:1}
+          .larrow{opacity:0;transition:opacity .5s ease 2.2s}.loop-active .larrow{opacity:0.5}
+        </style>
         <!-- Glow behind the loop -->
         <circle cx="350" cy="220" r="160" fill="rgba(0,240,212,0.04)"/>
         <!-- Circular path with arrows -->
-        <path d="M350 52 C530 52, 648 140, 648 220 C648 300, 530 388, 350 388 C170 388, 52 300, 52 220 C52 140, 170 52, 350 52" stroke="rgba(0,240,212,0.25)" stroke-width="2" fill="none" stroke-dasharray="8 6"/>
+        <path class="lpath" d="M350 52 C530 52, 648 140, 648 220 C648 300, 530 388, 350 388 C170 388, 52 300, 52 220 C52 140, 170 52, 350 52" stroke="rgba(0,240,212,0.25)" stroke-width="2" fill="none"/>
         <!-- Directional arrows -->
-        <polygon points="400,50 386,38 386,62" fill="#00F0D4" opacity="0.6"/>
-        <polygon points="300,390 314,402 314,378" fill="#00F0D4" opacity="0.6"/>
-        <polygon points="650,240 662,226 638,226" fill="#00F0D4" opacity="0.3"/>
-        <polygon points="50,200 38,214 62,214" fill="#00F0D4" opacity="0.3"/>
+        <polygon class="larrow" points="400,50 386,38 386,62" fill="#00F0D4"/>
+        <polygon class="larrow" points="300,390 314,402 314,378" fill="#00F0D4"/>
+        <polygon class="larrow" points="650,240 662,226 638,226" fill="#00F0D4"/>
+        <polygon class="larrow" points="50,200 38,214 62,214" fill="#00F0D4"/>
         <!-- Center -->
-        <text x="350" y="212" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="36" font-weight="600" fill="#00F0D4" letter-spacing="8">YU</text>
-        <text x="350" y="240" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#F5F5F7" letter-spacing="3" opacity="0.5">EVERY CYCLE GETS SMARTER</text>
+        <g class="lcenter">
+          <text x="350" y="212" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="36" font-weight="600" fill="#00F0D4" letter-spacing="8">YU</text>
+          <text x="350" y="240" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#F5F5F7" letter-spacing="3" opacity="0.5">EVERY CYCLE GETS SMARTER</text>
+        </g>
         <!-- Node 1: Check-in (top center) -->
-        <rect x="248" y="14" width="204" height="56" rx="6" fill="#111113" stroke="#00F0D4" stroke-width="1.5"/>
-        <text x="350" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">30-SEC CHECK-IN</text>
-        <text x="350" y="56" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Mood, energy, sleep</text>
+        <g class="ln0">
+          <rect x="248" y="14" width="204" height="56" rx="6" fill="#111113" stroke="#00F0D4" stroke-width="1.5"/>
+          <text x="350" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">30-SEC CHECK-IN</text>
+          <text x="350" y="56" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Mood, energy, sleep</text>
+        </g>
         <!-- Node 2: Baseline (top right) -->
-        <rect x="530" y="82" width="168" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <text x="614" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">BASELINE BUILDS</text>
-        <text x="614" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Personal normal emerges</text>
+        <g class="ln1">
+          <rect x="530" y="82" width="168" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="614" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">BASELINE BUILDS</text>
+          <text x="614" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Personal normal emerges</text>
+        </g>
         <!-- Node 3: Detection (right) - HIGHLIGHTED -->
-        <rect x="536" y="180" width="160" height="56" rx="6" fill="rgba(0,240,212,0.08)" stroke="#00F0D4" stroke-width="1.5"/>
-        <text x="616" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00F0D4" font-weight="600" letter-spacing="2">DRIFT DETECTED</text>
-        <text x="616" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#00F0D4" opacity="0.7">3-7 days early</text>
+        <g class="ln2">
+          <rect x="536" y="180" width="160" height="56" rx="6" fill="rgba(0,240,212,0.08)" stroke="#00F0D4" stroke-width="1.5"/>
+          <text x="616" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00F0D4" font-weight="600" letter-spacing="2">DRIFT DETECTED</text>
+          <text x="616" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#00F0D4" opacity="0.7">3-7 days early</text>
+        </g>
         <!-- Node 4: Provider (bottom right) -->
-        <rect x="494" y="286" width="204" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <text x="596" y="311" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">LOCAL PROVIDER</text>
-        <text x="596" y="328" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Booked in real time</text>
+        <g class="ln3">
+          <rect x="494" y="286" width="204" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="596" y="311" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">LOCAL PROVIDER</text>
+          <text x="596" y="328" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Booked in real time</text>
+        </g>
         <!-- Node 5: Employee acts (bottom center) -->
-        <rect x="248" y="370" width="204" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <text x="350" y="395" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">EMPLOYEE ACTS</text>
-        <text x="350" y="412" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Yoga, run club, breathwork</text>
+        <g class="ln4">
+          <rect x="248" y="370" width="204" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="350" y="395" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">EMPLOYEE ACTS</text>
+          <text x="350" y="412" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Yoga, run club, breathwork</text>
+        </g>
         <!-- Node 6: Richer data (bottom left) -->
-        <rect x="14" y="286" width="184" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <text x="106" y="311" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">RICHER DATA</text>
-        <text x="106" y="328" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Outcome feeds the model</text>
+        <g class="ln5">
+          <rect x="14" y="286" width="184" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="106" y="311" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">RICHER DATA</text>
+          <text x="106" y="328" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Outcome feeds the model</text>
+        </g>
         <!-- Node 7: Smarter baseline (left) - HIGHLIGHTED -->
-        <rect x="4" y="180" width="196" height="56" rx="6" fill="rgba(0,240,212,0.08)" stroke="#00F0D4" stroke-width="1.5"/>
-        <text x="102" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00F0D4" font-weight="600" letter-spacing="2">SMARTER BASELINE</text>
-        <text x="102" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#00F0D4" opacity="0.7">Compounding moat</text>
+        <g class="ln6">
+          <rect x="4" y="180" width="196" height="56" rx="6" fill="rgba(0,240,212,0.08)" stroke="#00F0D4" stroke-width="1.5"/>
+          <text x="102" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00F0D4" font-weight="600" letter-spacing="2">SMARTER BASELINE</text>
+          <text x="102" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#00F0D4" opacity="0.7">Compounding moat</text>
+        </g>
         <!-- Node 8: Switching cost (top left) -->
-        <rect x="4" y="82" width="196" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <text x="102" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">SWITCHING COST</text>
-        <text x="102" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Rises every week</text>
+        <g class="ln7">
+          <rect x="4" y="82" width="196" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="102" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">SWITCHING COST</text>
+          <text x="102" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Rises every week</text>
+        </g>
       </svg>
       <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,1.8vw,20px);color:var(--t);font-weight:600;margin-top:32px;line-height:1.4;">After 90 days, no competitor can replicate the baseline.</p>
     </div>
@@ -400,6 +431,7 @@
     });
     const ob=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.12});
     document.querySelectorAll('.r').forEach(el=>ob.observe(el));
+    const ls=document.getElementById('loopSvg');if(ls){let lf=false;new IntersectionObserver(e=>{if(e[0].isIntersecting&&!lf){lf=true;ls.classList.add('loop-active')}},{threshold:.3}).observe(ls)}
     function ac(el,t,p,s){const d=1400,st=performance.now();function step(n){const pr=Math.min((n-st)/d,1),e=1-Math.pow(1-pr,3);el.textContent=p+Math.floor(e*t).toLocaleString()+s;if(pr<1)requestAnimationFrame(step);else el.textContent=p+t.toLocaleString()+s}requestAnimationFrame(step)}
     document.querySelectorAll('.sn').forEach(el=>{if(el.dataset.static)return;let f=false;new IntersectionObserver(e=>{if(e[0].isIntersecting&&!f){f=true;ac(el,+el.dataset.target,el.dataset.prefix,el.dataset.suffix)}},{threshold:.5}).observe(el)});
     const SU='https://script.google.com/macros/s/AKfycbwMbUn_PzOpxl9eK2l2RrfW1xgBwwdNlWTIkwBcmU1G2JpC5PGj3ln36e1dOcNgqfA/exec';

@@ -259,43 +259,54 @@
       <p class="card-p">Employer-sponsored. Team-level anonymous insights only. Unit economics modeled for 20-200 employee companies. The employee never pays, never installs anything, and never worries about who sees their data.</p>
     </div>
     <div class="r" style="margin-top:48px;text-align:center;">
-      <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--t3);margin-bottom:24px;">The reinforcement loop</p>
-      <svg viewBox="0 0 600 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:560px;width:100%;height:auto;margin:0 auto;">
-        <!-- Circular arrow path -->
-        <path d="M300 40 C460 40, 560 140, 560 170 C560 200, 460 300, 300 300 C140 300, 40 200, 40 170 C40 140, 140 40, 300 40" stroke="rgba(0,240,212,0.15)" stroke-width="1.5" fill="none"/>
-        <!-- Arrow heads on the path -->
-        <polygon points="340,38 328,28 328,48" fill="#00F0D4" opacity="0.4"/>
-        <polygon points="260,302 272,312 272,292" fill="#00F0D4" opacity="0.4"/>
-        <!-- Center label -->
-        <text x="300" y="166" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="28" font-weight="600" fill="#00F0D4" letter-spacing="6">YU</text>
-        <text x="300" y="188" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#48484A" letter-spacing="3">EVERY CYCLE GETS SMARTER</text>
-        <!-- Node 1: Check-in (top) -->
-        <rect x="218" y="10" width="164" height="44" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
-        <text x="300" y="37" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8E8E93" letter-spacing="1">Check-in</text>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--a);margin-bottom:32px;">The reinforcement loop</p>
+      <svg viewBox="0 0 700 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:680px;width:100%;height:auto;margin:0 auto;">
+        <!-- Glow behind the loop -->
+        <circle cx="350" cy="220" r="160" fill="rgba(0,240,212,0.04)"/>
+        <!-- Circular path with arrows -->
+        <path d="M350 52 C530 52, 648 140, 648 220 C648 300, 530 388, 350 388 C170 388, 52 300, 52 220 C52 140, 170 52, 350 52" stroke="rgba(0,240,212,0.25)" stroke-width="2" fill="none" stroke-dasharray="8 6"/>
+        <!-- Directional arrows -->
+        <polygon points="400,50 386,38 386,62" fill="#00F0D4" opacity="0.6"/>
+        <polygon points="300,390 314,402 314,378" fill="#00F0D4" opacity="0.6"/>
+        <polygon points="650,240 662,226 638,226" fill="#00F0D4" opacity="0.3"/>
+        <polygon points="50,200 38,214 62,214" fill="#00F0D4" opacity="0.3"/>
+        <!-- Center -->
+        <text x="350" y="212" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="36" font-weight="600" fill="#00F0D4" letter-spacing="8">YU</text>
+        <text x="350" y="240" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#F5F5F7" letter-spacing="3" opacity="0.5">EVERY CYCLE GETS SMARTER</text>
+        <!-- Node 1: Check-in (top center) -->
+        <rect x="248" y="14" width="204" height="56" rx="6" fill="#111113" stroke="#00F0D4" stroke-width="1.5"/>
+        <text x="350" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">30-SEC CHECK-IN</text>
+        <text x="350" y="56" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Mood, energy, sleep</text>
         <!-- Node 2: Baseline (top right) -->
-        <rect x="460" y="70" width="134" height="44" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
-        <text x="527" y="97" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8E8E93" letter-spacing="1">Baseline builds</text>
-        <!-- Node 3: Detection (right) -->
-        <rect x="468" y="148" width="128" height="44" rx="4" fill="#111113" stroke="rgba(0,240,212,0.2)"/>
-        <text x="532" y="175" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00F0D4" letter-spacing="1">Drift detected</text>
-        <!-- Node 4: Intervention (bottom right) -->
-        <rect x="434" y="232" width="164" height="44" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
-        <text x="516" y="253" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8E8E93" letter-spacing="1">Matched to a local</text>
-        <text x="516" y="267" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8E8E93" letter-spacing="1">provider in real time</text>
-        <!-- Node 5: Action (bottom) -->
-        <rect x="218" y="280" width="164" height="44" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
-        <text x="300" y="307" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8E8E93" letter-spacing="1">Employee acts</text>
-        <!-- Node 6: Better data (bottom left) -->
-        <rect x="14" y="232" width="148" height="44" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
-        <text x="88" y="259" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8E8E93" letter-spacing="1">Richer data</text>
-        <!-- Node 7: Smarter model (left) -->
-        <rect x="4" y="148" width="160" height="44" rx="4" fill="#111113" stroke="rgba(0,240,212,0.2)"/>
-        <text x="84" y="175" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00F0D4" letter-spacing="1">Smarter baseline</text>
+        <rect x="530" y="82" width="168" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="614" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">BASELINE BUILDS</text>
+        <text x="614" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Personal normal emerges</text>
+        <!-- Node 3: Detection (right) - HIGHLIGHTED -->
+        <rect x="536" y="180" width="160" height="56" rx="6" fill="rgba(0,240,212,0.08)" stroke="#00F0D4" stroke-width="1.5"/>
+        <text x="616" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00F0D4" font-weight="600" letter-spacing="2">DRIFT DETECTED</text>
+        <text x="616" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#00F0D4" opacity="0.7">3-7 days early</text>
+        <!-- Node 4: Provider (bottom right) -->
+        <rect x="494" y="286" width="204" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="596" y="311" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">LOCAL PROVIDER</text>
+        <text x="596" y="328" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Booked in real time</text>
+        <!-- Node 5: Employee acts (bottom center) -->
+        <rect x="248" y="370" width="204" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="350" y="395" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">EMPLOYEE ACTS</text>
+        <text x="350" y="412" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Yoga, run club, breathwork</text>
+        <!-- Node 6: Richer data (bottom left) -->
+        <rect x="14" y="286" width="184" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="106" y="311" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">RICHER DATA</text>
+        <text x="106" y="328" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Outcome feeds the model</text>
+        <!-- Node 7: Smarter baseline (left) - HIGHLIGHTED -->
+        <rect x="4" y="180" width="196" height="56" rx="6" fill="rgba(0,240,212,0.08)" stroke="#00F0D4" stroke-width="1.5"/>
+        <text x="102" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00F0D4" font-weight="600" letter-spacing="2">SMARTER BASELINE</text>
+        <text x="102" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#00F0D4" opacity="0.7">Compounding moat</text>
         <!-- Node 8: Switching cost (top left) -->
-        <rect x="14" y="70" width="164" height="44" rx="4" fill="#111113" stroke="rgba(255,255,255,0.06)"/>
-        <text x="96" y="97" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8E8E93" letter-spacing="1">Switching cost rises</text>
+        <rect x="4" y="82" width="196" height="56" rx="6" fill="#111113" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="102" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F5F5F7" font-weight="600" letter-spacing="2">SWITCHING COST</text>
+        <text x="102" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8E8E93">Rises every week</text>
       </svg>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t3);margin-top:20px;letter-spacing:1px;">Detection improves with every cycle. After 90 days, no competitor can replicate the baseline.</p>
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,20px);color:var(--t);font-weight:600;margin-top:32px;line-height:1.4;">After 90 days, no competitor can replicate the baseline.</p>
     </div>
   </section>
 

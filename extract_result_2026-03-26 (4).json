@@ -1,0 +1,3227 @@
+{
+  "job_id": "7124a5ea-8ba6-461d-8500-abbb986f9224",
+  "usage": {
+    "num_pages": 11,
+    "num_fields": 117,
+    "credits": 44,
+    "extract_mode": "extract"
+  },
+  "studio_link": "https://studio.reducto.ai/job/7124a5ea-8ba6-461d-8500-abbb986f9224",
+  "result": {
+    "project_name": {
+      "value": "SIGNAL",
+      "citations": [
+        {
+          "type": "Text",
+          "bbox": {
+            "left": 0.019444444444444445,
+            "top": 0.20468557336621454,
+            "width": 0.4166666666666667,
+            "height": 0.1381011097410604,
+            "page": 1,
+            "original_page": 1
+          },
+          "content": "SIGNAL",
+          "image_url": null,
+          "chart_data": null,
+          "confidence": "high",
+          "granular_confidence": {
+            "extract_confidence": 0.992,
+            "parse_confidence": 0.9050915747880935
+          },
+          "extra": null
+        }
+      ]
+    },
+    "tagline": {
+      "value": "Behavioral Intelligence for Human Performance",
+      "citations": [
+        {
+          "type": "Text",
+          "bbox": {
+            "left": 0.022916666666666665,
+            "top": 0.4278668310727497,
+            "width": 0.5048611111111111,
+            "height": 0.038224414303329235,
+            "page": 1,
+            "original_page": 1
+          },
+          "content": "Behavioral Intelligence for Human Performance",
+          "image_url": null,
+          "chart_data": null,
+          "confidence": "high",
+          "granular_confidence": {
+            "extract_confidence": 0.991,
+            "parse_confidence": 0.7670960158109665
+          },
+          "extra": null
+        }
+      ]
+    },
+    "publication_date": {
+      "value": "2026-03-01",
+      "citations": [
+        {
+          "type": "Text",
+          "bbox": {
+            "left": 0.4888888888888889,
+            "top": 0.7299630086313194,
+            "width": 0.030555555555555555,
+            "height": 0.018495684340320593,
+            "page": 1,
+            "original_page": 1
+          },
+          "content": "2026-03-01",
+          "image_url": null,
+          "chart_data": null,
+          "confidence": "high",
+          "granular_confidence": {
+            "extract_confidence": 0.99,
+            "parse_confidence": 0.6486667066812516
+          },
+          "extra": null
+        }
+      ]
+    },
+    "affiliated_entities": [
+      {
+        "name": {
+          "value": "MIT Media Lab",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.022222222222222223,
+                "top": 0.7299630086313194,
+                "width": 0.08819444444444444,
+                "height": 0.022194821208384674,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "MIT Media Lab",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6486667066812516
+              },
+              "extra": null
+            }
+          ]
+        },
+        "type": {
+          "value": "university",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.022222222222222223,
+                "top": 0.7299630086313194,
+                "width": 0.0875,
+                "height": 0.018495684340320593,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "university",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "low",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6486667066812516
+              },
+              "extra": null
+            }
+          ]
+        },
+        "year": {
+          "value": 2026,
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.4895833333333333,
+                "top": 0.7299630086313194,
+                "width": 0.02986111111111106,
+                "height": 0.022194821208384674,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "2026",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6486667066812516
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "name": {
+          "value": "Boston Children's Hospital / Harvard Medical School",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.125,
+                "top": 0.7299630086313194,
+                "width": 0.30625,
+                "height": 0.018495684340320593,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "Boston Children's Hospital / Harvard Medical School",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "low",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6486667066812516
+              },
+              "extra": null
+            }
+          ]
+        },
+        "type": {
+          "value": "hospital",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.2326388888888889,
+                "top": 0.7299630086313194,
+                "width": 0.04791666666666666,
+                "height": 0.022194821208384674,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "Hospital",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6486667066812516
+              },
+              "extra": null
+            }
+          ]
+        },
+        "year": {
+          "value": 2026,
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.4895833333333333,
+                "top": 0.7299630086313194,
+                "width": 0.02986111111111106,
+                "height": 0.022194821208384674,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "2026",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6486667066812516
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "name": {
+          "value": "Harvard University",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.1597222222222222,
+                "top": 0.9457459926017263,
+                "width": 0.09999999999999998,
+                "height": 0.018495684340320562,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "Harvard University",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6101057440042496
+              },
+              "extra": null
+            }
+          ]
+        },
+        "type": {
+          "value": "university",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.2048611111111111,
+                "top": 0.9457459926017263,
+                "width": 0.05486111111111108,
+                "height": 0.018495684340320562,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "University",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6101057440042496
+              },
+              "extra": null
+            }
+          ]
+        },
+        "year": {
+          "value": 2026,
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.27291666666666664,
+                "top": 0.9457459926017263,
+                "width": 0.027083333333333348,
+                "height": 0.018495684340320562,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "2026",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6101057440042496
+              },
+              "extra": null
+            }
+          ]
+        }
+      }
+    ],
+    "team_members": [
+      {
+        "name": {
+          "value": "Aline Zimerman",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.020833333333333332,
+                "top": 0.6621454993834772,
+                "width": 0.1125,
+                "height": 0.019728729963008673,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "Aline Zimerman",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6693186089396477
+              },
+              "extra": null
+            }
+          ]
+        },
+        "role": {
+          "value": "PhD Fellow",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.04027777777777778,
+                "top": 0.3477188655980271,
+                "width": 0.06527777777777778,
+                "height": 0.016029593094944512,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "PhD Fellow",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8078037381172181
+              },
+              "extra": null
+            }
+          ]
+        },
+        "affiliation": {
+          "value": "Boston Children's Hospital / Harvard Medical School",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.03958333333333333,
+                "top": 0.37731196054254007,
+                "width": 0.26319444444444445,
+                "height": 0.01972872996300863,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "Boston Children's Hospital / Harvard Medical School",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8078037381172181
+              },
+              "extra": null
+            },
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.03958333333333333,
+                "top": 0.4081381011097411,
+                "width": 0.03888888888888889,
+                "height": 0.01726263871763255,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "Boston Children's Hospital / Harvard Medical School",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8078037381172181
+              },
+              "extra": null
+            }
+          ]
+        },
+        "expertise_and_contribution": {
+          "value": "PhD research on digital phenotyping and passive behavioral sensing using smartphone and wearable data to detect mental health signals; provides clinically validated behavioral markers; research relationships at Boston Children's Hospital / HMS for clinical monitoring partnerships.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.020833333333333332,
+                "top": 0.9186189889025894,
+                "width": 0.9256944444444445,
+                "height": 0.04315659679408138,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "PhD research on digital phenotyping and passive behavioral sensing using smartphone and wearable data to detect mental health signals; provides clinically validated behavioral markers; research relationships at Boston Children's Hospital / HMS for clinical monitoring partnerships.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "low",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.7206467777490616
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "name": {
+          "value": "Colin McGonigle",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.16111111111111112,
+                "top": 0.6596794081381011,
+                "width": 0.11527777777777778,
+                "height": 0.027127003699136898,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "Colin McGonigle",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6693186089396477
+              },
+              "extra": null
+            }
+          ]
+        },
+        "role": {
+          "value": "Sloan Fellow MBA '26",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.3659722222222222,
+                "top": 0.3637484586929716,
+                "width": 0.12638888888888888,
+                "height": 0.016029593094944512,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "Sloan Fellow MBA '26",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9386588871479035
+              },
+              "extra": null
+            }
+          ]
+        },
+        "affiliation": {
+          "value": "MIT Sloan",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.49930555555555556,
+                "top": 0.3637484586929716,
+                "width": 0.02361111111111111,
+                "height": 0.01726263871763255,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "MIT Sloan",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9386588871479035
+              },
+              "extra": null
+            },
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.3659722222222222,
+                "top": 0.3649815043156597,
+                "width": 0.03194444444444444,
+                "height": 0.014796547472256474,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "MIT Sloan",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9386588871479035
+              },
+              "extra": null
+            }
+          ]
+        },
+        "expertise_and_contribution": {
+          "value": "Financial modeling rigor and ROI quantification for corporate wellness buyers; data-driven decision frameworks for enterprise sales; enables analytically credible early-intervention cost-benefit benchmarks for enterprise HR buyers.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.7097222222222223,
+                "top": 0.9186189889025894,
+                "width": 0.21805555555555556,
+                "height": 0.018495684340320593,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "Financial modeling rigor and ROI quantification for corporate wellness buyers; data-driven decision frameworks for enterprise sales; enables analytically credible early-intervention cost-benefit benchmarks for enterprise HR buyers.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "low",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.7206467777490616
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "name": {
+          "value": "Omar Dominguez",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.30416666666666664,
+                "top": 0.6596794081381011,
+                "width": 0.12361111111111112,
+                "height": 0.027127003699136787,
+                "page": 1,
+                "original_page": 1
+              },
+              "content": "Omar Dominguez",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.6693186089396477
+              },
+              "extra": null
+            }
+          ]
+        },
+        "role": {
+          "value": "Sloan Fellow MBA '26; MIT Sandbox Founder",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.6916666666666667,
+                "top": 0.3637484586929716,
+                "width": 0.15694444444444444,
+                "height": 0.04808877928483354,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "Sloan Fellow MBA '26; MIT Sandbox Founder",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8919828325510024
+              },
+              "extra": null
+            }
+          ]
+        },
+        "affiliation": {
+          "value": "MIT",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.8256944444444444,
+                "top": 0.3637484586929716,
+                "width": 0.022916666666666665,
+                "height": 0.01726263871763255,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "MIT",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8919828325510024
+              },
+              "extra": null
+            }
+          ]
+        },
+        "expertise_and_contribution": {
+          "value": "Commercial and engineering operating background; CrossFit HQ relationship and supply-side access to 16,000+ affiliates; drives GTM strategy, studio partnerships, and venture architecture.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.020833333333333332,
+                "top": 0.9186189889025894,
+                "width": 0.9256944444444445,
+                "height": 0.04192355117139334,
+                "page": 10,
+                "original_page": 10
+              },
+              "content": "Commercial and engineering operating background; CrossFit HQ relationship and supply-side access to 16,000+ affiliates; drives GTM strategy, studio partnerships, and venture architecture.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "low",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.7206467777490616
+              },
+              "extra": null
+            }
+          ]
+        }
+      }
+    ],
+    "problem_statement": {
+      "global_depression_anxiety_cost_usd": {
+        "value": 1000000000000,
+        "citations": [
+          {
+            "type": "Text",
+            "bbox": {
+              "left": 0.10416666666666667,
+              "top": 0.32922318125770655,
+              "width": 0.15555555555555556,
+              "height": 0.016029593094944512,
+              "page": 2,
+              "original_page": 2
+            },
+            "content": "1000000000000",
+            "image_url": null,
+            "chart_data": null,
+            "confidence": "high",
+            "granular_confidence": {
+              "extract_confidence": 0.981,
+              "parse_confidence": 0.913600605726242
+            },
+            "extra": null
+          }
+        ]
+      },
+      "avg_delay_to_mental_health_treatment_years": {
+        "value": 11,
+        "citations": [
+          {
+            "type": "Text",
+            "bbox": {
+              "left": 0.4201388888888889,
+              "top": 0.2959309494451295,
+              "width": 0.0020833333333333333,
+              "height": 0.01726263871763255,
+              "page": 2,
+              "original_page": 2
+            },
+            "content": "11",
+            "image_url": null,
+            "chart_data": null,
+            "confidence": "high",
+            "granular_confidence": {
+              "extract_confidence": 0,
+              "parse_confidence": 0.9400959759950638
+            },
+            "extra": null
+          }
+        ]
+      },
+      "health_fitness_data_market_size_usd": {
+        "value": 149000000000,
+        "citations": [
+          {
+            "type": "Text",
+            "bbox": {
+              "left": 0.8875,
+              "top": 0.2959309494451295,
+              "width": 0.01875,
+              "height": 0.01726263871763255,
+              "page": 2,
+              "original_page": 2
+            },
+            "content": "149000000000",
+            "image_url": null,
+            "chart_data": null,
+            "confidence": "high",
+            "granular_confidence": {
+              "extract_confidence": 0,
+              "parse_confidence": 0.9423613011837007
+            },
+            "extra": null
+          }
+        ]
+      },
+      "existing_system_limitations": [
+        {
+          "limitation": {
+            "value": "Passive signals are siloed across platforms; no system reads them together or longitudinally.",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.05555555555555555,
+                  "top": 0.6794081381011098,
+                  "width": 0.6548611111111111,
+                  "height": 0.025893958076448828,
+                  "page": 2,
+                  "original_page": 2
+                },
+                "content": "Passive signals are siloed across platforms; no system reads them together or longitudinally.",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "low",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8063274472951889
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "limitation": {
+            "value": "Insights are population-based; individual baselines and deviations go unmodeled.",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.05555555555555555,
+                  "top": 0.7916152897657214,
+                  "width": 0.5798611111111112,
+                  "height": 0.02219482120838471,
+                  "page": 2,
+                  "original_page": 2
+                },
+                "content": "Insights are population-based; individual baselines and deviations go unmodeled.",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "low",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.7112822815775872
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "limitation": {
+            "value": "No system connects passive early signals to safe, timely, proportionate intervention.",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.05486111111111111,
+                  "top": 0.9013563501849569,
+                  "width": 0.5833333333333334,
+                  "height": 0.02342786683107275,
+                  "page": 2,
+                  "original_page": 2
+                },
+                "content": "No system connects passive early signals to safe, timely, proportionate intervention.",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9343228161334991
+                },
+                "extra": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "signal_solution_pillars": [
+      {
+        "name": {
+          "value": "Passive Sensing",
+          "citations": [
+            {
+              "type": "Section Header",
+              "bbox": {
+                "left": 0.0875,
+                "top": 0.31442663378545005,
+                "width": 0.11458333333333334,
+                "height": 0.013563501849568449,
+                "page": 4,
+                "original_page": 4
+              },
+              "content": "PASSIVE SENSING",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9263732671737671
+              },
+              "extra": null
+            }
+          ]
+        },
+        "tagline": {
+          "value": "No logging. No check-ins. No behavior change.",
+          "citations": [
+            {
+              "type": "Section Header",
+              "bbox": {
+                "left": 0.03958333333333333,
+                "top": 0.374845869297164,
+                "width": 0.18888888888888888,
+                "height": 0.13070283600493215,
+                "page": 4,
+                "original_page": 4
+              },
+              "content": "No logging. No check-ins. No behavior change.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.917800909280777
+              },
+              "extra": null
+            }
+          ]
+        },
+        "description": {
+          "value": "SIGNAL continuously and invisibly ingests passive behavioral and biometric data from wearables (e.g., Oura, Whoop, Apple Watch) without requiring user input, enabling background monitoring of mental health signals.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.027083333333333334,
+                "top": 0.5228113440197287,
+                "width": 0.9430555555555555,
+                "height": 0.02096177558569667,
+                "page": 2,
+                "original_page": 2
+              },
+              "content": "SIGNAL continuously and invisibly ingests passive behavioral and biometric data from wearables (e.g., Oura, Whoop, Apple Watch) without requiring user input, enabling background monitoring of mental health signals.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9288200199604034
+              },
+              "extra": null
+            }
+          ]
+        },
+        "key_aspects": [
+          {
+            "aspect": {
+              "value": "Sleep architecture",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.058333333333333334,
+                    "top": 0.718865598027127,
+                    "width": 0.027777777777777776,
+                    "height": 0.014796547472256474,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Sleep architecture",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9272592782974243
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          },
+          {
+            "aspect": {
+              "value": "HRV (heart rate variability)",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.175,
+                    "top": 0.7755856966707768,
+                    "width": 0.025694444444444443,
+                    "height": 0.014796547472256474,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "HRV (heart rate variability)",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9403189271688461
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          },
+          {
+            "aspect": {
+              "value": "Activity & movement patterns",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.05763888888888889,
+                    "top": 0.8323057953144266,
+                    "width": 0.16041666666666668,
+                    "height": 0.016029593094944512,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Activity & movement patterns",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9309806078672409
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          },
+          {
+            "aspect": {
+              "value": "Recovery & readiness trends",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.058333333333333334,
+                    "top": 0.8877928483353884,
+                    "width": 0.15,
+                    "height": 0.016029593094944512,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Recovery & readiness trends",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9340350151062011
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Early Detection",
+          "citations": [
+            {
+              "type": "Section Header",
+              "bbox": {
+                "left": 0.41388888888888886,
+                "top": 0.31442663378545005,
+                "width": 0.1166666666666667,
+                "height": 0.01479654747225645,
+                "page": 4,
+                "original_page": 4
+              },
+              "content": "EARLY DETECTION",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9272773832082748
+              },
+              "extra": null
+            }
+          ]
+        },
+        "tagline": {
+          "value": "Days before you feel it.",
+          "citations": [
+            {
+              "type": "Section Header",
+              "bbox": {
+                "left": 0.3638888888888889,
+                "top": 0.3995067817509248,
+                "width": 0.11180555555555555,
+                "height": 0.0850801479654747,
+                "page": 4,
+                "original_page": 4
+              },
+              "content": "Days before you feel it.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9485787272453309
+              },
+              "extra": null
+            }
+          ]
+        },
+        "description": {
+          "value": "SIGNAL models individual baselines rather than population averages and detects meaningful deviation patterns 3–7 days before subjective symptoms appear, using cross-domain signal correlation and longitudinal tracking.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.38333333333333336,
+                "top": 0.8323057953144266,
+                "width": 0.15625,
+                "height": 0.014796547472256474,
+                "page": 4,
+                "original_page": 4
+              },
+              "content": "SIGNAL models individual baselines rather than population averages and detects meaningful deviation patterns 3–7 days before subjective symptoms appear, using cross-domain signal correlation and longitudinal tracking.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9423373550176621
+              },
+              "extra": null
+            }
+          ]
+        },
+        "key_aspects": [
+          {
+            "aspect": {
+              "value": "Risk flagging before symptom onset",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.38333333333333336,
+                    "top": 0.8890258939580764,
+                    "width": 0.19097222222222215,
+                    "height": 0.019728729963008673,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Risk flagging before symptom onset",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9476839542388916
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          },
+          {
+            "aspect": {
+              "value": "Individual baseline deviation",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.38333333333333336,
+                    "top": 0.718865598027127,
+                    "width": 0.1520833333333333,
+                    "height": 0.01602959309494456,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Individual baseline deviation",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.947595688700676
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          },
+          {
+            "aspect": {
+              "value": "Cross-domain signal correlation",
+              "citations": [
+                {
+                  "type": "List Item",
+                  "bbox": {
+                    "left": 0.38263888888888886,
+                    "top": 0.7755856966707768,
+                    "width": 0.16875000000000007,
+                    "height": 0.018495684340320562,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Cross-domain signal correlation",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9468217194080353
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          },
+          {
+            "aspect": {
+              "value": "Longitudinal pattern tracking",
+              "citations": [
+                {
+                  "type": "List Item",
+                  "bbox": {
+                    "left": 0.38333333333333336,
+                    "top": 0.8323057953144266,
+                    "width": 0.15624999999999994,
+                    "height": 0.019728729963008673,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Longitudinal pattern tracking",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9423373550176621
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Micro-Intervention",
+          "citations": [
+            {
+              "type": "Section Header",
+              "bbox": {
+                "left": 0.7395833333333334,
+                "top": 0.311960542540074,
+                "width": 0.14722222222222225,
+                "height": 0.01726263871763256,
+                "page": 4,
+                "original_page": 4
+              },
+              "content": "MICRO-INTERVENTION",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9317120045423508
+              },
+              "extra": null
+            }
+          ]
+        },
+        "tagline": {
+          "value": "A nudge, not an alarm.",
+          "citations": [
+            {
+              "type": "Section Header",
+              "bbox": {
+                "left": 0.6909722222222222,
+                "top": 0.40197287299630086,
+                "width": 0.12291666666666667,
+                "height": 0.07768187422934653,
+                "page": 4,
+                "original_page": 4
+              },
+              "content": "A nudge, not an alarm.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.936437377333641
+              },
+              "extra": null
+            }
+          ]
+        },
+        "description": {
+          "value": "SIGNAL delivers a single, specific, physical, non-alarming action calibrated to the user’s current state to support timely, safe, and proportionate behavioral change.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.60625,
+                "top": 0.9543773119605425,
+                "width": 0.13402777777777777,
+                "height": 0.018495684340320593,
+                "page": 4,
+                "original_page": 4
+              },
+              "content": "SIGNAL delivers a single, specific, physical, non-alarming action calibrated to the user’s current state to support timely, safe, and proportionate behavioral change.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8904806733131408
+              },
+              "extra": null
+            }
+          ]
+        },
+        "key_aspects": [
+          {
+            "aspect": {
+              "value": "Small, immediate physical action",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.7097222222222223,
+                    "top": 0.8187422934648582,
+                    "width": 0.24166666666666667,
+                    "height": 0.04315659679408138,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Small, immediate physical action",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9491757661104203
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          },
+          {
+            "aspect": {
+              "value": "State-calibrated",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.6923611111111111,
+                    "top": 0.6140567200986436,
+                    "width": 0.027777777777777776,
+                    "height": 0.016029593094944512,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "State-calibrated",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9638804376125335
+                  },
+                  "extra": null
+                },
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.7888888888888889,
+                    "top": 0.5819975339087546,
+                    "width": 0.05763888888888889,
+                    "height": 0.018495684340320593,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "State-calibrated",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9638804376125335
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          },
+          {
+            "aspect": {
+              "value": "Non-alarming",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.6909722222222222,
+                    "top": 0.5178791615289766,
+                    "width": 0.2659722222222222,
+                    "height": 0.011097410604192354,
+                    "page": 4,
+                    "original_page": 4
+                  },
+                  "content": "Non-alarming",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9638804376125335
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "how_it_works_agent_loop": {
+      "process_steps": [
+        {
+          "step_name": {
+            "value": "Passive Ingestion",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.13402777777777777,
+                  "top": 0.16276202219482122,
+                  "width": 0.043055555555555555,
+                  "height": 0.01726263871763255,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Passive Ingestion",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.873617696762085
+                },
+                "extra": null
+              },
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.1284722222222222,
+                  "top": 0.19235511713933415,
+                  "width": 0.05416666666666667,
+                  "height": 0.018495684340320593,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Passive Ingestion",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.873617696762085
+                },
+                "extra": null
+              }
+            ]
+          },
+          "description": {
+            "value": "Continuous passive ingestion of wearable data streams via APIs with no user input.",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.10486111111111111,
+                  "top": 0.34278668310727495,
+                  "width": 0.10069444444444445,
+                  "height": 0.016029593094944512,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Continuous passive ingestion of wearable data streams via APIs with no user input.",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9074071705341339
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "step_name": {
+            "value": "Human State Engine",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.28888888888888886,
+                  "top": 0.16399506781750925,
+                  "width": 0.07708333333333334,
+                  "height": 0.0468557336621455,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Human State Engine",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.7991253316402436
+                },
+                "extra": null
+              }
+            ]
+          },
+          "description": {
+            "value": "Idiographic modeling (individual baselines) using passive signals plus population priors; builds a persistent longitudinal human state representation.",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.09305555555555556,
+                  "top": 0.4969173859432799,
+                  "width": 0.6534722222222222,
+                  "height": 0.01726263871763255,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Idiographic modeling (individual baselines) using passive signals plus population priors; builds a persistent longitudinal human state representation.",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8659533590078354
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "step_name": {
+            "value": "Pattern Detection",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.47708333333333336,
+                  "top": 0.16399506781750925,
+                  "width": 0.044444444444444446,
+                  "height": 0.016029593094944512,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Pattern Detection",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.7952563226222992
+                },
+                "extra": null
+              },
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.4708333333333333,
+                  "top": 0.1935881627620222,
+                  "width": 0.05694444444444444,
+                  "height": 0.016029593094944512,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Pattern Detection",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.7952563226222992
+                },
+                "extra": null
+              }
+            ]
+          },
+          "description": {
+            "value": "Detects meaningful deviations from individual baselines and contextual risk; can flag 3–7 days early.",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.4513888888888889,
+                  "top": 0.2872996300863132,
+                  "width": 0.09652777777777778,
+                  "height": 0.07274969173859433,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Detects meaningful deviations from individual baselines and contextual risk; can flag 3–7 days early.",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9287576049566268
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "step_name": {
+            "value": "Coordination Layer",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6326388888888889,
+                  "top": 0.16276202219482122,
+                  "width": 0.07777777777777778,
+                  "height": 0.04808877928483354,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Coordination Layer",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8932364523410796
+                },
+                "extra": null
+              }
+            ]
+          },
+          "description": {
+            "value": "Multi-agent negotiation and resolution to produce a single safe, proportionate micro-intervention output.",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.7979166666666667,
+                  "top": 0.2872996300863132,
+                  "width": 0.09236111111111112,
+                  "height": 0.07398273736128237,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Multi-agent negotiation and resolution to produce a single safe, proportionate micro-intervention output.",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9552097469568253
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "step_name": {
+            "value": "Micro-Intervention",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.8243055555555555,
+                  "top": 0.16276202219482122,
+                  "width": 0.03888888888888889,
+                  "height": 0.01726263871763255,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Micro-Intervention",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.7941541969776154
+                },
+                "extra": null
+              },
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.8069444444444445,
+                  "top": 0.1935881627620222,
+                  "width": 0.07291666666666667,
+                  "height": 0.016029593094944512,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Micro-Intervention",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.7941541969776154
+                },
+                "extra": null
+              }
+            ]
+          },
+          "description": {
+            "value": "Delivers one specific, physical, timely, non-alarming nudge as the active output.",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.7979166666666667,
+                  "top": 0.2872996300863132,
+                  "width": 0.09236111111111112,
+                  "height": 0.07398273736128237,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Delivers one specific, physical, timely, non-alarming nudge as the active output.",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9552097469568253
+                },
+                "extra": null
+              }
+            ]
+          }
+        }
+      ],
+      "core_component": {
+        "value": "Longitudinal State Graph (persistent human state representation built from passive signals over weeks/months)",
+        "citations": [
+          {
+            "type": "Text",
+            "bbox": {
+              "left": 0.09305555555555556,
+              "top": 0.4969173859432799,
+              "width": 0.6534722222222222,
+              "height": 0.018495684340320593,
+              "page": 7,
+              "original_page": 7
+            },
+            "content": "Longitudinal State Graph (persistent human state representation built from passive signals over weeks/months)",
+            "image_url": null,
+            "chart_data": null,
+            "confidence": "high",
+            "granular_confidence": {
+              "extract_confidence": 0,
+              "parse_confidence": 0.8659533590078354
+            },
+            "extra": null
+          }
+        ]
+      }
+    },
+    "example_detection_intervention": {
+      "passively_detected_signals": [
+        {
+          "signal": {
+            "value": "Sleep: 3 consecutive nights of reduced sleep",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04583333333333333,
+                  "top": 0.7053020961775586,
+                  "width": 0.18055555555555555,
+                  "height": 0.01972872996300863,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Sleep: 3 consecutive nights of reduced sleep",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9512316435575485
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "signal": {
+            "value": "HRV: ↓18% below personal baseline",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04583333333333333,
+                  "top": 0.7373612823674476,
+                  "width": 0.22708333333333333,
+                  "height": 0.02096177558569667,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "HRV: ↓18% below personal baseline",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9512316435575485
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "signal": {
+            "value": "Activity: declining over 4 days",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04583333333333333,
+                  "top": 0.7694204685573366,
+                  "width": 0.16527777777777777,
+                  "height": 0.02342786683107275,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Activity: declining over 4 days",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9512316435575485
+                },
+                "extra": null
+              }
+            ]
+          }
+        }
+      ],
+      "agent_proposals": [
+        {
+          "agent_name": {
+            "value": "Fitness Agent",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.3284722222222222,
+                  "top": 0.7053020961775586,
+                  "width": 0.08125,
+                  "height": 0.018495684340320593,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Fitness Agent",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8632668286561966
+                },
+                "extra": null
+              }
+            ]
+          },
+          "proposal": {
+            "value": "Maintain load",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.43194444444444446,
+                  "top": 0.7040690505548706,
+                  "width": 0.08541666666666667,
+                  "height": 0.01972872996300863,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Maintain load",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "low",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8632668286561966
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": {
+            "value": "Recovery Agent",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.3284722222222222,
+                  "top": 0.7385943279901356,
+                  "width": 0.09583333333333334,
+                  "height": 0.018495684340320593,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Recovery Agent",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8632668286561966
+                },
+                "extra": null
+              }
+            ]
+          },
+          "proposal": {
+            "value": "Reduce intensity",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.44513888888888886,
+                  "top": 0.7373612823674476,
+                  "width": 0.09930555555555555,
+                  "height": 0.02096177558569667,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Reduce intensity",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "low",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8632668286561966
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": {
+            "value": "Behavioral Agent",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.3277777777777778,
+                  "top": 0.7706535141800247,
+                  "width": 0.10555555555555556,
+                  "height": 0.018495684340320593,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Behavioral Agent",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8632668286561966
+                },
+                "extra": null
+              }
+            ]
+          },
+          "proposal": {
+            "value": "Flag deviation",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.4534722222222222,
+                  "top": 0.7694204685573366,
+                  "width": 0.08402777777777778,
+                  "height": 0.01972872996300863,
+                  "page": 7,
+                  "original_page": 7
+                },
+                "content": "Flag deviation",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "low",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.8632668286561966
+                },
+                "extra": null
+              }
+            ]
+          }
+        }
+      ],
+      "micro_intervention_delivered": {
+        "value": "\"A 20-min walk today will do more for your recovery than your planned interval session. Your HRV suggests your system needs movement, not intensity.\"",
+        "citations": [
+          {
+            "type": "Text",
+            "bbox": {
+              "left": 0.6229166666666667,
+              "top": 0.7028360049321825,
+              "width": 0.33611111111111114,
+              "height": 0.09001233045622688,
+              "page": 7,
+              "original_page": 7
+            },
+            "content": "\"A 20-min walk today will do more for your recovery than your planned interval session. Your HRV suggests your system needs movement, not intensity.\"",
+            "image_url": null,
+            "chart_data": null,
+            "confidence": "high",
+            "granular_confidence": {
+              "extract_confidence": 0,
+              "parse_confidence": 0.962024411559105
+            },
+            "extra": null
+          }
+        ]
+      }
+    },
+    "customer_segments": [
+      {
+        "type": {
+          "value": "primary",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.04027777777777778,
+                "top": 0.48951911220715166,
+                "width": 0.31180555555555556,
+                "height": 0.030826140567200986,
+                "page": 5,
+                "original_page": 5
+              },
+              "content": "primary",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8564695477485658
+              },
+              "extra": null
+            }
+          ]
+        },
+        "name": {
+          "value": "Digital Health & Wearable Platforms",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.04027777777777778,
+                "top": 0.48951911220715166,
+                "width": 0.31180555555555556,
+                "height": 0.030826140567200986,
+                "page": 5,
+                "original_page": 5
+              },
+              "content": "Digital Health & Wearable Platforms",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8564695477485658
+              },
+              "extra": null
+            }
+          ]
+        },
+        "description": {
+          "value": "Platforms (e.g., Oura, Whoop, Apple Health ecosystem) that collect passive high-frequency data but lack intelligence, coordination, and a safe intervention layer; SIGNAL integrates as an infrastructure layer to add these capabilities.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.03888888888888889,
+                "top": 0.5499383477188656,
+                "width": 0.5402777777777777,
+                "height": 0.07891491985203453,
+                "page": 5,
+                "original_page": 5
+              },
+              "content": "Platforms (e.g., Oura, Whoop, Apple Health ecosystem) that collect passive high-frequency data but lack intelligence, coordination, and a safe intervention layer; SIGNAL integrates as an infrastructure layer to add these capabilities.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "low",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.780076989531517
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "type": {
+          "value": "secondary",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.03958333333333333,
+                "top": 0.7644882860665845,
+                "width": 0.28194444444444444,
+                "height": 0.029593094944512947,
+                "page": 5,
+                "original_page": 5
+              },
+              "content": "secondary",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.7805824697017669
+              },
+              "extra": null
+            }
+          ]
+        },
+        "name": {
+          "value": "Employers & Corporate Wellness",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.03958333333333333,
+                "top": 0.7644882860665845,
+                "width": 0.28194444444444444,
+                "height": 0.029593094944512947,
+                "page": 5,
+                "original_page": 5
+              },
+              "content": "Employers & Corporate Wellness",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.7805824697017669
+              },
+              "extra": null
+            }
+          ]
+        },
+        "description": {
+          "value": "Fortune 500 companies, HR platforms, and insurers investing in wellness but unable to demonstrate ROI on early intervention vs late treatment; SIGNAL offers a burnout prevention offering with analytically credible cost-benefit benchmarks.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.40555555555555556,
+                "top": 0.5511713933415536,
+                "width": 0.5388888888888889,
+                "height": 0.08508014796547472,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "Fortune 500 companies, HR platforms, and insurers investing in wellness but unable to demonstrate ROI on early intervention vs late treatment; SIGNAL offers a burnout prevention offering with analytically credible cost-benefit benchmarks.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9648306638002396
+              },
+              "extra": null
+            }
+          ]
+        }
+      }
+    ],
+    "go_to_market_strategy": [
+      {
+        "phase_number": {
+          "value": 1,
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.4513888888888889,
+                "top": 0.23921085080147966,
+                "width": 0.004861111111111111,
+                "height": 0.018495684340320593,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "1",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.850975027680397
+              },
+              "extra": null
+            }
+          ]
+        },
+        "name": {
+          "value": "Wedge: Wearable & Fitness Platforms",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.48055555555555557,
+                "top": 0.23674475955610358,
+                "width": 0.25972222222222224,
+                "height": 0.02342786683107275,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "Wedge: Wearable & Fitness Platforms",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.850975027680397
+              },
+              "extra": null
+            }
+          ]
+        },
+        "description": {
+          "value": "Deploy as the passive intelligence layer for Oura, Whoop, and fitness ecosystems; leverage Omar’s CrossFit HQ relationship and access to 16,000+ affiliates for initial distribution and real-world validation.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.40555555555555556,
+                "top": 0.28976572133168926,
+                "width": 0.5520833333333334,
+                "height": 0.08384710234278668,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "Deploy as the passive intelligence layer for Oura, Whoop, and fitness ecosystems; leverage Omar’s CrossFit HQ relationship and access to 16,000+ affiliates for initial distribution and real-world validation.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9663239002227784
+              },
+              "extra": null
+            }
+          ]
+        },
+        "related_statistics": [
+          {
+            "statistic": {
+              "value": "40% of enterprise apps will embed AI agents by 2026; infrastructure gap is now",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.10416666666666667,
+                    "top": 0.6066584463625154,
+                    "width": 0.1951388888888889,
+                    "height": 0.01972872996300863,
+                    "page": 8,
+                    "original_page": 8
+                  },
+                  "content": "40% of enterprise apps will embed AI agents by 2026; infrastructure gap is now",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "high",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.9111341506242752
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "phase_number": {
+          "value": 2,
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.4513888888888889,
+                "top": 0.5006165228113441,
+                "width": 0.00625,
+                "height": 0.01972872996300863,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "2",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8571356415748597
+              },
+              "extra": null
+            }
+          ]
+        },
+        "name": {
+          "value": "Employer & Corporate Wellness",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.4826388888888889,
+                "top": 0.5006165228113441,
+                "width": 0.21805555555555556,
+                "height": 0.02096177558569667,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "Employer & Corporate Wellness",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8571356415748597
+              },
+              "extra": null
+            }
+          ]
+        },
+        "description": {
+          "value": "Package ROI-driven burnout prevention offering; use Colin’s financial modeling background to provide analytically credible early-intervention cost-benefit benchmarks for enterprise HR buyers.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.40555555555555556,
+                "top": 0.5511713933415536,
+                "width": 0.5388888888888889,
+                "height": 0.08631319358816276,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "Package ROI-driven burnout prevention offering; use Colin’s financial modeling background to provide analytically credible early-intervention cost-benefit benchmarks for enterprise HR buyers.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9648306638002396
+              },
+              "extra": null
+            }
+          ]
+        },
+        "related_statistics": [
+          {
+            "statistic": {
+              "value": "Mental health is the fastest-growing cost center in corporate wellness",
+              "citations": [
+                {
+                  "type": "Text",
+                  "bbox": {
+                    "left": 0.09722222222222222,
+                    "top": 0.8618988902589396,
+                    "width": 0.19236111111111112,
+                    "height": 0.05055487053020962,
+                    "page": 8,
+                    "original_page": 8
+                  },
+                  "content": "Mental health is the fastest-growing cost center in corporate wellness",
+                  "image_url": null,
+                  "chart_data": null,
+                  "confidence": "low",
+                  "granular_confidence": {
+                    "extract_confidence": null,
+                    "parse_confidence": 0.8493882685899735
+                  },
+                  "extra": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "phase_number": {
+          "value": 3,
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.45069444444444445,
+                "top": 0.7632552404438965,
+                "width": 0.003472222222222222,
+                "height": 0,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "3",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8259020030498505
+              },
+              "extra": null
+            }
+          ]
+        },
+        "name": {
+          "value": "Healthcare Systems",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.48125,
+                "top": 0.7644882860665845,
+                "width": 0.13541666666666666,
+                "height": 0.02096177558569667,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "Healthcare Systems",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8259020030498505
+              },
+              "extra": null
+            }
+          ]
+        },
+        "description": {
+          "value": "Expand to longitudinal clinical monitoring partnerships leveraging Aline’s clinically validated behavioral markers and research relationships at Boston Children's Hospital / HMS.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.40555555555555556,
+                "top": 0.8162762022194822,
+                "width": 0.5381944444444444,
+                "height": 0.08508014796547472,
+                "page": 8,
+                "original_page": 8
+              },
+              "content": "Expand to longitudinal clinical monitoring partnerships leveraging Aline’s clinically validated behavioral markers and research relationships at Boston Children's Hospital / HMS.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9674153715372086
+              },
+              "extra": null
+            }
+          ]
+        },
+        "related_statistics": {
+          "value": null,
+          "citations": []
+        }
+      }
+    ],
+    "defensibility": [
+      {
+        "pillar_name": {
+          "value": "Idiographic Modeling",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.04583333333333333,
+                "top": 0.18372379778051787,
+                "width": 0.17222222222222222,
+                "height": 0.02342786683107275,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Idiographic Modeling",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9640037953853606
+              },
+              "extra": null
+            }
+          ]
+        },
+        "explanation": {
+          "value": "Within-person baseline modeling requires longitudinal passive data and specialized expertise not available in any commercial product today.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.044444444444444446,
+                "top": 0.25400739827373614,
+                "width": 0.25555555555555554,
+                "height": 0.12946979038224415,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Within-person baseline modeling requires longitudinal passive data and specialized expertise not available in any commercial product today.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9767249137163163
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "pillar_name": {
+          "value": "Human State Memory",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.3680555555555556,
+                "top": 0.18249075215782984,
+                "width": 0.17847222222222223,
+                "height": 0.02466091245376079,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Human State Memory",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9535280525684358
+              },
+              "extra": null
+            }
+          ]
+        },
+        "explanation": {
+          "value": "Persistent cross-domain representation built from passive signals improves with every interaction and is nearly impossible to replicate without equivalent infrastructure.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.36736111111111114,
+                "top": 0.25400739827373614,
+                "width": 0.2625,
+                "height": 0.16522811344019728,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Persistent cross-domain representation built from passive signals improves with every interaction and is nearly impossible to replicate without equivalent infrastructure.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "low",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.8426911741495132
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "pillar_name": {
+          "value": "Proprietary Research",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.6895833333333333,
+                "top": 0.1812577065351418,
+                "width": 0.16666666666666666,
+                "height": 0.025893958076448828,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Proprietary Research",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9644228279590606
+              },
+              "extra": null
+            }
+          ]
+        },
+        "explanation": {
+          "value": "Aline’s PhD work provides clinically validated behavioral markers no commercial competitor has access to.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.6888888888888889,
+                "top": 0.25400739827373614,
+                "width": 0.2298611111111111,
+                "height": 0.12700369913686807,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Aline’s PhD work provides clinically validated behavioral markers no commercial competitor has access to.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9698052257299423
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "pillar_name": {
+          "value": "Coordination Layer",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.04583333333333333,
+                "top": 0.6115906288532675,
+                "width": 0.1527777777777778,
+                "height": 0.025893958076448828,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Coordination Layer",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9604207336902618
+              },
+              "extra": null
+            }
+          ]
+        },
+        "explanation": {
+          "value": "Multi-agent decision-making and conflict resolution for human-centered micro-intervention is a new and underdeveloped infrastructure category.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.04513888888888889,
+                "top": 0.6831072749691739,
+                "width": 0.2638888888888889,
+                "height": 0.16646115906288533,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Multi-agent decision-making and conflict resolution for human-centered micro-intervention is a new and underdeveloped infrastructure category.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9803774505853653
+              },
+              "extra": null
+            }
+          ]
+        }
+      },
+      {
+        "pillar_name": {
+          "value": "Safety Layer",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.3680555555555556,
+                "top": 0.6140567200986436,
+                "width": 0.09791666666666667,
+                "height": 0.02219482120838471,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Safety Layer",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "high",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9592497378587723
+              },
+              "extra": null
+            }
+          ]
+        },
+        "explanation": {
+          "value": "Appropriate micro-interventions require domain expertise and calibration that is not easily commoditized or copied.",
+          "citations": [
+            {
+              "type": "Text",
+              "bbox": {
+                "left": 0.36666666666666664,
+                "top": 0.6818742293464858,
+                "width": 0.2638888888888889,
+                "height": 0.13070283600493218,
+                "page": 9,
+                "original_page": 9
+              },
+              "content": "Appropriate micro-interventions require domain expertise and calibration that is not easily commoditized or copied.",
+              "image_url": null,
+              "chart_data": null,
+              "confidence": "low",
+              "granular_confidence": {
+                "extract_confidence": null,
+                "parse_confidence": 0.9032753109931946
+              },
+              "extra": null
+            }
+          ]
+        }
+      }
+    ],
+    "funding_request": {
+      "amount_usd": {
+        "value": 100000,
+        "citations": [
+          {
+            "type": "Text",
+            "bbox": {
+              "left": 0.7381944444444445,
+              "top": 0.2749691738594328,
+              "width": 0.10069444444444445,
+              "height": 0.07768187422934648,
+              "page": 11,
+              "original_page": 11
+            },
+            "content": "100000",
+            "image_url": null,
+            "chart_data": null,
+            "confidence": "high",
+            "granular_confidence": {
+              "extract_confidence": 0,
+              "parse_confidence": 0.6752214878797531
+            },
+            "extra": null
+          }
+        ]
+      },
+      "instrument_type": {
+        "value": "SAFE Note",
+        "citations": [
+          {
+            "type": "Text",
+            "bbox": {
+              "left": 0.7625,
+              "top": 0.4130702836004932,
+              "width": 0.08680555555555555,
+              "height": 0.02219482120838471,
+              "page": 11,
+              "original_page": 11
+            },
+            "content": "SAFE Note",
+            "image_url": null,
+            "chart_data": null,
+            "confidence": "high",
+            "granular_confidence": {
+              "extract_confidence": 0,
+              "parse_confidence": 0.7747842878103256
+            },
+            "extra": null
+          }
+        ]
+      },
+      "mvp_scope": [
+        {
+          "feature": {
+            "value": "Passive ingestion of wearable data (Whoop/Oura API, no user input)",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04791666666666667,
+                  "top": 0.47102342786683105,
+                  "width": 0.4666666666666667,
+                  "height": 0.02836004932182491,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Passive ingestion of wearable data (Whoop/Oura API, no user input)",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9137087047100068
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "feature": {
+            "value": "Idiographic baseline modeling across 3–5 clinically validated signals",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04791666666666667,
+                  "top": 0.5745992601726264,
+                  "width": 0.45208333333333334,
+                  "height": 0.02096177558569667,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Idiographic baseline modeling across 3–5 clinically validated signals",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9254749268293381
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "feature": {
+            "value": "Passive API integration (Oura, Whoop)",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6805555555555556,
+                  "top": 0.5967940813810111,
+                  "width": 0.24722222222222223,
+                  "height": 0.02466091245376079,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Passive API integration (Oura, Whoop)",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.908970794081688
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "feature": {
+            "value": "Coordination across 2–3 agents (fitness, recovery, behavioral)",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04652777777777778,
+                  "top": 0.6732429099876696,
+                  "width": 0.41458333333333336,
+                  "height": 0.02466091245376079,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Coordination across 2–3 agents (fitness, recovery, behavioral)",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9225947201251983
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "feature": {
+            "value": "Micro-intervention generation (specific, physical, non-alarming)",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04791666666666667,
+                  "top": 0.7731196054254007,
+                  "width": 0.4375,
+                  "height": 0.02219482120838471,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Micro-intervention generation (specific, physical, non-alarming)",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "low",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.7131385549902916
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "feature": {
+            "value": "Clinical marker implementation",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6798611111111111,
+                  "top": 0.6905055487053021,
+                  "width": 0.20277777777777778,
+                  "height": 0.01972872996300863,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Clinical marker implementation",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9294260740280151
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "feature": {
+            "value": "Basic longitudinal state storage",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04791666666666667,
+                  "top": 0.8717632552404438,
+                  "width": 0.20902777777777778,
+                  "height": 0.02342786683107275,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Basic longitudinal state storage",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9308873027563095
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "feature": {
+            "value": "Agent coordination framework",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6798611111111111,
+                  "top": 0.7842170160295932,
+                  "width": 0.2,
+                  "height": 0.018495684340320593,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Agent coordination framework",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9355505019426347
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "feature": {
+            "value": "Initial platform partnerships",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6798611111111111,
+                  "top": 0.8754623921085081,
+                  "width": 0.18125,
+                  "height": 0.01972872996300863,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Initial platform partnerships",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9246057391166687
+                },
+                "extra": null
+              }
+            ]
+          }
+        }
+      ],
+      "use_of_funds": [
+        {
+          "item": {
+            "value": "Passive API integration (Oura, Whoop)",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6805555555555556,
+                  "top": 0.5967940813810111,
+                  "width": 0.24722222222222223,
+                  "height": 0.02466091245376079,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Passive API integration (Oura, Whoop)",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.908970794081688
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "item": {
+            "value": "Idiographic baseline modeling across 3–5 signals",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04791666666666667,
+                  "top": 0.5745992601726264,
+                  "width": 0.45208333333333334,
+                  "height": 0.02096177558569667,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Idiographic baseline modeling across 3–5 signals",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9254749268293381
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "item": {
+            "value": "Agent coordination framework and conflict resolution",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6798611111111111,
+                  "top": 0.7842170160295932,
+                  "width": 0.2,
+                  "height": 0.018495684340320593,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Agent coordination framework and conflict resolution",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9355505019426347
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "item": {
+            "value": "Micro-intervention generation logic",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.04791666666666667,
+                  "top": 0.7731196054254007,
+                  "width": 0.20347222222222222,
+                  "height": 0.02096177558569667,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Micro-intervention generation logic",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "low",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.7131385549902916
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "item": {
+            "value": "Clinical marker implementation",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6798611111111111,
+                  "top": 0.6905055487053021,
+                  "width": 0.20277777777777778,
+                  "height": 0.01972872996300863,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Clinical marker implementation",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9294260740280151
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "item": {
+            "value": "Longitudinal state storage",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.08611111111111111,
+                  "top": 0.87422934648582,
+                  "width": 0.17083333333333334,
+                  "height": 0.018495684340320593,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Longitudinal state storage",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9308873027563095
+                },
+                "extra": null
+              }
+            ]
+          }
+        },
+        {
+          "item": {
+            "value": "Platform partnership enablement",
+            "citations": [
+              {
+                "type": "Text",
+                "bbox": {
+                  "left": 0.6798611111111111,
+                  "top": 0.8754623921085081,
+                  "width": 0.18125,
+                  "height": 0.01972872996300863,
+                  "page": 11,
+                  "original_page": 11
+                },
+                "content": "Platform partnership enablement",
+                "image_url": null,
+                "chart_data": null,
+                "confidence": "high",
+                "granular_confidence": {
+                  "extract_confidence": null,
+                  "parse_confidence": 0.9246057391166687
+                },
+                "extra": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "contact_email": {
+      "value": "zimermanaline@gmail.com",
+      "citations": [
+        {
+          "type": "Text",
+          "bbox": {
+            "left": 0.021527777777777778,
+            "top": 0.9556103575832305,
+            "width": 0.15347222222222223,
+            "height": 0.01726263871763255,
+            "page": 11,
+            "original_page": 11
+          },
+          "content": "zimermanaline@gmail.com",
+          "image_url": null,
+          "chart_data": null,
+          "confidence": "high",
+          "granular_confidence": {
+            "extract_confidence": 0,
+            "parse_confidence": 0.79942307472229
+          },
+          "extra": null
+        }
+      ]
+    }
+  }
+}

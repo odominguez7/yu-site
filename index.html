@@ -126,6 +126,8 @@
       .sr{padding:48px 24px}.sg{grid-template-columns:1fr;gap:32px}
       .s{padding:48px 24px}
       .fw{padding:48px 24px}
+      .fw svg{display:none}
+      .fw-mobile{display:grid!important;grid-template-columns:1fr;gap:16px;text-align:left}
       .tm{padding:48px 24px}
       .tmm{flex-direction:column;align-items:center;text-align:center;gap:16px}
       .th{justify-content:center}.tc{text-align:left}
@@ -224,12 +226,22 @@
 
   <hr class="d">
 
-  <!-- 5. WHY NOW + ECOSYSTEM -->
-  <section class="fw">
+  <!-- 5. WHY NOW -->
+  <section class="s" style="padding-top:64px;padding-bottom:64px;">
     <div class="sl r">Why now</div>
-    <p class="r" style="font-size:clamp(15px,1.4vw,17px);color:var(--t2);font-weight:300;margin-bottom:8px;text-align:left;max-width:860px;margin-left:auto;margin-right:auto;">
-      <em style="color:var(--a);">Nature Medicine</em>, March 2026: AI with a structured behavioral data layer outperformed standalone models by <strong style="color:var(--t);">43%</strong> and exceeded human clinicians in <strong style="color:var(--t);">74%</strong> of sessions. The research that makes YU possible was published two weeks ago.
-    </p>
+    <div class="card r" style="padding:32px;border-left:2px solid var(--a);">
+      <p style="font-size:clamp(16px,1.6vw,20px);color:var(--t);line-height:1.6;font-weight:400;">
+        <em style="color:var(--a);">Nature Medicine</em>, March 2026: AI with a structured behavioral data layer outperformed standalone models by <strong>43%</strong> and exceeded human clinicians in <strong>74%</strong> of sessions
+      </p>
+      <p style="font-size:14px;color:var(--t2);margin-top:16px;font-weight:300;">The research that makes YU possible was published two weeks ago</p>
+    </div>
+  </section>
+
+  <hr class="d">
+
+  <!-- 6. ECOSYSTEM -->
+  <section class="fw">
+    <div class="sl r">The ecosystem</div>
 
     <svg class="r" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
       <circle cx="300" cy="220" r="56" fill="none" stroke="#00F0D4" stroke-width="2" opacity=".3"/>
@@ -264,11 +276,33 @@
       <text x="300" y="440" text-anchor="middle" fill="#F5F5F7" font-family="Playfair Display,serif" font-size="16" font-weight="600">Every session makes the next one smarter.</text>
       <text x="300" y="462" text-anchor="middle" fill="#48484A" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1">COMPOUNDING NETWORK EFFECT</text>
     </svg>
+
+    <!-- Mobile flywheel fallback -->
+    <div class="fw-mobile r" style="display:none;margin-top:32px;">
+      <div class="card"><p class="card-l">1. Employee</p><p class="card-p">Passive sensing: HRV, sleep, activity</p></div>
+      <div class="card"><p class="card-l">2. State engine</p><p class="card-p">Individual baseline, 3-7 day detection</p></div>
+      <div class="card"><p class="card-l">3. Intervention</p><p class="card-p">One specific action, physical, timely, calibrated</p></div>
+      <div class="card"><p class="card-l">4. Local provider</p><p class="card-p">Fills idle capacity: studios, gyms, clinics</p></div>
+      <p style="font-family:'Playfair Display',serif;font-size:16px;color:var(--t);font-weight:600;text-align:center;margin-top:16px;">Every session makes the next one smarter</p>
+    </div>
   </section>
 
   <hr class="d">
 
-  <!-- 6. TRUST -->
+  <!-- 7. TRACTION -->
+  <section class="s" style="padding-top:56px;padding-bottom:56px;">
+    <div class="sl r">Momentum</div>
+    <div class="r" style="display:flex;flex-wrap:wrap;gap:16px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--t2);padding:8px 16px;background:var(--bg2);border:1px solid var(--d);border-radius:3px;">MIT Sandbox '26 cohort</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--t2);padding:8px 16px;background:var(--bg2);border:1px solid var(--d);border-radius:3px;">MIT delta v application submitted</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--t2);padding:8px 16px;background:var(--bg2);border:1px solid var(--d);border-radius:3px;">On-device AI tested with IBM Granite</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--t2);padding:8px 16px;background:var(--bg2);border:1px solid var(--d);border-radius:3px;">3 pilot conversations in progress</span>
+    </div>
+  </section>
+
+  <hr class="d">
+
+  <!-- 8. TRUST -->
   <section class="s" style="padding-top:56px;padding-bottom:56px;">
     <div class="sl r">Trust</div>
     <p class="r"><strong style="color:var(--a);">Employees own their data, employers see what matters, everyone is protected</strong></p>
@@ -316,7 +350,7 @@
         <p class="tb">Scaled a CPG brand to 40+ countries. Co-founded two companies. Three continents of financial infrastructure. The operational engine that turns YU into a business.</p>
       </div>
     </div>
-    <div class="tc r">He lived it. She proved it. He scales it.</div>
+    <div class="tc r">Omar lived it. Aline proved it. Miguel scales it.</div>
   </section>
 
   <hr class="d">

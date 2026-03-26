@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YU Shield | Your Team is Burning Out. You Just Can't See It Yet.</title>
+  <meta name="description" content="YU Shield detects employee burnout before it becomes a resignation. AI-powered. Passive. Zero effort from your team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #888888;
+      --accent: #c8ff00;
+      --accent-dim: #c8ff0033;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(0,0,0,0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-status {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pulse {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-dim); }
+      50% { opacity: 0.6; box-shadow: 0 0 0 8px transparent; }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      position: relative;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 1.05;
+      max-width: 900px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 .dim {
+      color: #333;
+      transition: color 0.6s ease;
+    }
+
+    .hero h1:hover .dim {
+      color: var(--white);
+    }
+
+    .hero-sub {
+      margin-top: 40px;
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 520px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 48px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #333;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* STATS */
+    .stats {
+      padding: 80px 48px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      max-width: 900px;
+    }
+
+    .stat-number {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 8px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* TENSION SECTION */
+    .tension {
+      padding: 120px 48px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .tension-text {
+      font-size: clamp(24px, 3.5vw, 48px);
+      font-weight: 300;
+      line-height: 1.4;
+      max-width: 800px;
+      color: #444;
+    }
+
+    .tension-text strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* HOW IT WORKS (teaser) */
+    .how {
+      padding: 120px 48px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .how-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--gray);
+      margin-bottom: 64px;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      max-width: 1000px;
+    }
+
+    .how-card {
+      padding: 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .how-number {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .how-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .how-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .how-redacted {
+      background: #111;
+      color: #111;
+      padding: 2px 6px;
+      border-radius: 2px;
+      user-select: none;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .how-redacted:hover {
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    /* QUOTE */
+    .quote-section {
+      padding: 120px 48px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .quote {
+      font-size: clamp(20px, 3vw, 36px);
+      font-weight: 300;
+      line-height: 1.5;
+      max-width: 700px;
+      color: var(--white);
+    }
+
+    .quote-attr {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 1px;
+    }
+
+    /* CTA / WAITLIST */
+    .cta {
+      padding: 120px 48px 160px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 5vw, 64px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .cta-sub {
+      font-size: 16px;
+      color: var(--gray);
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+
+    .waitlist-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .waitlist-form input {
+      flex: 1;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      background: #111;
+      border: 1px solid #222;
+      color: var(--white);
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .waitlist-form input:focus {
+      border-color: var(--accent);
+    }
+
+    .waitlist-form input::placeholder {
+      color: #444;
+    }
+
+    .waitlist-form button {
+      padding: 16px 32px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: var(--accent);
+      color: var(--black);
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .waitlist-form button:hover {
+      background: var(--white);
+    }
+
+    .waitlist-count {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #333;
+      letter-spacing: 1px;
+    }
+
+    .success-msg {
+      display: none;
+      color: var(--accent);
+      font-size: 15px;
+      margin-top: 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 48px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #333;
+    }
+
+    footer a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--white);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 100px 24px 60px; }
+      .stats { padding: 60px 24px; }
+      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+      .tension { padding: 80px 24px; }
+      .how { padding: 80px 24px; }
+      .how-grid { grid-template-columns: 1fr; gap: 0; }
+      .quote-section { padding: 80px 24px; }
+      .cta { padding: 80px 24px 120px; }
+      .waitlist-form { flex-direction: column; }
+      .waitlist-form input { border-radius: 4px; }
+      .waitlist-form button { border-radius: 4px; }
+      footer { padding: 30px 24px; flex-direction: column; gap: 12px; }
+      .scroll-hint { left: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">YU<span>.</span></div>
+    <div class="nav-status">
+      <div class="pulse"></div>
+      Building
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label">YU Shield</div>
+    <h1>
+      Your team is<br>
+      burning out.<br>
+      <span class="dim">You just can't<br>see it yet.</span>
+    </h1>
+    <p class="hero-sub">
+      We can. And by the time you notice, it's already a resignation letter.
+    </p>
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats reveal">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-number">76%</div>
+        <div class="stat-label">of employees experience<br>burnout at work</div>
+      </div>
+      <div>
+        <div class="stat-number">$322B</div>
+        <div class="stat-label">global cost of turnover<br>and lost productivity</div>
+      </div>
+      <div>
+        <div class="stat-number">3-5%</div>
+        <div class="stat-label">actually use the EAP<br>your company pays for</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENSION -->
+  <section class="tension reveal">
+    <p class="tension-text">
+      You already spend on wellness apps your employees never open.
+      Meditation subscriptions collecting dust.
+      EAPs nobody calls.<br><br>
+      <strong>What if you could see burnout forming, weeks before anyone says a word?</strong>
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how reveal">
+    <div class="how-label">How it works</div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-number">01</div>
+        <div class="how-title">Passive data. Zero effort.</div>
+        <div class="how-desc">
+          Connects to wearables your team already owns. Apple Watch. Whoop. Oura. No surveys. No check-ins. No <span class="how-redacted">friction</span>.
+        </div>
+      </div>
+      <div class="how-card">
+        <div class="how-number">02</div>
+        <div class="how-title">AI reads the signals.</div>
+        <div class="how-desc">
+          Sleep. HRV. Activity patterns. Our model detects <span class="how-redacted">behavioral shifts</span> that predict burnout before it hits.
+        </div>
+      </div>
+      <div class="how-card">
+        <div class="how-number">03</div>
+        <div class="how-title">Intervene. Automatically.</div>
+        <div class="how-desc">
+          Personalized micro-interventions delivered through <span class="how-redacted">WhatsApp</span>. Right person, right moment. No app to download.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section reveal">
+    <p class="quote">
+      "We lost three senior engineers in one quarter. None of them mentioned burnout until their exit interview."
+    </p>
+    <p class="quote-attr">VP of People, Boston tech company (50-500 employees)</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta reveal">
+    <h2>Early access is limited.</h2>
+    <p class="cta-sub">We're onboarding our first pilot companies now.</p>
+    <form class="waitlist-form" id="waitlistForm">
+      <input type="email" placeholder="Work email" required aria-label="Work email">
+      <button type="submit">Get Access</button>
+    </form>
+    <p class="success-msg" id="successMsg">You're on the list. We'll be in touch.</p>
+    <p class="waitlist-count">Accepting 10 pilot companies</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>&copy; 2026 YU</span>
+    <a href="mailto:omar@yu.boston">omar@yu.boston</a>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Waitlist form -> Google Sheets
+    // REPLACE THIS URL with your Google Apps Script deployment URL
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwMbUn_PzOpxl9eK2l2RrfW1xgBwwdNlWTIkwBcmU1G2JpC5PGj3ln36e1dOcNgqfA/exec';
+
+    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      const email = this.querySelector('input').value;
+      btn.textContent = '...';
+      btn.disabled = true;
+
+      fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, timestamp: new Date().toISOString() })
+      }).then(() => {
+        this.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      }).catch(() => {
+        // Fallback: still show success (no-cors won't give us response)
+        this.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -3,305 +3,540 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YU Shield | Your Team is Burning Out. You Just Can't See It Yet.</title>
-  <meta name="description" content="YU Shield detects employee burnout before it becomes a resignation. AI-powered. Passive. Zero effort from your team.">
+  <title>YU | Behavioral Intelligence for the Workforce</title>
+  <meta name="description" content="YU detects employee burnout before it becomes a resignation. AI-powered behavioral intelligence. Privacy-first. Prevention-only. Built at MIT.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --black: #000000;
-      --white: #ffffff;
-      --gray: #888888;
-      --accent: #c8ff00;
-      --accent-dim: #c8ff0033;
+      --bg: #0A0A0B;
+      --bg-elevated: #111113;
+      --text: #F5F5F7;
+      --text-secondary: #8E8E93;
+      --text-muted: #48484A;
+      --accent: #00F0D4;
+      --accent-glow: rgba(0, 240, 212, 0.12);
+      --divider: rgba(255, 255, 255, 0.06);
     }
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--black);
-      color: var(--white);
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Noise texture overlay */
     body::before {
       content: '';
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9999;
     }
 
-    /* Scroll animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 200; width: 0; }
 
-    /* NAV */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+
+    hr.div { border: none; border-top: 1px solid var(--divider); margin: 0; max-width: 860px; margin-left: auto; margin-right: auto; }
+
+    /* ===================== NAV ===================== */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      padding: 24px 48px;
+      padding: 20px 48px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      backdrop-filter: blur(20px);
-      background: rgba(0,0,0,0.6);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(24px);
+      background: rgba(10, 10, 11, 0.7);
+      border-bottom: 1px solid var(--divider);
     }
 
-    .logo {
-      font-size: 24px;
+    .nav-brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
       font-weight: 800;
-      letter-spacing: 4px;
+      letter-spacing: 6px;
+      color: var(--text);
     }
 
-    .logo span {
-      color: var(--accent);
-    }
+    .nav-brand span { color: var(--accent); }
 
     .nav-status {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--gray);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
     }
 
-    .pulse {
-      width: 6px;
-      height: 6px;
+    .nav-dot {
+      width: 6px; height: 6px;
       background: var(--accent);
       border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-dim); }
-      50% { opacity: 0.6; box-shadow: 0 0 0 8px transparent; }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
-    /* HERO */
+    /* ===================== HERO ===================== */
     .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 120px 48px 80px;
+      max-width: 960px;
+      margin: 0 auto;
       position: relative;
     }
 
-    .hero-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: var(--accent);
-      margin-bottom: 32px;
+    .hero-wordmark {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(64px, 14vw, 160px);
+      font-weight: 800;
+      letter-spacing: 16px;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 48px;
+      opacity: 0.06;
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      transform: translateY(-50%);
+      user-select: none;
+      pointer-events: none;
     }
 
     .hero h1 {
-      font-size: clamp(40px, 7vw, 96px);
-      font-weight: 800;
-      line-height: 1.05;
-      max-width: 900px;
-      letter-spacing: -2px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero h1 .dim {
-      color: #333;
-      transition: color 0.6s ease;
+    .hero h1 .line-muted {
+      color: var(--text-muted);
+      transition: color 1s ease;
     }
 
-    .hero h1:hover .dim {
-      color: var(--white);
-    }
+    .hero h1 .line-accent { color: var(--accent); }
+
+    .hero:hover h1 .line-muted { color: var(--text-secondary); }
 
     .hero-sub {
       margin-top: 40px;
-      font-size: 18px;
-      color: var(--gray);
-      max-width: 520px;
-      line-height: 1.6;
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
       font-weight: 300;
+      max-width: 460px;
+      position: relative;
+      z-index: 1;
     }
 
-    .scroll-hint {
+    .hero-sub strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .scroll-indicator {
       position: absolute;
       bottom: 40px;
       left: 48px;
-      font-size: 11px;
-      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scroll-indicator span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
       letter-spacing: 3px;
-      color: #333;
-      animation: float 3s ease-in-out infinite;
+      color: var(--text-muted);
+      writing-mode: vertical-rl;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
+    .scroll-indicator .line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scroll-fade 2.5s ease-in-out infinite;
     }
 
-    /* STATS */
-    .stats {
-      padding: 80px 48px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+    @keyframes scroll-fade {
+      0%, 100% { opacity: 0.2; transform: scaleY(0.5); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ===================== STATS ROW ===================== */
+    .stats-row {
+      padding: 100px 48px;
+      max-width: 960px;
+      margin: 0 auto;
     }
 
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 48px;
-      max-width: 900px;
     }
 
-    .stat-number {
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 800;
-      letter-spacing: -2px;
+    .stat-item {}
+
+    .stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 600;
       color: var(--accent);
+      letter-spacing: -2px;
+      line-height: 1;
     }
 
     .stat-label {
-      font-size: 13px;
-      color: var(--gray);
-      margin-top: 8px;
-      line-height: 1.5;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* TENSION SECTION */
-    .tension {
-      padding: 120px 48px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .tension-text {
-      font-size: clamp(24px, 3.5vw, 48px);
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 12px;
       font-weight: 300;
-      line-height: 1.4;
-      max-width: 800px;
-      color: #444;
+      line-height: 1.5;
     }
 
-    .tension-text strong {
-      color: var(--white);
+    /* ===================== EDITORIAL ===================== */
+    .editorial {
+      padding: 80px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .editorial p {
+      font-size: clamp(16px, 1.5vw, 18px);
+      color: var(--text-secondary);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .pull {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 36px);
+      color: var(--text);
       font-weight: 600;
+      line-height: 1.35;
+      padding-left: 28px;
+      border-left: 2px solid var(--accent);
     }
 
-    /* HOW IT WORKS (teaser) */
-    .how {
-      padding: 120px 48px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+    .pull-standalone {
+      padding: 80px 48px;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
-    .how-label {
+    /* ===================== WHAT YU IS ===================== */
+    .what-section {
+      padding: 80px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .what-section .section-label {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      text-transform: uppercase;
       letter-spacing: 4px;
-      color: var(--gray);
-      margin-bottom: 64px;
-    }
-
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      max-width: 1000px;
-    }
-
-    .how-card {
-      padding: 40px 0;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .how-number {
-      font-size: 11px;
+      text-transform: uppercase;
       color: var(--accent);
-      letter-spacing: 2px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
 
-    .how-title {
-      font-size: 20px;
+    .what-section p {
+      font-size: clamp(16px, 1.5vw, 18px);
+      color: var(--text-secondary);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    .what-section p strong {
+      color: var(--text);
       font-weight: 600;
+    }
+
+    .arch-terminal {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 2.2;
+      color: var(--accent);
+      padding: 32px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      margin: 40px 0 0;
+      position: relative;
+    }
+
+    .arch-terminal::before {
+      content: 'TRUST ARCHITECTURE';
+      position: absolute;
+      top: 12px; right: 16px;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+    }
+
+    .arch-terminal .muted { color: var(--text-muted); }
+
+    /* ===================== MOAT ===================== */
+    .moat-section {
+      padding: 80px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .moat-section .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .moat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .moat-card {
+      padding: 28px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      transition: border-color 0.3s;
+    }
+
+    .moat-card:hover { border-color: var(--accent-glow); }
+
+    .moat-card h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
       margin-bottom: 12px;
     }
 
-    .how-desc {
+    .moat-card p {
       font-size: 14px;
-      color: var(--gray);
+      color: var(--text-secondary);
       line-height: 1.7;
+      font-weight: 300;
     }
 
-    .how-redacted {
-      background: #111;
-      color: #111;
-      padding: 2px 6px;
-      border-radius: 2px;
-      user-select: none;
-      transition: all 0.3s ease;
+    /* ===================== TEAM ===================== */
+    .team {
+      padding: 80px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .team .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 48px;
+    }
+
+    .team-member {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .team-member:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .team-photo {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--divider);
+      filter: grayscale(30%);
+      transition: filter 0.4s, border-color 0.4s;
+    }
+
+    .team-member:hover .team-photo {
+      filter: grayscale(0%);
+      border-color: var(--accent-glow);
+    }
+
+    .team-info { flex: 1; }
+
+    .team-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .team-linkedin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      opacity: 0.35;
+      transition: opacity 0.3s;
+      flex-shrink: 0;
+    }
+
+    .team-linkedin:hover { opacity: 1; }
+
+    .team-linkedin svg { width: 16px; height: 16px; fill: var(--text); }
+
+    .team-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .team-inst {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .team-bio {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .team-closing {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: var(--text);
+      font-weight: 600;
+      line-height: 1.45;
+      margin-top: 56px;
+      padding-left: 28px;
+      border-left: 2px solid var(--accent);
+    }
+
+    /* ===================== LOGOS ===================== */
+    .logos {
+      padding: 72px 48px;
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logos-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .logos-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 36px 48px;
+    }
+
+    .logo-img {
+      height: 44px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      opacity: 0.8;
+      transition: opacity 0.4s;
       cursor: default;
     }
 
-    .how-redacted:hover {
-      background: var(--accent-dim);
-      color: var(--accent);
+    .logo-img:hover { opacity: 1; }
+
+    .logo-img-dark {
+      height: 44px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      border-radius: 4px;
+      opacity: 0.8;
+      transition: opacity 0.4s;
+      cursor: default;
     }
 
-    /* QUOTE */
-    .quote-section {
-      padding: 120px 48px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
+    .logo-img-dark:hover { opacity: 1; }
 
-    .quote {
-      font-size: clamp(20px, 3vw, 36px);
-      font-weight: 300;
-      line-height: 1.5;
-      max-width: 700px;
-      color: var(--white);
-    }
-
-    .quote-attr {
-      margin-top: 24px;
-      font-size: 13px;
-      color: var(--gray);
-      letter-spacing: 1px;
-    }
-
-    /* CTA / WAITLIST */
+    /* ===================== CTA ===================== */
     .cta {
       padding: 120px 48px 160px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      max-width: 860px;
+      margin: 0 auto;
       text-align: center;
     }
 
     .cta h2 {
-      font-size: clamp(32px, 5vw, 64px);
-      font-weight: 800;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.15;
       letter-spacing: -1px;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
+
+    .cta h2 .dim { color: var(--text-muted); }
 
     .cta-sub {
       font-size: 16px;
-      color: var(--gray);
+      color: var(--text-secondary);
       margin-bottom: 48px;
       font-weight: 300;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
     }
 
     .waitlist-form {
@@ -316,31 +551,26 @@
       padding: 16px 20px;
       font-size: 15px;
       font-family: 'Inter', sans-serif;
-      background: #111;
-      border: 1px solid #222;
-      color: var(--white);
+      background: var(--bg-elevated);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
       border-radius: 4px 0 0 4px;
       outline: none;
       transition: border-color 0.3s;
     }
 
-    .waitlist-form input:focus {
-      border-color: var(--accent);
-    }
-
-    .waitlist-form input::placeholder {
-      color: #444;
-    }
+    .waitlist-form input:focus { border-color: var(--accent); }
+    .waitlist-form input::placeholder { color: var(--text-muted); }
 
     .waitlist-form button {
-      padding: 16px 32px;
-      font-size: 13px;
-      font-family: 'Inter', sans-serif;
+      padding: 16px 28px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       background: var(--accent);
-      color: var(--black);
+      color: var(--bg);
       border: none;
       border-radius: 0 4px 4px 0;
       cursor: pointer;
@@ -348,185 +578,322 @@
       white-space: nowrap;
     }
 
-    .waitlist-form button:hover {
-      background: var(--white);
-    }
-
-    .waitlist-count {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #333;
-      letter-spacing: 1px;
-    }
+    .waitlist-form button:hover { background: var(--text); }
 
     .success-msg {
       display: none;
       color: var(--accent);
-      font-size: 15px;
-      margin-top: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      margin-top: 20px;
+      letter-spacing: 1px;
     }
 
-    /* FOOTER */
+    .cta-scarcity {
+      margin-top: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ===================== FOOTER ===================== */
     footer {
       padding: 40px 48px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid var(--divider);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 12px;
-      color: #333;
+      color: var(--text-muted);
+      max-width: 960px;
+      margin: 0 auto;
     }
 
     footer a {
-      color: #333;
+      color: var(--text-muted);
       text-decoration: none;
       transition: color 0.3s;
     }
 
-    footer a:hover {
-      color: var(--white);
-    }
+    footer a:hover { color: var(--text); }
 
-    /* MOBILE */
+    /* ===================== MOBILE ===================== */
     @media (max-width: 768px) {
-      nav { padding: 20px 24px; }
+      nav { padding: 16px 24px; }
       .hero { padding: 100px 24px 60px; }
-      .stats { padding: 60px 24px; }
-      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
-      .tension { padding: 80px 24px; }
-      .how { padding: 80px 24px; }
-      .how-grid { grid-template-columns: 1fr; gap: 0; }
-      .quote-section { padding: 80px 24px; }
+      .hero-wordmark { display: none; }
+      .stats-row { padding: 64px 24px; }
+      .stats-grid { grid-template-columns: 1fr; gap: 40px; }
+      .editorial { padding: 48px 24px; }
+      .pull-standalone { padding: 48px 24px; }
+      .what-section { padding: 48px 24px; }
+      .moat-section { padding: 48px 24px; }
+      .moat-grid { grid-template-columns: 1fr; }
+      .team { padding: 48px 24px; }
+      .team-member { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+      .team-header { justify-content: center; }
+      .team-closing { text-align: left; }
+      .logos { padding: 48px 24px; }
+      .logos-grid { gap: 28px 36px; }
       .cta { padding: 80px 24px 120px; }
       .waitlist-form { flex-direction: column; }
       .waitlist-form input { border-radius: 4px; }
       .waitlist-form button { border-radius: 4px; }
       footer { padding: 30px 24px; flex-direction: column; gap: 12px; }
-      .scroll-hint { left: 24px; }
+      .scroll-indicator { left: 24px; }
+      hr.div { margin-left: 24px; margin-right: 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <div class="progress" id="progress"></div>
+
+  <!-- ==================== NAV ==================== -->
   <nav>
-    <div class="logo">YU<span>.</span></div>
+    <div class="nav-brand">YU<span>.</span></div>
     <div class="nav-status">
-      <div class="pulse"></div>
+      <div class="nav-dot"></div>
       Building
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ==================== HERO ==================== -->
   <section class="hero">
-    <div class="hero-label">YU Shield</div>
+    <div class="hero-wordmark">YU</div>
     <h1>
-      Your team is<br>
-      burning out.<br>
-      <span class="dim">You just can't<br>see it yet.</span>
+      Your employees are burning out.<br>
+      <span class="line-muted">Your EAP knows after they quit.</span><br>
+      <span class="line-accent">We know 90 days before.</span>
     </h1>
     <p class="hero-sub">
-      We can. And by the time you notice, it's already a resignation letter.
+      <strong>YU</strong> is behavioral intelligence for the workforce. Privacy-first. Prevention-only. Built at MIT.
     </p>
-    <div class="scroll-hint">Scroll</div>
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="line"></div>
+    </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats reveal">
+  <hr class="div">
+
+  <!-- ==================== STATS (consolidated) ==================== -->
+  <section class="stats-row">
     <div class="stats-grid">
-      <div>
-        <div class="stat-number">76%</div>
-        <div class="stat-label">of employees experience<br>burnout at work</div>
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="190" data-prefix="$" data-suffix="B">$190B</div>
+        <p class="stat-label">Annual cost of burnout to U.S. employers</p>
       </div>
-      <div>
-        <div class="stat-number">$322B</div>
-        <div class="stat-label">global cost of turnover<br>and lost productivity</div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num" data-static="true">3-5%</div>
+        <p class="stat-label">Of employees ever use an EAP. The rest suffer in silence.</p>
       </div>
-      <div>
-        <div class="stat-number">3-5%</div>
-        <div class="stat-label">actually use the EAP<br>your company pays for</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TENSION -->
-  <section class="tension reveal">
-    <p class="tension-text">
-      You already spend on wellness apps your employees never open.
-      Meditation subscriptions collecting dust.
-      EAPs nobody calls.<br><br>
-      <strong>What if you could see burnout forming, weeks before anyone says a word?</strong>
-    </p>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how reveal">
-    <div class="how-label">How it works</div>
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-number">01</div>
-        <div class="how-title">Passive data. Zero effort.</div>
-        <div class="how-desc">
-          Connects to wearables your team already owns. Apple Watch. Whoop. Oura. No surveys. No check-ins. No <span class="how-redacted">friction</span>.
-        </div>
-      </div>
-      <div class="how-card">
-        <div class="how-number">02</div>
-        <div class="how-title">AI reads the signals.</div>
-        <div class="how-desc">
-          Sleep. HRV. Activity patterns. Our model detects <span class="how-redacted">behavioral shifts</span> that predict burnout before it hits.
-        </div>
-      </div>
-      <div class="how-card">
-        <div class="how-number">03</div>
-        <div class="how-title">Intervene. Automatically.</div>
-        <div class="how-desc">
-          Personalized micro-interventions delivered through <span class="how-redacted">WhatsApp</span>. Right person, right moment. No app to download.
-        </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num" data-target="73" data-prefix="" data-suffix="%">73%</div>
+        <p class="stat-label">Of employers report rising mental health needs. No early warning.</p>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE -->
-  <section class="quote-section reveal">
-    <p class="quote">
-      "We lost three senior engineers in one quarter. None of them mentioned burnout until their exit interview."
-    </p>
-    <p class="quote-attr">VP of People, Boston tech company (50-500 employees)</p>
+  <hr class="div">
+
+  <!-- ==================== PROBLEM ==================== -->
+  <section class="pull-standalone reveal">
+    <div class="pull">
+      The gap between early warning and intervention is a $190 billion market failure. Nobody is detecting the problem before it becomes one.
+    </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta reveal">
-    <h2>Early access is limited.</h2>
-    <p class="cta-sub">We're onboarding our first pilot companies now.</p>
-    <form class="waitlist-form" id="waitlistForm">
+  <hr class="div">
+
+  <!-- ==================== WHAT YU IS ==================== -->
+  <section class="what-section">
+    <div class="section-label reveal">What YU does</div>
+    <p class="reveal">
+      <strong>A 30-second daily check-in builds a personal behavioral baseline for each employee.</strong> When patterns shift, not a bad day, but sustained deviation across mood, energy, and sleep, YU delivers personalized, evidence-based micro-interventions. The employer never sees individual data. Ever.
+    </p>
+    <div class="arch-terminal reveal">
+      <span class="muted">// privacy architecture</span><br><br>
+      individual_data.accessible_to_employer = <strong>false</strong><br>
+      <span class="muted">// not policy-blocked. structurally nonexistent.</span><br><br>
+      data.ownership = "employee"<br>
+      employer.sees = "anonymous_team_aggregates"<br>
+      ai.runs = "on_device"<br>
+      cloud.transmission = <strong>null</strong><br><br>
+      <span class="muted">// privacy is not a feature. it's the infrastructure.</span>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <!-- ==================== MOAT ==================== -->
+  <section class="moat-section">
+    <div class="section-label reveal">Why this compounds</div>
+    <div class="moat-grid">
+      <div class="moat-card reveal">
+        <h3>Personal baselines</h3>
+        <p>Individual behavioral models, not population averages. Each employee's "normal" is unique.</p>
+      </div>
+      <div class="moat-card reveal reveal-delay-1">
+        <h3>Data that compounds</h3>
+        <p>After 90 days, YU knows more about patterns than any competitor could learn on day one.</p>
+      </div>
+      <div class="moat-card reveal reveal-delay-2">
+        <h3>Clinical design</h3>
+        <p>Every intervention is CBT-informed and crafted by a licensed clinical psychologist with published research.</p>
+      </div>
+      <div class="moat-card reveal reveal-delay-3">
+        <h3>On-device AI</h3>
+        <p>Data never leaves the machine. Not just a privacy feature. A regulatory moat for healthcare, finance, and government.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <!-- ==================== MARKET ==================== -->
+  <section class="stats-row">
+    <div class="stats-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="106" data-prefix="$" data-suffix="B">$106B</div>
+        <p class="stat-label">Global corporate wellness market by 2029</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num" data-target="0" data-prefix="" data-suffix="" data-static="true">0</div>
+        <p class="stat-label">Dominant incumbents in the SME-native, AI-first, preventive segment</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <!-- ==================== TEAM ==================== -->
+  <section class="team">
+    <div class="section-label reveal">The team</div>
+    <div class="team-member reveal">
+      <img src="photos/Aline_photo.jpeg" alt="Aline Zimerman" class="team-photo">
+      <div class="team-info">
+        <div class="team-header">
+          <div class="team-name">Aline Zimerman</div>
+          <a href="https://www.linkedin.com/in/alinezimerman-193204166" target="_blank" rel="noopener" class="team-linkedin" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+        <div class="team-role">The Science</div>
+        <div class="team-inst">Harvard | Boston Children's Hospital | PhD UFRGS</div>
+        <p class="team-bio">
+          PhD in Psychiatry & Digital Mental Health. Research Fellow at Boston Children's Hospital (Harvard Medical School). Studies how wearable data predicts mental health decline. Published in AI-enabled interventions. Licensed clinical psychologist. Built the algorithm from her own research.
+        </p>
+      </div>
+    </div>
+    <div class="team-member reveal">
+      <img src="photos/omar_photo.jpeg" alt="Omar Dominguez" class="team-photo">
+      <div class="team-info">
+        <div class="team-header">
+          <div class="team-name">Omar Dominguez</div>
+          <a href="https://www.linkedin.com/in/odominguez7" target="_blank" rel="noopener" class="team-linkedin" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+        <div class="team-role">The Operator</div>
+        <div class="team-inst">MIT Sloan Fellow MBA '26 | Lived the Problem. Built the Solution.</div>
+        <p class="team-bio">
+          Led his family's metallurgical business for 11 years. The loneliness, the pressure, the weight of keeping a small business alive consumed him. 80 lbs overweight was just the symptom. The real damage was invisible. No one asked. No system caught it. He pulled himself out: lost every pound, finished Ironman 70.3 and Boston Marathon. Now building what he needed and never had. Because every small and mid-size business owner knows this feeling. Most just never say it.
+        </p>
+      </div>
+    </div>
+    <div class="team-member reveal">
+      <img src="photos/miguel_photo.jpeg" alt="Miguel Helu" class="team-photo">
+      <div class="team-info">
+        <div class="team-header">
+          <div class="team-name">Miguel Helu</div>
+          <a href="https://www.linkedin.com/in/miguel-helua3341b186" target="_blank" rel="noopener" class="team-linkedin" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+        <div class="team-role">The Engine</div>
+        <div class="team-inst">Finance & Global Scale</div>
+        <p class="team-bio">
+          Scaled a CPG brand from Mexico to 40+ countries. Co-founded two companies. Built financial infrastructure from zero to international distribution across three continents. Turns products into businesses with real unit economics.
+        </p>
+      </div>
+    </div>
+    <div class="team-closing reveal">
+      The science to detect it. The operator who survived it. The engine to scale it.
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <!-- ==================== INSTITUTIONAL LOGOS ==================== -->
+  <section class="logos reveal">
+    <p class="logos-label">Built from</p>
+    <div class="logos-grid">
+      <img src="logos/ai_studio.png" alt="MIT AI Studio" class="logo-img-dark">
+      <img src="logos/harvard_shield.png" alt="Harvard" class="logo-img">
+      <img src="logos/mit_sloan.png" alt="MIT Sloan" class="logo-img">
+      <img src="logos/mtc.png" alt="Martin Trust Center for MIT Entrepreneurship" class="logo-img-dark">
+      <img src="logos/mit_sandbox_new.png" alt="MIT Sandbox Innovation Fund" class="logo-img-dark">
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <!-- ==================== CTA ==================== -->
+  <section class="cta">
+    <h2 class="reveal">The window is open.<br><span class="dim">It won't stay open.</span></h2>
+    <p class="cta-sub reveal reveal-delay-1">
+      YU is piloting with Boston companies starting June 2026. Early-access employers and strategic investors only.
+    </p>
+    <form class="waitlist-form reveal reveal-delay-2" id="waitlistForm">
       <input type="email" placeholder="Work email" required aria-label="Work email">
-      <button type="submit">Get Access</button>
+      <button type="submit">Request Access</button>
     </form>
     <p class="success-msg" id="successMsg">You're on the list. We'll be in touch.</p>
-    <p class="waitlist-count">Accepting 10 pilot companies</p>
+    <p class="cta-scarcity reveal reveal-delay-2">Accepting 10 pilot companies</p>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ==================== FOOTER ==================== -->
   <footer>
-    <span>&copy; 2026 YU</span>
+    <span>yu.boston | Boston, MA | &copy; 2026</span>
     <a href="mailto:omar@yu.boston">omar@yu.boston</a>
   </footer>
 
   <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-    reveals.forEach(el => observer.observe(el));
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
+    });
 
-    // Waitlist form -> Google Sheets
-    // REPLACE THIS URL with your Google Apps Script deployment URL
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Stat counter animation
+    function animateCount(el, target, prefix, suffix) {
+      const duration = 1400;
+      const start = performance.now();
+      function step(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + Math.floor(eased * target).toLocaleString() + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = prefix + target.toLocaleString() + suffix;
+      }
+      requestAnimationFrame(step);
+    }
+
+    document.querySelectorAll('.stat-num').forEach(el => {
+      if (el.dataset.static) return;
+      let fired = false;
+      new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !fired) {
+          fired = true;
+          animateCount(el, +el.dataset.target, el.dataset.prefix, el.dataset.suffix);
+        }
+      }, { threshold: 0.5 }).observe(el);
+    });
+
+    // Waitlist form
     const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwMbUn_PzOpxl9eK2l2RrfW1xgBwwdNlWTIkwBcmU1G2JpC5PGj3ln36e1dOcNgqfA/exec';
 
     document.getElementById('waitlistForm').addEventListener('submit', function(e) {
@@ -535,17 +902,15 @@
       const email = this.querySelector('input').value;
       btn.textContent = '...';
       btn.disabled = true;
-
       fetch(SHEET_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, timestamp: new Date().toISOString() })
+        body: JSON.stringify({ email, timestamp: new Date().toISOString() })
       }).then(() => {
         this.style.display = 'none';
         document.getElementById('successMsg').style.display = 'block';
       }).catch(() => {
-        // Fallback: still show success (no-cors won't give us response)
         this.style.display = 'none';
         document.getElementById('successMsg').style.display = 'block';
       });

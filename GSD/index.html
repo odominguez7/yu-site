@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YU · The GSD Chapter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f4f1ea;
+    --paper-dim: #e8e3d6;
+    --pulse: #ff5c35;
+    --pulse-dim: #c9431f;
+    --rule: rgba(10,10,10,0.12);
+    --mute: #6b6456;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(10,10,10,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  main { position: relative; z-index: 2; }
+
+  /* ======== MASTHEAD ======== */
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .masthead .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--pulse);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  /* ======== HERO ======== */
+  .hero {
+    padding: 80px 48px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+  }
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pulse);
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(54px, 7vw, 112px);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin-bottom: 40px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--pulse);
+  }
+  .hero-meta {
+    border-top: 1px solid var(--ink);
+    padding-top: 20px;
+    display: flex;
+    gap: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .hero-meta div span {
+    display: block;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 40px;
+    border-left: 1px solid var(--rule);
+  }
+  .pull-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .pull-quote::before {
+    content: '"';
+    font-size: 72px;
+    line-height: 0;
+    vertical-align: -0.4em;
+    color: var(--pulse);
+    margin-right: 4px;
+  }
+  .hero-summary {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--mute);
+    max-width: 440px;
+  }
+
+  /* ======== SECTION HEADER ======== */
+  .section-header {
+    padding: 60px 48px 24px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pulse);
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ======== JOURNEY ======== */
+  .journey {
+    padding: 40px 48px 80px;
+  }
+  .chapters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 20px;
+  }
+  .chapter {
+    padding: 40px 28px 40px 0;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+  .chapter:last-child { border-right: none; }
+  .chapter:not(:first-child) { padding-left: 28px; }
+  .chapter-num {
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    font-weight: 300;
+    line-height: 0.8;
+    color: var(--pulse);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .chapter-stage {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    margin-bottom: 12px;
+  }
+  .chapter h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .chapter p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--mute);
+  }
+  .chapter .learning {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+  }
+  .chapter .learning span { color: var(--pulse); }
+
+  /* ======== THESIS BLOCK ======== */
+  .thesis {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .thesis::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--pulse) 0%, transparent 70%);
+    opacity: 0.25;
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  .thesis-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .thesis-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--pulse);
+    margin-bottom: 28px;
+  }
+  .thesis h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 40px;
+  }
+  .thesis h2 em {
+    font-style: italic;
+    color: var(--pulse);
+  }
+  .thesis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(244,241,234,0.15);
+    padding-top: 40px;
+  }
+  .thesis-item .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--pulse);
+    margin-bottom: 12px;
+  }
+  .thesis-item h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .thesis-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(244,241,234,0.65);
+  }
+
+  /* ======== OKR SECTION ======== */
+  .okrs {
+    padding: 0 48px 100px;
+  }
+  .okr-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--ink);
+    margin-top: 40px;
+    border: 1px solid var(--ink);
+  }
+  .okr-grid .okr:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .okr {
+    background: var(--paper);
+    padding: 48px 44px;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+  .okr:hover { background: var(--paper-dim); }
+  .okr::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--pulse);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .okr:hover::before { opacity: 1; }
+  .okr-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .okr-id {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--pulse);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .okr-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--mute);
+  }
+  .okr-owner {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    margin-left: auto;
+    padding: 5px 12px;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+  }
+  .okr h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 22px 0 28px;
+  }
+  .krs { list-style: none; }
+  .kr {
+    display: grid;
+    grid-template-columns: 64px 1fr 110px;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .kr:last-child { border-bottom: 1px solid var(--rule); }
+  .kr-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--pulse);
+    letter-spacing: 0.05em;
+    padding-top: 5px;
+    border-right: 1px solid var(--rule);
+    padding-right: 12px;
+  }
+  .kr-text {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .kr-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    background: var(--paper-dim);
+    padding: 6px 10px;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid var(--rule);
+    align-self: start;
+    margin-top: 2px;
+  }
+  .kr-date strong {
+    display: block;
+    font-size: 13px;
+    color: var(--pulse);
+    margin-bottom: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ======== ROADMAP ======== */
+  .roadmap {
+    padding: 0 48px 120px;
+  }
+  .roadmap-intro {
+    max-width: 56ch;
+    margin-top: 32px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--mute);
+  }
+  .roadmap-intro strong {
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 500;
+  }
+  .months {
+    margin-top: 56px;
+    border-top: 1px solid var(--ink);
+  }
+  .month {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .month:last-child { border-bottom: 1px solid var(--ink); }
+  .month-label {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+  }
+  .month-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pulse);
+    margin-bottom: 14px;
+  }
+  .month-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 72px;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .month-range {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .month-body h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 10px;
+  }
+  .month-thesis {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--mute);
+    margin-bottom: 28px;
+    max-width: 60ch;
+  }
+  .month-moves {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .move {
+    padding: 20px 24px 20px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .move:nth-child(odd) {
+    border-right: 1px solid var(--rule);
+    padding-right: 24px;
+  }
+  .move:nth-child(even) { padding-left: 24px; }
+  .move-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--pulse);
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .move-text {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .move-text strong {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--pulse);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .month-milestone {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .month-milestone .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pulse);
+    white-space: nowrap;
+  }
+  .month-milestone p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--paper);
+    flex: 1;
+  }
+  .roadmap-close {
+    margin-top: 72px;
+    padding: 40px 48px;
+    border: 1px solid var(--ink);
+    background: var(--paper-dim);
+    text-align: center;
+  }
+  .roadmap-close .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pulse);
+    margin-bottom: 16px;
+  }
+  .roadmap-close p {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.35;
+    max-width: 48ch;
+    margin: 0 auto;
+    color: var(--ink);
+  }
+
+  /* ======== COLOPHON ======== */
+  .colophon {
+    border-top: 1px solid var(--ink);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mute);
+  }
+  .colophon .values {
+    display: flex;
+    gap: 24px;
+  }
+  .colophon .values span {
+    color: var(--ink);
+  }
+
+  /* ======== MARKET ======== */
+  .market {
+    padding: 0 48px 100px;
+  }
+  .market-layers {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 1px;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    margin-top: 40px;
+  }
+  .layer {
+    background: var(--paper);
+    padding: 44px 32px;
+    position: relative;
+  }
+  .layer.tam { background: var(--paper); }
+  .layer.sam { background: var(--paper-dim); }
+  .layer.som { background: var(--ink); color: var(--paper); }
+  .layer-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pulse);
+    margin-bottom: 14px;
+  }
+  .layer-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+  .layer-num em {
+    font-style: italic;
+    color: var(--pulse);
+    font-size: 38px;
+    margin-left: 4px;
+  }
+  .layer-num .sep {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--mute);
+    margin: 0 6px;
+    vertical-align: 0.18em;
+  }
+  .layer h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .layer p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--mute);
+  }
+  .layer.som p { color: rgba(244,241,234,0.65); }
+  .market-note {
+    margin-top: 32px;
+    padding: 24px 32px;
+    border-left: 3px solid var(--pulse);
+    background: var(--paper-dim);
+  }
+  .market-note .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pulse);
+    margin-bottom: 8px;
+  }
+  .market-note p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  /* ======== EIGHT MARKETS CHART ======== */
+  .market-chart {
+    margin-top: 56px;
+    padding: 48px 40px;
+    background: var(--paper-dim);
+    border: 1px solid var(--ink);
+  }
+  .where-started {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--pulse);
+  }
+  .where-started svg { flex-shrink: 0; }
+  .stages-row {
+    display: flex;
+    gap: 10px;
+    margin-left: 150px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .stage-tag {
+    padding: 9px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .stage-tag small {
+    display: block;
+    font-weight: 400;
+    font-size: 9px;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+  .stage-1 { background: #f0e8d4; }
+  .stage-2 { background: #e8b88a; }
+  .stage-3 { background: #d97a4a; color: var(--paper); }
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 130px repeat(9, 1fr) 90px 100px;
+    gap: 5px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+  }
+  .chart-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 8px 4px;
+    text-align: center;
+    color: var(--ink);
+  }
+  .chart-header.left { text-align: left; }
+  .row-label {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    font-style: italic;
+    padding: 16px 8px 16px 0;
+    display: flex;
+    align-items: center;
+    color: var(--ink);
+  }
+  .row-label small {
+    display: block;
+    font-size: 9px;
+    font-style: normal;
+    color: var(--mute);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    margin-top: 3px;
+  }
+  .cell {
+    padding: 14px 8px;
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+  }
+  .cell.beachhead {
+    background: var(--paper);
+    border: 2px solid var(--pulse);
+    color: var(--ink);
+    font-weight: 700;
+    box-shadow: 0 0 0 4px rgba(255, 92, 53, 0.1);
+  }
+  .cell.s1 { background: #f0e8d4; }
+  .cell.s2 { background: #e8b88a; }
+  .cell.s3 { background: #d97a4a; color: var(--paper); }
+  .cell.eco { background: var(--ink); color: var(--paper); }
+  .cell.span-2 { grid-column: span 2; }
+  .cell.span-3 { grid-column: span 3; }
+  .cell-market {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    padding: 14px 6px;
+    text-align: right;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .cell-pricing {
+    font-size: 9px;
+    padding: 14px 6px;
+    text-align: right;
+    color: var(--mute);
+    line-height: 1.35;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .adjacent {
+    grid-column: 2 / 11;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-top: 6px;
+  }
+  .adjacent-mkt {
+    grid-column: 11 / 12;
+    padding: 16px 6px;
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    text-align: right;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--ink);
+  }
+  .chart-note {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--mute);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    max-width: 70ch;
+  }
+
+  /* ======== PERSONA ======== */
+  .persona {
+    padding: 0 48px 100px;
+  }
+  .persona-card {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona-card::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, var(--pulse) 0%, transparent 65%);
+    opacity: 0.22;
+    filter: blur(30px);
+    pointer-events: none;
+  }
+  .persona-left {
+    padding: 56px 48px;
+    position: relative;
+    border-right: 1px solid rgba(244,241,234,0.12);
+  }
+  .persona-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--pulse);
+    margin-bottom: 18px;
+  }
+  .persona-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 58px;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin-bottom: 10px;
+  }
+  .persona-name em {
+    font-style: italic;
+    color: var(--pulse);
+    display: block;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 10px;
+    letter-spacing: -0.01em;
+  }
+  .persona-bio {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(244,241,234,0.78);
+    margin: 28px 0 32px;
+    max-width: 44ch;
+  }
+  .persona-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(244,241,234,0.15);
+    padding-top: 24px;
+  }
+  .persona-stat {
+    padding-right: 16px;
+    border-right: 1px solid rgba(244,241,234,0.1);
+  }
+  .persona-stat:last-child { border-right: none; padding-right: 0; padding-left: 16px; }
+  .persona-stat:nth-child(2) { padding-left: 16px; }
+  .persona-stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--pulse);
+    letter-spacing: -0.015em;
+  }
+  .persona-stat .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(244,241,234,0.55);
+    margin-top: 8px;
+    line-height: 1.35;
+  }
+  .persona-right {
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: relative;
+  }
+  .persona-block {
+    border-left: 2px solid var(--pulse);
+    padding-left: 18px;
+  }
+  .persona-block .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--pulse);
+    margin-bottom: 8px;
+  }
+  .persona-block p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(244,241,234,0.82);
+  }
+  .persona-block.fear p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--paper);
+  }
+
+  /* ======== RESPONSIVE ======== */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 60px 28px 70px; }
+    .hero-right { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); padding-top: 32px; }
+    .section-header { grid-template-columns: 1fr; gap: 12px; padding: 50px 28px 20px; }
+    .journey, .okrs, .roadmap { padding-left: 28px; padding-right: 28px; }
+    .chapters { grid-template-columns: 1fr; }
+    .chapter { border-right: none; border-bottom: 1px solid var(--rule); padding: 32px 0 !important; }
+    .chapter:last-child { border-bottom: none; }
+    .thesis { padding: 70px 28px; }
+    .thesis-grid { grid-template-columns: 1fr; gap: 32px; }
+    .month { grid-template-columns: 1fr; gap: 20px; padding: 36px 0; }
+    .month-label { position: static; }
+    .month-name { font-size: 56px; }
+    .month-moves { grid-template-columns: 1fr; }
+    .move:nth-child(odd) { border-right: none; padding-right: 0; }
+    .move:nth-child(even) { padding-left: 0; }
+    .roadmap-close { padding: 28px 24px; }
+    .okr-grid { grid-template-columns: 1fr; }
+    .market { padding-left: 28px; padding-right: 28px; }
+    .market-layers { grid-template-columns: 1fr; }
+    .market-chart { padding: 28px 16px; overflow-x: auto; }
+    .chart-grid { font-size: 9px; min-width: 720px; }
+    .stages-row { margin-left: 100px; }
+    .persona { padding-left: 28px; padding-right: 28px; }
+    .persona-card { grid-template-columns: 1fr; }
+    .persona-left { border-right: none; border-bottom: 1px solid rgba(244,241,234,0.12); padding: 40px 28px; }
+    .persona-right { padding: 40px 28px; }
+    .persona-name { font-size: 42px; }
+    .masthead { padding: 14px 28px; flex-wrap: wrap; gap: 8px; }
+    .colophon { flex-direction: column; gap: 16px; padding: 30px 28px; }
+  }
+
+  /* Stagger fade-in */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1, .hero-label, .pull-quote, .hero-summary, .hero-meta {
+    animation: rise 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  }
+  .hero-label { animation-delay: 0s; }
+  .hero h1 { animation-delay: 0.1s; }
+  .hero-meta { animation-delay: 0.3s; }
+  .pull-quote { animation-delay: 0.2s; }
+  .hero-summary { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+<main>
+
+  <header class="masthead">
+    <div><span class="dot"></span>YU / Field Notes № 07</div>
+    <div>15.378 · Advanced Venture Building · Spring 2026</div>
+    <div>Omar &middot; Aline</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-label">The GSD Chapter</div>
+      <h1>From a matching<br>engine to a <em>wearable<br>intelligence</em> layer.</h1>
+      <div class="hero-meta">
+        <div><span>Status</span>Pre demo, concept stage</div>
+        <div><span>Authorization</span>Research (OPT begins Jun 1)</div>
+        <div><span>Horizon</span>90 days to demo + pilot</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="pull-quote">This is how it feels, a real international entrepreneurial experience.</div>
+      <p class="hero-summary">A pivot from idle capacity in the service economy to idle capacity inside people.</p>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <div class="section-header">
+    <div class="section-number">§ 01 / The Arc</div>
+    <h2 class="section-title">Four chapters, one learning loop.</h2>
+  </div>
+  <section class="journey">
+    <div class="chapters">
+      <div class="chapter">
+        <div class="chapter-num">i</div>
+        <div class="chapter-stage">Original thesis</div>
+        <h3>Match supply with demand, in real time.</h3>
+        <p>A two sided WhatsApp market for canceled service slots. Clean enough to get us into GSD.</p>
+        <div class="learning"><span>Signal:</span> The problem was real.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">ii</div>
+        <div class="chapter-stage">First contact with reality</div>
+        <h3>Low budget, lower desire.</h3>
+        <p>Operators had no budget and users had no urgency. The market said no.</p>
+        <div class="learning"><span>Signal:</span> Willingness to pay was absent.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">iii</div>
+        <div class="chapter-stage">Consequential decisions</div>
+        <h3>A co founder stepped away.</h3>
+        <p>We were told to shelve the venture. We kept building.</p>
+        <div class="learning"><span>Signal:</span> Resilience compounds faster than code.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">iv</div>
+        <div class="chapter-stage">The reframe</div>
+        <h3>Idle capacity lives inside people.</h3>
+        <p>Same operator lens, new substrate. Capacity recovery applied to human performance data.</p>
+        <div class="learning"><span>Signal:</span> The pivot chose us.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THESIS -->
+  <section class="thesis">
+    <div class="thesis-inner">
+      <div class="thesis-label">§ 02 / The New Thesis</div>
+      <h2>Wearables drowned people in data.<br>YU returns <em>one decision</em>.</h2>
+      <div class="thesis-grid">
+        <div class="thesis-item">
+          <div class="num">i.</div>
+          <h4>The problem</h4>
+          <p>People wear two or three devices that each tell a different story, and none of them answer the only question that matters in the morning.</p>
+        </div>
+        <div class="thesis-item">
+          <div class="num">ii.</div>
+          <h4>The opening</h4>
+          <p>YU consolidates signals across every device a person wears and returns one clear action each morning, interpreted manually now and automated next.</p>
+        </div>
+        <div class="thesis-item">
+          <div class="num">iii.</div>
+          <h4>The founder fit</h4>
+          <p>The founder spent a decade recovering idle capacity inside a manufacturing business and rebuilt his own body through the same disciplined measurement YU now sells to others.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET -->
+  <div class="section-header">
+    <div class="section-number">§ 03 / The Market</div>
+    <h2 class="section-title">Eight markets, one perceive think act loop.</h2>
+  </div>
+  <section class="market">
+    <div class="market-layers">
+      <div class="layer tam">
+        <div class="layer-tag">TAM · Total addressable</div>
+        <div class="layer-num">$45<span class="sep">to</span><em>$65B</em></div>
+        <h4>U.S. wearables and adjacent wellness software.</h4>
+        <p>80M U.S. wearable users. The full smart wearable plus digital wellness category, including employer wellness programs.</p>
+      </div>
+      <div class="layer sam">
+        <div class="layer-tag">SAM · Serviceable</div>
+        <div class="layer-num">$8<span class="sep">to</span><em>$12B</em></div>
+        <h4>Premium engaged multi device users.</h4>
+        <p>15 to 20 percent of wearable users. The Whoop, Oura, Garmin, Dexcom crowd already paying for hardware and subscriptions.</p>
+      </div>
+      <div class="layer som">
+        <div class="layer-tag">SOM · Obtainable</div>
+        <div class="layer-num">$50<span class="sep">to</span><em>$200M</em></div>
+        <h4>Subscription intelligence layer, years one to three.</h4>
+        <p>100K to 600K early users at $10 to $30 monthly ARPU. Performance grade multi modal athletes who already wear two or more devices.</p>
+      </div>
+    </div>
+
+    <!-- ============ EIGHT MARKETS CHART ============ -->
+    <div class="market-chart">
+      <div class="where-started">
+        <svg width="56" height="44" viewBox="0 0 56 44" fill="none">
+          <path d="M2 8 Q20 2 42 26 L38 22 M42 26 L46 20" stroke="#FF5C35" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span>Where we have started</span>
+      </div>
+
+      <div class="stages-row">
+        <div class="stage-tag stage-1">Stage 1<small>Months 0 to 18</small></div>
+        <div class="stage-tag stage-2">Stage 2<small>Months 18 to 36</small></div>
+        <div class="stage-tag stage-3">Stage 3<small>Months 36 to 60+</small></div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-header left"></div>
+        <div class="chart-header" style="grid-column: span 9;">Segments &amp; Expansion Path</div>
+        <div class="chart-header">Market</div>
+        <div class="chart-header">Pricing</div>
+
+        <!-- Product 1 -->
+        <div class="row-label">Product 1<small>B2C APP</small></div>
+        <div class="cell s1 beachhead span-2">Athlete Recovery<br>(Hybrid, CrossFit, HYROX)</div>
+        <div class="cell s2 span-2">Burnout &amp; Cognitive Load<br>(Finance, Tech, Consulting)</div>
+        <div class="cell s2 span-2">Longevity 45 to 65<br>(Peter Attia cohort)</div>
+        <div class="cell s3 span-2">Gen Z Mental Health<br>(HRV guided anxiety)</div>
+        <div class="cell eco">Consumer<br>D2C</div>
+        <div class="cell-market">$3 to 6B</div>
+        <div class="cell-pricing">$24.99 / mo<br>$199 / yr</div>
+
+        <!-- Product 2 -->
+        <div class="row-label">Product 2<small>B2B TEAM</small></div>
+        <div class="cell s1 span-2">Coach / Gym<br>(CrossFit boxes, HYROX prep)</div>
+        <div class="cell s2 span-3">Enterprise Workforce Wellness<br>(Self insured employers)</div>
+        <div class="cell s3 span-3">Team Performance<br>(College &amp; semi pro athletics)</div>
+        <div class="cell eco">Team<br>Dashboard</div>
+        <div class="cell-market">$2 to 4B</div>
+        <div class="cell-pricing">$99 / coach / mo<br>$300 to 800 / employee / yr</div>
+
+        <!-- Product 3 -->
+        <div class="row-label">Product 3<small>HEALTH</small></div>
+        <div class="cell s2 span-2">Metabolic Health<br>(Pre diabetes, T2D, CGM)</div>
+        <div class="cell s3 span-2">Safety Critical Operators<br>(Pilots, surgeons, ATC)</div>
+        <div class="cell s3 span-2">Remote Patient Monitoring<br>(Cardiology, neuro)</div>
+        <div class="cell s3 span-2">Clinical Research<br>(MGB, MIT partnerships)</div>
+        <div class="cell eco">Health<br>System</div>
+        <div class="cell-market">$27.7B</div>
+        <div class="cell-pricing">Enterprise<br>contract</div>
+
+        <!-- Adjacent -->
+        <div></div>
+        <div class="adjacent">Additional opportunities in adjacent markets (workplace wellness platforms, insurance, longevity clinics, elite sport)</div>
+        <div class="adjacent-mkt">$45 to 65B</div>
+        <div></div>
+      </div>
+
+      <div class="chart-note">The same perceive think act engine powers every column. Product 1 is the entry point. The expansion path is a rearrangement of the same underlying technology across progressively higher regulation, higher margin, longer cycle markets.</div>
+    </div>
+
+    <div class="market-note">
+      <div class="label">Why the athlete beachhead</div>
+      <p>Athlete Recovery ranked first across eight scored use cases because it combines daily engagement, very high willingness to pay, perfect data fit for the wearables already in market, and the lowest regulatory friction. The founder also lives in this segment, which is the foundation of credibility with the first 100 users.</p>
+    </div>
+  </section>
+
+  <!-- PERSONA -->
+  <div class="section-header">
+    <div class="section-number">§ 04 / The Persona</div>
+    <h2 class="section-title">Meet the user we already know by name.</h2>
+  </div>
+  <section class="persona">
+    <div class="persona-card">
+      <div class="persona-left">
+        <div class="persona-tag">Primary user · Marcus Chen</div>
+        <h3 class="persona-name">32, Austin.<em>Three wearables, zero answers.</em></h3>
+        <p class="persona-bio">Senior Product Manager at a mid stage B2B SaaS company. Trains five to seven sessions a week across CrossFit, running, and HYROX prep. Engaged, wedding in fourteen months. Wears Oura, Whoop, and Garmin simultaneously and still cannot get a clear answer in the morning.</p>
+        <div class="persona-stats">
+          <div class="persona-stat">
+            <div class="num">$140K</div>
+            <div class="lbl">Household income, no kids</div>
+          </div>
+          <div class="persona-stat">
+            <div class="num">$336</div>
+            <div class="lbl">Monthly spend on wearables, supplements, coaching</div>
+          </div>
+          <div class="persona-stat">
+            <div class="num">8×</div>
+            <div class="lbl">Wearable check ins per day across three apps</div>
+          </div>
+        </div>
+      </div>
+      <div class="persona-right">
+        <div class="persona-block">
+          <div class="label">The money is already on the table</div>
+          <p>He pays $30 a month for Whoop, $6 for Oura, runs a $100 plus monthly supplement stack, and used to pay a remote coach $200 a month for exactly the synthesis YU now offers. High willingness to pay is not a hypothesis, it is his existing spend.</p>
+        </div>
+        <div class="persona-block">
+          <div class="label">The pain is daily and specific</div>
+          <p>Oura says rest. Whoop says push. Garmin says something else. He stands at the kitchen counter doing math in his head, pastes screenshots into ChatGPT for generic answers, and starts the day already depleted by the interpretation itself.</p>
+        </div>
+        <div class="persona-block fear">
+          <div class="label">The fear underneath</div>
+          <p>Marcus is terrified of becoming an average person. His self worth is welded to the data telling him he is still winning, and every contradictory reading is a small identity crisis. YU is not a wellness app for him. It is permission to rest without feeling like he has given up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OKRs -->
+  <div class="section-header">
+    <div class="section-number">§ 05 / OKRs, Rewritten</div>
+    <h2 class="section-title">Twenty eight days to GSD Final. Real targets.</h2>
+  </div>
+  <section class="okrs">
+    <div class="okr-grid">
+
+      <div class="okr">
+        <div class="okr-header">
+          <div class="okr-id">O1</div>
+          <div class="okr-tag">Objective · Product</div>
+          <div class="okr-owner">Omar</div>
+        </div>
+        <h3>Put a working v0 in a user's hands before GSD Final.</h3>
+        <ul class="krs">
+          <li class="kr">
+            <div class="kr-id">KR 1.1</div>
+            <div class="kr-text">v0 ingests and normalizes biometric exports from Oura and Whoop for a single user across a seven day window.</div>
+            <div class="kr-date"><strong>Apr 24</strong>2026</div>
+          </li>
+          <li class="kr">
+            <div class="kr-id">KR 1.2</div>
+            <div class="kr-text">v0 produces a single morning recommendation backed by a short written rationale, not a score.</div>
+            <div class="kr-date"><strong>May 1</strong>2026</div>
+          </li>
+          <li class="kr">
+            <div class="kr-id">KR 1.3</div>
+            <div class="kr-text">v0 runs daily on Omar and two external athletes for a full week without manual intervention.</div>
+            <div class="kr-date"><strong>May 10</strong>2026</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="okr">
+        <div class="okr-header">
+          <div class="okr-id">O2</div>
+          <div class="okr-tag">Objective · Evidence</div>
+          <div class="okr-owner">Aline</div>
+        </div>
+        <h3>Convert Marcus Chen from persona into evidence the panel can verify.</h3>
+        <ul class="krs">
+          <li class="kr">
+            <div class="kr-id">KR 2.1</div>
+            <div class="kr-text">Eight primary market research interviews completed with athletes who wear two or more wearables.</div>
+            <div class="kr-date"><strong>Apr 27</strong>2026</div>
+          </li>
+          <li class="kr">
+            <div class="kr-id">KR 2.2</div>
+            <div class="kr-text">At least six of those eight confirm the contradiction problem in their own words and quantify their monthly spend.</div>
+            <div class="kr-date"><strong>Apr 27</strong>2026</div>
+          </li>
+          <li class="kr">
+            <div class="kr-id">KR 2.3</div>
+            <div class="kr-text">Three of those athletes recruited as the v0 test users for the May 10 run.</div>
+            <div class="kr-date"><strong>May 3</strong>2026</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="okr">
+        <div class="okr-header">
+          <div class="okr-id">O3</div>
+          <div class="okr-tag">Objective · Economics</div>
+          <div class="okr-owner">Aline</div>
+        </div>
+        <h3>Answer the two pricing questions every investor will ask.</h3>
+        <ul class="krs">
+          <li class="kr">
+            <div class="kr-id">KR 3.1</div>
+            <div class="kr-text">Willingness to pay range established from the eight interviews, expressed as what Marcus would pay on top of his existing stack.</div>
+            <div class="kr-date"><strong>Apr 27</strong>2026</div>
+          </li>
+          <li class="kr">
+            <div class="kr-id">KR 3.2</div>
+            <div class="kr-text">One page unit economics showing CAC, payback, and gross margin at 1,000 and 10,000 paying users.</div>
+            <div class="kr-date"><strong>May 4</strong>2026</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="okr">
+        <div class="okr-header">
+          <div class="okr-id">O4</div>
+          <div class="okr-tag">Objective · Commitment</div>
+          <div class="okr-owner">Omar</div>
+        </div>
+        <h3>Make June 1 the day YU becomes the only thing.</h3>
+        <ul class="krs">
+          <li class="kr">
+            <div class="kr-id">KR 4.1</div>
+            <div class="kr-text">Founding team agreement signed between Omar and Aline with roles, equity, and decision rights defined.</div>
+            <div class="kr-date"><strong>May 4</strong>2026</div>
+          </li>
+          <li class="kr">
+            <div class="kr-id">KR 4.2</div>
+            <div class="kr-text">First draft pre seed narrative written and pressure tested with two MIT mentors before GSD Final.</div>
+            <div class="kr-date"><strong>May 8</strong>2026</div>
+          </li>
+          <li class="kr">
+            <div class="kr-id">KR 4.3</div>
+            <div class="kr-text">June calendar blocked for YU full time, with accelerator applications and investor outreach sequenced for the first two weeks post OPT.</div>
+            <div class="kr-date"><strong>May 11</strong>2026</div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <div class="section-header">
+    <div class="section-number">§ 06 / The 90 Day Plan</div>
+    <h2 class="section-title">June 1 to August 30. The path to first revenue.</h2>
+  </div>
+  <section class="roadmap">
+    <p class="roadmap-intro">Graduation is not a finish line, it is the starting line. OPT activates on June 1 and the delta v decision lands the same week. This is the plan from that day forward, <strong>thirteen weeks, three months, one goal: turn YU into a venture with paying users and a defensible pre seed story.</strong></p>
+
+    <div class="months">
+
+      <div class="month">
+        <div class="month-label">
+          <div class="month-tag">Month 01 · Activation</div>
+          <div class="month-name">June</div>
+          <div class="month-range">Jun 1 to Jun 30 · Weeks 1 to 4</div>
+        </div>
+        <div class="month-body">
+          <h4>Stand up delta v or stand up the equivalent.</h4>
+          <p class="month-thesis">The first week resets identity from student to founder. The next three build the v1 that replaces the manual v0 from GSD.</p>
+          <ul class="month-moves">
+            <li class="move">
+              <div class="move-num">01</div>
+              <div class="move-text"><strong>Week 1 · Jun 1 to 7</strong>delta v onboarding if accepted, or self run summer sprint from the Martin Trust Center if not. Full time cadence established.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">02</div>
+              <div class="move-text"><strong>Week 2 · Jun 8 to 14</strong>v1 build starts. Automated ingestion from Oura and Whoop replaces the manual exports. Recommendation engine moved from notebook to service.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">03</div>
+              <div class="move-text"><strong>Week 3 · Jun 15 to 21</strong>Recruit five paying beta users from the GSD interview pool at a founding member price of $19 per month. Collect first dollar.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">04</div>
+              <div class="move-text"><strong>Week 4 · Jun 22 to 30</strong>First full week of v1 running in production on five users. Daily morning recommendation delivered by 7 am each day.</div>
+            </li>
+          </ul>
+          <div class="month-milestone">
+            <div class="label">Month 01 exit</div>
+            <p>Five paying users, v1 in production, first $95 of recurring revenue recognized. YU is now a company that collects money.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="month">
+        <div class="month-label">
+          <div class="month-tag">Month 02 · Iteration</div>
+          <div class="month-name">July</div>
+          <div class="month-range">Jul 1 to Jul 31 · Weeks 5 to 9</div>
+        </div>
+        <div class="month-body">
+          <h4>Turn usage into evidence and evidence into a pitch.</h4>
+          <p class="month-thesis">The product gets sharper where the data tells us to sharpen it. The narrative gets sharper where the first five investor conversations tell us to sharpen it.</p>
+          <ul class="month-moves">
+            <li class="move">
+              <div class="move-num">05</div>
+              <div class="move-text"><strong>Week 5 · Jul 1 to 7</strong>First iteration cycle. Ship two improvements to the daily recommendation based on what the five users actually tapped and ignored in June.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">06</div>
+              <div class="move-text"><strong>Week 6 · Jul 8 to 14</strong>Scale to ten paying users. Founding member tier closes at ten, next cohort priced at $29 per month to test price elasticity.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">07</div>
+              <div class="move-text"><strong>Week 7 · Jul 15 to 21</strong>Pre seed deck finalized. Narrative tested against the five active users and the eight GSD interview quotes. Deck version 1.0 locked.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">08</div>
+              <div class="move-text"><strong>Week 8 · Jul 22 to 31</strong>First five investor conversations scheduled through the MIT network. Goal is feedback, not term sheets. Every call produces one written note of what the investor needed to see more of.</div>
+            </li>
+          </ul>
+          <div class="month-milestone">
+            <div class="label">Month 02 exit</div>
+            <p>Ten paying users, two product iterations shipped, five investor conversations completed, deck version 1.0 battle tested against real objections.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="month">
+        <div class="month-label">
+          <div class="month-tag">Month 03 · Proof</div>
+          <div class="month-name">August</div>
+          <div class="month-range">Aug 1 to Aug 30 · Weeks 10 to 13</div>
+        </div>
+        <div class="month-body">
+          <h4>Earn the right to raise.</h4>
+          <p class="month-thesis">Demo day or the equivalent milestone review. The ask is not capital, the ask is a room full of people who believe this is worth their next call.</p>
+          <ul class="month-moves">
+            <li class="move">
+              <div class="move-num">09</div>
+              <div class="move-text"><strong>Week 10 · Aug 1 to 7</strong>First retention signal measured. At least seven of the first ten users active daily for four weeks in a row. Churn data published internally.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">10</div>
+              <div class="move-text"><strong>Week 11 · Aug 8 to 14</strong>Scale to fifteen paying users. Waitlist opened for the next cohort to create demand signal for investors.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">11</div>
+              <div class="move-text"><strong>Week 12 · Aug 15 to 21</strong>delta v demo day if accepted, or a self organized YU showcase for the MIT community and warm investors if not. Ten minute pitch, live product.</div>
+            </li>
+            <li class="move">
+              <div class="move-num">12</div>
+              <div class="move-text"><strong>Week 13 · Aug 22 to 30</strong>Pre seed round officially opened. First three partner meetings scheduled for early September. YU exits summer as a venture with revenue, retention, and a raise in motion.</div>
+            </li>
+          </ul>
+          <div class="month-milestone">
+            <div class="label">Month 03 exit · Aug 30</div>
+            <p>Fifteen paying users, measurable retention, demo day delivered, pre seed round open with three partner meetings on the calendar for September.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="roadmap-close">
+      <div class="label">The commitment</div>
+      <p>Ninety days is enough time to turn a concept demo into a company with revenue, retention, and a raise. It is not enough time for excuses.</p>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <div>© YU 2026 · Multi device wearable intelligence</div>
+    <div class="values"><span>Discipline.</span> <span>Courage.</span> <span>Contribution.</span></div>
+    <div>Pulse #FF5C35</div>
+  </footer>
+
+</main>
+</body>
+</html>
